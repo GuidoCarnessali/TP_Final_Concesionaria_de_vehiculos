@@ -1,5 +1,7 @@
+package Enums;
+
 public enum Marca {
-    //Marca de autos:
+    //Enums.Marca de autos:
     TOYOTA,
     FORD,
     FIAT,
@@ -11,7 +13,7 @@ public enum Marca {
     MERCEDES_BENZ,
     AUDI,
 
-    //Marca de motos:
+    //Enums.Marca de motos:
     YAMAHA,
     SUZUKI,
     KAWASAKI,

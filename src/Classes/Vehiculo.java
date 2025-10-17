@@ -1,3 +1,6 @@
+package Classes;
+import Enums.Marca;
+
 public abstract class Vehiculo {
 
     //Atributos
@@ -72,7 +75,7 @@ public abstract class Vehiculo {
     }
 
     //Métodos
-    public String mostrarVehiculo()
+    public String toString()
     {
         return "Vehiculo: " +
                 "\nMarca: " + marca +

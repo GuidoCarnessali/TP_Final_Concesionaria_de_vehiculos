@@ -1,3 +1,5 @@
+package Classes;
+
 public class Empleado {
 
     private String nombre;
@@ -110,7 +112,7 @@ public class Empleado {
     }
 
     //Métodos
-    public String showEmpleado()
+    public String toString()
     {
        return "Empleado: " +
                 "\nNombre: " + nombre +

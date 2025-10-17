@@ -1,3 +1,5 @@
+package Classes;
+
 public class Cliente {
 
     private String nombre;
@@ -82,7 +84,7 @@ public class Cliente {
         this.edad = edad;
     }
 
-    public String showCliente() {
+    public String toString() {
 
         return "Cliente: " +
                 "\nNombre: " + nombre +

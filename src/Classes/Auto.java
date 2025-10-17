@@ -1,3 +1,7 @@
+package Classes;
+
+import Enums.Marca;
+
 public class Auto extends Vehiculo {
 
     //Atributos
@@ -44,6 +48,22 @@ public class Auto extends Vehiculo {
     }
 
     //Métodos
+
+    public String toString()
+    {
+        return "Auto: " +
+                "\nMarca: " + this.getMarca() +
+                "\nModelo: " + this.getModelo() +
+                "\nAño: " + this.getAnio() +
+                "\nColor: " + this.getColor() +
+                "\nPrecio: " + this.getPrecio() +
+                "\nCilindrada: " + this.getCilindrada() +
+                "\nPuertas: " + this.getPuertas() +
+                "\nCombustible: " + this.getCombustible() +
+                "\nEn Stock: " + this.isEnStock();
+    }
+
+
     @Override
     public String acelerar() {
         return "El auto está acelerando.";

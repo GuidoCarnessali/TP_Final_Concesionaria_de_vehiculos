@@ -1,4 +1,8 @@
-public class Moto extends Vehiculo{
+package Classes;
+
+import Enums.Marca;
+
+public class Moto extends Vehiculo {
 
     //Atributos
     private int cilindrada;
@@ -13,8 +17,8 @@ public class Moto extends Vehiculo{
         this.capacidadPasajeros = capacidadPasajeros;
     }
 
-    public Moto()
-    {}
+    public Moto() {
+    }
 
     //Getters and Setters
     public int getCilindrada() {
@@ -34,6 +38,21 @@ public class Moto extends Vehiculo{
     }
 
     //Métodos
+
+    public String toString() {
+        return "Moto: " +
+                "\nMarca: " + this.getMarca() +
+                "\nModelo: " + this.getModelo() +
+                "\nAño: " + this.getAnio() +
+                "\nColor: " + this.getColor() +
+                "\nPrecio: " + this.getPrecio() +
+                "\nCilindrada: " + this.getCilindrada() +
+                "\nCapacidad de Pasajeros: " + this.getCapacidadPasajeros() +
+                "\nEn Stock: " + this.isEnStock();
+    }
+
+
+
     @Override
     public String acelerar() {
         return "La moto está acelerando.";

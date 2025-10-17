@@ -1,3 +1,7 @@
+package Classes;
+
+import Enums.Marca;
+
 public class Proveedor {
 
     private String nombre;
@@ -84,7 +88,7 @@ public class Proveedor {
 
     //Métodos
 
-    public String showProveedor()
+    public String toString()
     {
        return "Proveedor: " +
                 "\nNombre: " + nombre +

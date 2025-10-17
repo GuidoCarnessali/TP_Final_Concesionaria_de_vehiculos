@@ -1,4 +1,5 @@
-import java.time.LocalDate;
+package Classes;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -75,7 +76,7 @@ public class Factura {
 
     //Métodos
 
-    public String showFactura()
+    public String toString()
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy --- HH:mm:ss");
         return "Factura N°: " + this.numeroFactura +
