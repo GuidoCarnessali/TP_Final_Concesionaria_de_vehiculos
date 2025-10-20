@@ -53,7 +53,7 @@ public class Gestora_Vehiculo {
         return false;
     }
 
-    public void modifyVehiculo(Vehiculo v, Marca marca, String modelo, int anio, String color, String precio, boolean enStock)
+    public void modifyVehiculo(Vehiculo v, Marca marca, String modelo, int anio, String color, double precio, boolean enStock)
     {
         if(v != null && vehiculos.contains(v)) //Si el vehículo no es nulo y está en la lista de vehículos en stock lo modifico
         {
@@ -77,12 +77,9 @@ public class Gestora_Vehiculo {
 
     }
 
-    public void showVehiculos()
-    {
-        for(Vehiculo v : vehiculos)
-        {
-            if(v instanceof Auto)
-            {
+    public void showVehiculos() {
+        for (Vehiculo v : vehiculos) {
+            if (v instanceof Auto) {
                 System.out.println("--------------------");
                 System.out.println(v.toString());
             }
@@ -90,17 +87,30 @@ public class Gestora_Vehiculo {
 
         }
 
-        for (Vehiculo v : vehiculos)
-        {
-            if(v instanceof Moto)
-            {
+        for (Vehiculo v : vehiculos) {
+            if (v instanceof Moto) {
                 System.out.println("--------------------");
                 System.out.println(v.toString());
             }
 
         }
-
     }
+
+        public int contarStock (String modelo)
+        {
+            int stock = 0;
+
+            for (Vehiculo v : vehiculos)
+            {
+                if(v.getModelo().equalsIgnoreCase(modelo))
+                {
+                    stock++;
+                }
+            }
+
+            return stock;
+        }
+
 
 
 }

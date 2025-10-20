@@ -12,7 +12,7 @@ public class Auto extends Vehiculo {
     //Constructor
 
 
-    public Auto(Marca marca, String modelo, int anio, String color, String precio, boolean enStock, int cilindrada, int puertas, String combustible) {
+    public Auto(Marca marca, String modelo, int anio, String color, double precio, boolean enStock, int cilindrada, int puertas, String combustible) {
         super(marca, modelo, anio, color, precio, enStock);
         this.cilindrada = cilindrada;
         this.puertas = puertas;

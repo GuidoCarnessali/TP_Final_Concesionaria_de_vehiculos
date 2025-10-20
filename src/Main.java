@@ -16,14 +16,14 @@ public class Main {
         Empleado empleado4 = new Empleado("María", "Rodríguez", "45678901D", 3200.25, "Analista", 35, 7, "maria.rodriguez@email.com", "321-654-9870", true);
         Empleado empleado5 = new Empleado("Pedro", "Sánchez", "56789012E", 2800.00, "Supervisor", 45, 15, "pedro.sanchez@email.com", "654-321-0987", true);
 
-        Auto auto1 = new Auto(Marca.TOYOTA, "Corolla", 2020, "Blanco", "$20,000", true, 1800, 4, "Gasolina");
-        Auto auto2 = new Auto(Marca.HONDA, "Civic", 2022, "Negro", "$22,500", true, 2000, 4, "Gasolina");
-        Auto auto3 = new Auto(Marca.FORD, "Focus", 2019, "Azul", "$18,000", false, 1600, 4, "Diésel");
-        Auto auto4 = new Auto(Marca.CHEVROLET, "Cruze", 2021, "Rojo", "$21,000", true, 1800, 4, "Gasolina");
-        Auto auto5 = new Auto(Marca.NISSAN, "Altima", 2023, "Plata", "$25,000", true, 2500, 4, "Gasolina");
-        Moto moto1 = new Moto(Marca.YAMAHA, "YZF-R3", 2021, "Azul", "$5,000", true, 321, 2);
-        Moto moto2 = new Moto(Marca.HONDA, "CBR500R", 2020, "Rojo", "$6,500", true, 471, 2);
-        Moto moto3 = new Moto(Marca.SUZUKI, "GSX250R", 2019, "Negro", "$4,200", false, 248, 2);
+        Auto auto1 = new Auto(Marca.TOYOTA, "Corolla", 2020, "Blanco", 20000, true, 1800, 4, "Gasolina");
+        Auto auto2 = new Auto(Marca.HONDA, "Civic", 2022, "Negro", 22500, true, 2000, 4, "Gasolina");
+        Auto auto3 = new Auto(Marca.FORD, "Focus", 2019, "Azul", 18000, false, 1600, 4, "Diésel");
+        Auto auto4 = new Auto(Marca.CHEVROLET, "Cruze", 2021, "Rojo", 21000, true, 1800, 4, "Gasolina");
+        Auto auto5 = new Auto(Marca.NISSAN, "Altima", 2023, "Plata", 25000, true, 2500, 4, "Gasolina");
+        Moto moto1 = new Moto(Marca.YAMAHA, "YZF-R3", 2021, "Azul", 5000, true, 321, 2);
+        Moto moto2 = new Moto(Marca.HONDA, "CBR500R", 2020, "Rojo", 6500, true, 471, 2);
+        Moto moto3 = new Moto(Marca.SUZUKI, "GSX250R", 2019, "Negro", 4200, false, 248, 2);
 
         Cliente cliente1 = new Cliente("Juan", "Pérez", "12345678A", "juan.perez@email.com", "123-456-7890", 'M', 30);
         Cliente cliente2 = new Cliente("Ana", "Gómez", "23456789B", "ana.gomez@email.com", "987-654-3210", 'F', 25);
@@ -100,6 +100,13 @@ public class Main {
         gestoraFactura.addFactura(factura4);
         gestoraFactura.addFactura(factura5);
         gestoraFactura.showFacturas();
+
+        Camioneta miCamioneta = new Camioneta(Marca.FORD, "Ranger", 2024, "Blanco", 45000, true, 3200, 4, "Diésel", 1.8, 2.2);
+        Camión miCamion = new Camión(Marca.VOLKSWAGEN, "TGX", 2023, "Rojo", 120000, true, 10000, 2, "Diésel", 7.5, 2.5);
+
+
+        System.out.printf("\nDimension mionca: " + "%.2f", miCamion.calcularDimension());
+        System.out.printf("\nDimension chata: " + "%.2f",  miCamioneta.calcularDimension());
 
 
     }

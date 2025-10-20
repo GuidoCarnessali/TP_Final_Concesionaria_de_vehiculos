@@ -1,6 +1,8 @@
 package Classes;
 import Enums.Marca;
 
+import java.util.Objects;
+
 public abstract class Vehiculo {
 
     //Atributos
@@ -8,12 +10,12 @@ public abstract class Vehiculo {
     private String modelo;
     private int anio;
     private String color;
-    private String precio;
+    private double precio;
     private boolean enStock;
 
 
     //Constructor
-    public Vehiculo(Marca marca, String modelo, int anio, String color, String precio, boolean enStock) {
+    public Vehiculo(Marca marca, String modelo, int anio, String color, double precio, boolean enStock) {
         this.marca = marca ;
         this.modelo = modelo;
         this.anio = anio;
@@ -58,11 +60,11 @@ public abstract class Vehiculo {
         this.color = color;
     }
 
-    public String getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -85,6 +87,17 @@ public abstract class Vehiculo {
                 "\nPrecio: " + precio;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehiculo vehiculo = (Vehiculo) o;
+        return marca == vehiculo.marca && Objects.equals(modelo, vehiculo.modelo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(marca, modelo);
+    }
 
     //Métodos abstractos
     public abstract String encender();

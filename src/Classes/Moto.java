@@ -11,7 +11,7 @@ public class Moto extends Vehiculo {
     //Constructor
 
 
-    public Moto(Marca marca, String modelo, int anio, String color, String precio, boolean enStock, int cilindrada, int capacidadPasajeros) {
+    public Moto(Marca marca, String modelo, int anio, String color, double precio, boolean enStock, int cilindrada, int capacidadPasajeros) {
         super(marca, modelo, anio, color, precio, enStock);
         this.cilindrada = cilindrada;
         this.capacidadPasajeros = capacidadPasajeros;
