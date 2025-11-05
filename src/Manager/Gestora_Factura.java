@@ -20,6 +20,7 @@ public class Gestora_Factura {
         return facturas;
     }
 
+
     //ABMCL
     //Alta, Baja, Modificación, Consulta y Listado
     //Factura

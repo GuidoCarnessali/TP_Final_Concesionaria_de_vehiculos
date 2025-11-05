@@ -76,6 +76,8 @@ public abstract class Vehiculo {
         this.enStock = enStock;
     }
 
+
+
     //Métodos
     public String toString()
     {

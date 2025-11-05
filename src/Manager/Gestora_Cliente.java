@@ -1,6 +1,8 @@
 package Manager;
 
 import Classes.Cliente;
+import Classes.Empleado;
+import Classes.Vehiculo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +13,7 @@ public class Gestora_Cliente {
 
     //Constructor
     public Gestora_Cliente() {
-        this.clientes = new HashMap<>();
+        this.clientes = new HashMap<>(); //es un hashmap
     }
 
     //Getters
@@ -74,5 +76,8 @@ public class Gestora_Cliente {
             System.out.println(c.toString());
         }
     }
+
+
+
 
 }

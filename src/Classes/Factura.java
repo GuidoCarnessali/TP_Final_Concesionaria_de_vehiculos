@@ -57,6 +57,8 @@ public class Factura {
         return vehiculo;
     }
 
+
+
     //Setters
     public void setMontoTotal(double montoTotal) {
         this.montoTotal = montoTotal;
@@ -72,6 +74,14 @@ public class Factura {
 
     public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
+    }
+
+    public void setNumeroFactura(int numeroFactura) {
+        this.numeroFactura = numeroFactura;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
 
     //Métodos
