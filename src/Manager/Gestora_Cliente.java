@@ -32,6 +32,7 @@ public class Gestora_Cliente {
             return true;
         }
 
+
         return false;
     }
 
@@ -76,6 +77,13 @@ public class Gestora_Cliente {
             System.out.println(c.toString());
         }
     }
+
+    public void listaDeserializadaToClientes (Map<String, Cliente> clientesB) {
+
+        clientes.putAll(clientesB);
+
+    }
+
 
 
 

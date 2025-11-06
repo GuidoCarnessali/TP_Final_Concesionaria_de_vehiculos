@@ -1,5 +1,6 @@
 package Manager;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class OperacionLectoEscritura {
 
-    public void writeFile(String filename, JSONObject jsonObject) {
+    public static void writeFile(String filename, JSONObject jsonObject) {
 
         try{
 
@@ -24,7 +25,7 @@ public class OperacionLectoEscritura {
         }
     }
 
-    public JSONTokener readFile (String filename)
+    public static JSONTokener readFile (String filename)
     {
         JSONTokener jsonTokener = null;
 
@@ -40,6 +41,19 @@ public class OperacionLectoEscritura {
 
         return jsonTokener;
     }
+
+    public static void writeFile(String filename, JSONArray jsonArray) {
+
+        try {
+            FileWriter fileWriter = new FileWriter(filename);
+            fileWriter.write(jsonArray.toString(4));
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 

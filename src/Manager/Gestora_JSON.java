@@ -90,7 +90,7 @@ public class Gestora_JSON {
 
     }
 
-    public JSONObject serializarmoto (Moto a){
+    public JSONObject serializarMoto (Moto a){
         JSONObject jsonObject = null;
 
         try{
@@ -108,10 +108,7 @@ public class Gestora_JSON {
             e.printStackTrace();
         }
 
-
         return jsonObject;
-
-
     }
 
 
@@ -195,16 +192,6 @@ public class Gestora_JSON {
         return jsonObject;
     }
 
-
-    private String nombre;
-    private String empresa;
-    private String direccion;
-    private String telefono;
-    private String email;
-    private Marca marcaQueProvee;
-    private boolean activo;
-
-    //Constructor
 
     public JSONObject serializarProveedor(Proveedor p){
         JSONObject jsonObject = null;
@@ -320,7 +307,7 @@ public class Gestora_JSON {
             c.setDni(jsonObject.getString("dni"));
             c.setEmail(jsonObject.getString("email"));
             c.setTelefono(jsonObject.getString("telefono"));
-            c.setSexo(jsonObject.getString("sexo").charAt(0));
+            c.setSexo(Character.valueOf(jsonObject.getString("sexo").charAt(0)));
             c.setEdad(jsonObject.getInt("edad"));
         } catch (JSONException e) {
             e.printStackTrace();
@@ -441,24 +428,6 @@ public class Gestora_JSON {
     }
 
 
-    public JSONArray serializarListaEmpleadosInactivos(Map<String, Empleado> empleadosInactivos) {
-
-        JSONArray jsonArray = new JSONArray();
-
-        for (Map.Entry<String, Empleado> entry : empleadosInactivos.entrySet()) {
-
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("dni", entry.getKey());
-
-            Empleado empleado = entry.getValue();
-            JSONObject empleadoJson = serializarEmpleado(empleado);
-
-            jsonObject.put("empleado", empleadoJson);
-            jsonArray.put(jsonObject);
-        }
-        return jsonArray;
-    }
-
     public JSONArray serializarListaFacturas(Map<Integer, Factura> facturas) {
 
         JSONArray jsonArray = new JSONArray();
@@ -491,19 +460,6 @@ public class Gestora_JSON {
         return jsonArray;
     }
 
-    public JSONArray serializarListaProveedoresInactivos(List<Proveedor> proveedoresInactivos) {
-
-        JSONArray jsonArray = new JSONArray();
-
-        for (Proveedor proveedor : proveedoresInactivos) {
-
-            JSONObject jsonObject = new JSONObject();
-            JSONObject proveedorJson = serializarProveedor(proveedor);
-            jsonObject.put("proveedor", proveedorJson);
-            jsonArray.put(jsonObject);
-        }
-        return jsonArray;
-    }
 
     public JSONArray serializarListaVehiculos(Set<Vehiculo> vehiculos) {
 
@@ -528,28 +484,6 @@ public class Gestora_JSON {
         return jsonArray;
     }
 
-    public JSONArray serializarListaNoStockVehiculos(Set<Vehiculo> noStockVehiculos) {
-
-        JSONArray jsonArray = new JSONArray();
-
-        for (Vehiculo vehiculo : noStockVehiculos) {
-
-            JSONObject jsonObject = new JSONObject();
-
-            if (vehiculo instanceof Auto) {
-                jsonObject.put("vehiculo", serializarAuto((Auto) vehiculo));
-            } else if (vehiculo instanceof Camioneta) {
-                jsonObject.put("vehiculo", serializarCamioneta((Camioneta) vehiculo));
-            } else if (vehiculo instanceof Camión) {
-                jsonObject.put("vehiculo", serializarCamion((Camión) vehiculo));
-            } else if (vehiculo instanceof Moto) {
-                jsonObject.put("vehiculo", serializarmoto((Moto) vehiculo));
-            }
-
-            jsonArray.put(jsonObject);
-        }
-        return jsonArray;
-    }
 
     //
      //
@@ -594,24 +528,6 @@ public class Gestora_JSON {
         return empleados;
     }
 
-    public Map<String, Empleado> deserializarListaEmpleadosInactivos(JSONArray jsonArray) {
-
-        Map<String, Empleado> empleadosInactivos = new HashMap<>();
-
-        try {
-            for (int i = 0; i < jsonArray.length(); i++) {
-
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                String dni = jsonObject.getString("dni");
-                JSONObject empleadoJson = jsonObject.getJSONObject("empleado");
-                Empleado empleado = deserializarEmpleado(empleadoJson);
-                empleadosInactivos.put(dni, empleado);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return empleadosInactivos;
-    }
 
     public Map<Integer, Factura> deserializarListaFacturas(JSONArray jsonArray) {
 
@@ -624,7 +540,7 @@ public class Gestora_JSON {
                 int numeroFactura = jsonObject.getInt("numeroFactura");
                 JSONObject facturaJson = jsonObject.getJSONObject("factura");
                 Factura factura = deserializarFactura(facturaJson);
-                facturas.put(numeroFactura, factura);
+                facturas.put(Integer.valueOf(numeroFactura), factura);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -650,23 +566,7 @@ public class Gestora_JSON {
         return proveedores;
     }
 
-    public List<Proveedor> deserializarListaProveedoresInactivos(JSONArray jsonArray) {
 
-        List<Proveedor> proveedoresInactivos = new ArrayList<>();
-
-        try {
-            for (int i = 0; i < jsonArray.length(); i++) {
-
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                JSONObject proveedorJson = jsonObject.getJSONObject("proveedor");
-                Proveedor proveedor = deserializarProveedor(proveedorJson);
-                proveedoresInactivos.add(proveedor);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return proveedoresInactivos;
-    }
 
     public Set<Vehiculo> deserializarListaVehiculos(JSONArray jsonArray) {
 
@@ -692,31 +592,6 @@ public class Gestora_JSON {
             e.printStackTrace();
         }
         return vehiculos;
-    }
-
-    public Set<Vehiculo> deserializarListaNoStockVehiculos(JSONArray jsonArray) {
-
-        Set<Vehiculo> noStockVehiculos = new HashSet<>();
-
-        try {
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                JSONObject vehiculoJson = jsonObject.getJSONObject("vehiculo");
-
-                if (vehiculoJson.has("largoCaja")) {
-                    noStockVehiculos.add(deserializarCamioneta(vehiculoJson));
-                } else if (vehiculoJson.has("largoChasis")) {
-                    noStockVehiculos.add(deserializarCamion(vehiculoJson));
-                } else if (vehiculoJson.has("pasajeros")) {
-                    noStockVehiculos.add(deserializarMoto(vehiculoJson));
-                }else{
-                    noStockVehiculos.add(deserializarAuto(vehiculoJson));
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return noStockVehiculos;
     }
 
 

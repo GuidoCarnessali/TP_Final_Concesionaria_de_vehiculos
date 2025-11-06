@@ -1,6 +1,14 @@
 import Classes.*;
 import Enums.Marca;
 import Manager.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -104,10 +112,42 @@ public class Main {
         Camioneta miCamioneta = new Camioneta(Marca.FORD, "Ranger", 2024, "Blanco", 45000, true, 3200, 4, "Diésel", 1.8, 2.2);
         Camión miCamion = new Camión(Marca.VOLKSWAGEN, "TGX", 2023, "Rojo", 120000, true, 10000, 2, "Diésel", 7.5, 2.5);
 
-
+/*
         System.out.printf("\nDimension mionca: " + "%.2f", miCamion.calcularDimension());
         System.out.printf("\nDimension chata: " + "%.2f",  miCamioneta.calcularDimension());
+        */
+
+        Gestora_JSON gestoraJSON = new Gestora_JSON();
+        /*
+        OperacionLectoEscritura.writeFile("concesionaria", gestoraJSON.serializarListaVehiculos(gestoraVehiculo.getVehiculos()));
+        JSONTokener jsonTokener = OperacionLectoEscritura.readFile("concesionaria");
+        JSONArray jsonArray = new JSONArray(jsonTokener);
+        gestoraVehiculo.listaDeserializadaToVehiculos(gestoraJSON.deserializarListaVehiculos(jsonArray));
+        gestoraVehiculo.showVehiculos();
+
+
+
+
+        OperacionLectoEscritura.writeFile("concesionaria", gestoraJSON.serializarListaEmpleados(gestoraEmpleado.getEmpleados()));
+        OperacionLectoEscritura.writeFile("concesionaria", gestoraJSON.serializarListaEmpleados(gestoraEmpleado.getEmpleadosInactivos()));
+        JSONTokener jsonTokenerEp = OperacionLectoEscritura.readFile("concesionaria");
+        JSONArray jsonArray1 = new JSONArray(jsonTokenerEp);
+
+        gestoraEmpleado.listaDeserializadaToEmpleados(gestoraJSON.deserializarListaEmpleados(jsonArray1));
+        gestoraEmpleado.listaDeserializadaToEmpleadosInactivos(gestoraJSON.deserializarListaEmpleadosInactivos(jsonArray1));
+        System.out.println();
+        gestoraEmpleado.showEmpleadosInactivos();
+
+
+         */
+
+
+
 
 
     }
+
+
+
+
 }

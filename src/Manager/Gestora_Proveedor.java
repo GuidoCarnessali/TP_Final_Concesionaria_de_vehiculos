@@ -1,39 +1,50 @@
 package Manager;
 
 import Classes.Proveedor;
+import Classes.Vehiculo;
 import Enums.Marca;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Gestora_Proveedor {
 
     private List<Proveedor> proveedores;                //Hacerlo arraylist ya que no importa el orden y no se repiten
-    private List<Proveedor> proveedoresInactivos;       //Hacerlo arraylist ya que no importa el orden y no se repiten
+
 
     public Gestora_Proveedor() {
         this.proveedores = new ArrayList<>();
-        this.proveedoresInactivos = new ArrayList<>();
     }
 
     public List<Proveedor> getProveedores() {
         return proveedores;
     }
 
-    public List<Proveedor> getProveedoresInactivos() {
-        return proveedoresInactivos;
-    }
 
     //------------------ABMCL------------------
     //Alta, Baja, Modificación, Consulta, Listado
     //Proveedor
     public boolean addProveedor(Proveedor p)
     {
-        if(p != null && !proveedores.contains(p)) //Si el proveedor no es nulo y no está en la lista de proveedores lo agrego
+        if(p != null) //Si el proveedor no es nulo y no está en la lista de proveedores lo agrego
         {
-            proveedores.add(p);                   //Agrego el proveedor a la lista
-            p.setActivo(true);
-            return true;
+
+            if (proveedores.contains(p)){
+
+                if (p.isActivo() == false){
+                    proveedores.remove(p);
+                    p.setActivo(true);
+                    proveedores.add(p);
+                    return true;
+                }
+
+
+            }else {
+                proveedores.add(p);                   //Agrego el proveedor a la lista
+                return true;
+            }
+
         }
         return false;
     }
@@ -43,8 +54,8 @@ public class Gestora_Proveedor {
         if(p != null && proveedores.contains(p)) //Si el proveedor no es nulo y está en la lista de proveedores lo elimino
         {
             proveedores.remove(p);               //Elimino el proveedor de la lista
-            proveedoresInactivos.add(p);        //Agrego el proveedor a la lista de proveedores inactivos
             p.setActivo(false);
+            proveedores.add(p);
             return true;
         }
         return false;
@@ -81,6 +92,37 @@ public class Gestora_Proveedor {
             System.out.println(p.toString());
         }
     }
+
+    public void listaDeserializadaToProveedores (List<Proveedor> proveedoresB){
+
+        for (Proveedor p: proveedoresB)
+        {
+            proveedores.add(p); //lo agregamos con el .add(p)
+        }
+    }
+
+    public void showProveedoresActivos (){
+
+       for (Proveedor p: proveedores)
+       {
+           if(p.isActivo())
+           {
+               System.out.println(p.toString());
+           }
+       }
+    }
+
+    public void showProveedoresInactivos (){
+
+        for (Proveedor p: proveedores)
+        {
+            if(!p.isActivo())
+            {
+                System.out.println(p.toString());
+            }
+        }
+    }
+
 
 
 

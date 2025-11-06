@@ -11,20 +11,15 @@ import java.util.Set;
 public class Gestora_Vehiculo {
 
     private Set<Vehiculo> vehiculos;                    //Hacerlo Hashset ya que no importa el orden y no se repiten
-    private Set<Vehiculo> noStockVehiculos;             //Hacerlo Hashset ya que no importa el orden y no se repiten
 
     public Gestora_Vehiculo() {
         this.vehiculos = new HashSet<>();
-        this.noStockVehiculos = new HashSet<>();
     }
 
     public Set<Vehiculo> getVehiculos() {
         return vehiculos;
     }
 
-    public Set<Vehiculo> getNoStockVehiculos() {
-        return noStockVehiculos;
-    }
 
     //------------------ABMCL------------------
     //Alta, Baja, Modificación, Consulta, Listado
@@ -33,21 +28,31 @@ public class Gestora_Vehiculo {
     {
         if(v != null) //Si el vehículo no es nulo lo agrego a la lista de vehículos en stock
         {
-            vehiculos.add(v);
-            return true;
+            if(vehiculos.contains(v))
+            {
+                if (v.isEnStock() == false)
+                {
+                    vehiculos.remove(v);
+                    v.setEnStock(true);
+                    vehiculos.add(v);
+                    return true;
+                }
+            }else {
+                vehiculos.add(v);
+                return true;
+            }
         }
         return false;
-
-
     }
 
     public boolean removeVehiculo(Vehiculo v)
     {
         if(v != null && vehiculos.contains(v))  //Si el vehículo no es nulo y está en la lista de vehículos en stock lo elimino
         {                                       //Ademas lo paso a la lista de vehículos no en stock
-            vehiculos.remove(v);
-            noStockVehiculos.add(v);
-            v.setEnStock(false);
+           vehiculos.remove(v);
+           v.setEnStock(false);
+           vehiculos.add(v);
+
             return true;
         }
         return false;
@@ -111,6 +116,36 @@ public class Gestora_Vehiculo {
             return stock;
         }
 
+        public void listaDeserializadaToVehiculos (Set<Vehiculo> vehiculosB){
+
+            for (Vehiculo v: vehiculosB)
+            {
+                vehiculos.add(v);
+            }
+        }
+
+        public void showVehiculosActivos ()
+        {
+            for(Vehiculo v: vehiculos)
+            {
+                if (v.isEnStock())
+                {
+                    System.out.println(v.toString());
+                }
+            }
+        }
+
+
+    public void showVehiculosInactivos ()
+    {
+        for(Vehiculo v: vehiculos)
+        {
+            if (!v.isEnStock())
+            {
+                System.out.println(v.toString());
+            }
+        }
+    }
 
 
 }

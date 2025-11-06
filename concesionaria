@@ -1,0 +1,87 @@
+[
+    {"vehiculo": {
+        "marca": "HONDA",
+        "precio": 6500,
+        "color": "Rojo",
+        "cilindrada": 471,
+        "pasajeros": 2,
+        "stock": true,
+        "modelo": "CBR500R",
+        "anio": 2020
+    }},
+    {"vehiculo": {
+        "marca": "NISSAN",
+        "puertas": 4,
+        "precio": 25000,
+        "color": "Plata",
+        "cilindrada": 2500,
+        "stock": true,
+        "modelo": "Altima",
+        "anio": 2023,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "FORD",
+        "puertas": 4,
+        "precio": 18000,
+        "color": "Azul",
+        "cilindrada": 1600,
+        "stock": false,
+        "modelo": "Focus",
+        "anio": 2019,
+        "combustible": "Diésel"
+    }},
+    {"vehiculo": {
+        "marca": "SUZUKI",
+        "precio": 4200,
+        "color": "Negro",
+        "cilindrada": 248,
+        "pasajeros": 2,
+        "stock": false,
+        "modelo": "GSX250R",
+        "anio": 2019
+    }},
+    {"vehiculo": {
+        "marca": "CHEVROLET",
+        "puertas": 4,
+        "precio": 21000,
+        "color": "Rojo",
+        "cilindrada": 1800,
+        "stock": true,
+        "modelo": "Cruze",
+        "anio": 2021,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "TOYOTA",
+        "puertas": 4,
+        "precio": 20000,
+        "color": "Blanco",
+        "cilindrada": 1800,
+        "stock": true,
+        "modelo": "Corolla",
+        "anio": 2020,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "YAMAHA",
+        "precio": 5000,
+        "color": "Azul",
+        "cilindrada": 321,
+        "pasajeros": 2,
+        "stock": true,
+        "modelo": "YZF-R3",
+        "anio": 2021
+    }},
+    {"vehiculo": {
+        "marca": "HONDA",
+        "puertas": 4,
+        "precio": 22500,
+        "color": "Negro",
+        "cilindrada": 2000,
+        "stock": true,
+        "modelo": "Civic",
+        "anio": 2022,
+        "combustible": "Gasolina"
+    }}
+]

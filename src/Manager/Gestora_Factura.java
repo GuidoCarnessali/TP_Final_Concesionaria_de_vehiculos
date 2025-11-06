@@ -1,7 +1,10 @@
 package Manager;
 
 import Classes.Factura;
+import Classes.Proveedor;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -68,6 +71,13 @@ public class Gestora_Factura {
         }
 
     }
+
+    public void listaDeserializadaToFacturas (Map<Integer, Factura> facturasB) {
+
+        facturas.putAll(facturasB);
+
+    }
+
 
 
 
