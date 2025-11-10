@@ -16,8 +16,19 @@ public class Main {
     public static void main(String[] args)
     {
         //Testeo de clases y clases gestoras
+        //Gestoras:
 
 
+        Gestora_Empleado gestoraEmpleado = new Gestora_Empleado();
+        Gestora_Vehiculo gestoraVehiculo = new Gestora_Vehiculo();
+        Gestora_Cliente gestoraCliente = new Gestora_Cliente();
+        Gestora_Proveedor gestoraProveedor = new Gestora_Proveedor();
+        Gestora_Factura gestoraFactura = new Gestora_Factura();
+        Gestora_JSON gestoraJSON = new Gestora_JSON();
+        Gestora_Usuario gestoraUsuario = new Gestora_Usuario();
+        Gestora_Admin gestoraAdmin = new Gestora_Admin();
+
+        /*
         Empleado empleado1 = new Empleado("Juan", "Pérez", "12345678A", 2500.50, "Desarrollador", 30, 5, "juan.perez@email.com", "123-456-7890", true);
         Empleado empleado2 = new Empleado("Ana", "Gómez", "23456789B", 3000.75, "Gerente", 40, 10, "ana.gomez@email.com", "987-654-3210", true);
         Empleado empleado3 = new Empleado("Carlos", "López", "34567890C", 1800.00, "Auxiliar", 25, 2, "carlos.lopez@email.com", "456-789-0123", false);
@@ -53,7 +64,8 @@ public class Main {
         System.out.println("---GESTORÍA DE CONCESIONARIO DE AUTOS---\n");
         System.out.println("---EMPLEADOS---");
 
-        Gestora_Empleado gestoraEmpleado = new Gestora_Empleado();
+
+
         gestoraEmpleado.addEmpleado(empleado1);
         gestoraEmpleado.addEmpleado(empleado2);
         gestoraEmpleado.addEmpleado(empleado3);
@@ -64,7 +76,9 @@ public class Main {
         System.out.println("\n");
         System.out.println("---VEHÍCULOS---");
         System.out.println("\n\n");
-        Gestora_Vehiculo gestoraVehiculo = new Gestora_Vehiculo();
+
+
+
         gestoraVehiculo.addVehiculo(auto1);
         gestoraVehiculo.addVehiculo(auto2);
         gestoraVehiculo.addVehiculo(auto3);
@@ -79,7 +93,7 @@ public class Main {
         System.out.println("---CLIENTES---");
         System.out.println("\n");
 
-        Gestora_Cliente gestoraCliente = new Gestora_Cliente();
+
         gestoraCliente.addCliente(cliente1);
         gestoraCliente.addCliente(cliente2);
         gestoraCliente.addCliente(cliente3);
@@ -91,7 +105,7 @@ public class Main {
         System.out.println("---PROVEEDORES---");
         System.out.println("\n");
 
-        Gestora_Proveedor gestoraProveedor = new Gestora_Proveedor();
+
         gestoraProveedor.addProveedor(proveedor1);
         gestoraProveedor.addProveedor(proveedor2);
         gestoraProveedor.addProveedor(proveedor3);
@@ -101,7 +115,7 @@ public class Main {
         System.out.println("---FACTURAS---");
         System.out.println("\n");
 
-        Gestora_Factura gestoraFactura = new Gestora_Factura();
+
         gestoraFactura.addFactura(factura1);
         gestoraFactura.addFactura(factura2);
         gestoraFactura.addFactura(factura3);
@@ -112,12 +126,12 @@ public class Main {
         Camioneta miCamioneta = new Camioneta(Marca.FORD, "Ranger", 2024, "Blanco", 45000, true, 3200, 4, "Diésel", 1.8, 2.2);
         Camión miCamion = new Camión(Marca.VOLKSWAGEN, "TGX", 2023, "Rojo", 120000, true, 10000, 2, "Diésel", 7.5, 2.5);
 
-/*
+
         System.out.printf("\nDimension mionca: " + "%.2f", miCamion.calcularDimension());
         System.out.printf("\nDimension chata: " + "%.2f",  miCamioneta.calcularDimension());
-        */
 
-        Gestora_JSON gestoraJSON = new Gestora_JSON();
+
+
         /*
         OperacionLectoEscritura.writeFile("concesionaria", gestoraJSON.serializarListaVehiculos(gestoraVehiculo.getVehiculos()));
         JSONTokener jsonTokener = OperacionLectoEscritura.readFile("concesionaria");
@@ -139,10 +153,19 @@ public class Main {
         gestoraEmpleado.showEmpleadosInactivos();
 
 
-         */
 
 
+        gestoraVehiculo.buyVehicle(cliente1, auto1, empleado1, gestoraFactura);
+        gestoraFactura.showFacturas();
+          */
 
+        Menu menu = new Menu();
+        Usuario usuario = new Usuario("Manuel", "Einstein2194");
+        gestoraUsuario.addUsuario(usuario);
+        Admin admin = new Admin("Guido", "Soler3020");
+        gestoraAdmin.addAdmin(admin);
+        menu.iniciarSistema(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraJSON, gestoraProveedor, gestoraAdmin);
+        //Hay que hacer lo de serializar usuarios y admins y deserializar
 
 
     }

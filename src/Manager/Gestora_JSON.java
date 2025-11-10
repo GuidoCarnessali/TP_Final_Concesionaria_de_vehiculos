@@ -182,7 +182,7 @@ public class Gestora_JSON {
                 jsonObject.put("vehiculo", serializarCamion((Camión) v));
             } else if (v instanceof Moto) {
 
-                jsonObject.put("vehiculo", serializarmoto((Moto) v));
+                jsonObject.put("vehiculo", serializarMoto((Moto) v));
             }
 
         } catch (JSONException e) {
@@ -476,7 +476,7 @@ public class Gestora_JSON {
             } else if (vehiculo instanceof Camión) {
                 jsonObject.put("vehiculo", serializarCamion((Camión) vehiculo));
             } else if (vehiculo instanceof Moto) {
-                jsonObject.put("vehiculo", serializarmoto((Moto) vehiculo));
+                jsonObject.put("vehiculo", serializarMoto((Moto) vehiculo));
             }
 
             jsonArray.put(jsonObject);

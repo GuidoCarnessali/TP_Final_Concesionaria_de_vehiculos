@@ -2,10 +2,12 @@ package Manager;
 
 import Classes.Cliente;
 import Classes.Empleado;
+import Classes.Factura;
 import Classes.Vehiculo;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Gestora_Cliente {
 
@@ -83,9 +85,6 @@ public class Gestora_Cliente {
         clientes.putAll(clientesB);
 
     }
-
-
-
 
 
 }

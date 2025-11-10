@@ -24,8 +24,13 @@ public class Factura {
         this.vehiculo = vehiculo;
     }
 
-    public Factura()
-    {}
+    public Factura(){
+        this.numeroFactura = ++contadorFacturas;
+        this.fecha = LocalDateTime.now();
+    }
+
+
+
 
     //Getters
 

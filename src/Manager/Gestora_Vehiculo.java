@@ -1,8 +1,6 @@
 package Manager;
 
-import Classes.Auto;
-import Classes.Moto;
-import Classes.Vehiculo;
+import Classes.*;
 import Enums.Marca;
 
 import java.util.HashSet;
@@ -144,6 +142,22 @@ public class Gestora_Vehiculo {
             {
                 System.out.println(v.toString());
             }
+        }
+    }
+
+    public void buyVehicle (Cliente c, Vehiculo v, Empleado e, Gestora_Factura gestoraFactura)
+    {
+        if (v != null && e != null)
+        {
+            if (vehiculos.contains(v) && v.isEnStock())
+            {
+                removeVehiculo(v);
+
+                Factura factura = new Factura(v.getPrecio(), c, e, v);
+
+                gestoraFactura.addFactura(factura);
+            }
+
         }
     }
 
