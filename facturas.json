@@ -1,0 +1,202 @@
+[
+    {
+        "factura": {
+            "fecha": "2025-11-12T10:03:51.138340",
+            "cliente": {
+                "apellido": "Pérez",
+                "telefono": "123-456-7890",
+                "sexo": "M",
+                "nombre": "Juan",
+                "edad": 30,
+                "dni": "12345678A",
+                "email": "juan.perez@email.com"
+            },
+            "empleado": {
+                "puesto": "Desarrollador",
+                "apellido": "Pérez",
+                "salario": 2500.5,
+                "antiguedad": 5,
+                "telefono": "123-456-7890",
+                "nombre": "Juan",
+                "edad": 30,
+                "dni": "12345678A",
+                "email": "juan.perez@email.com",
+                "activo": true
+            },
+            "numeroFactura": 1,
+            "vehiculo": {
+                "marca": "TOYOTA",
+                "puertas": 4,
+                "precio": 20000,
+                "color": "Blanco",
+                "cilindrada": 1800,
+                "stock": true,
+                "modelo": "Corolla",
+                "anio": 2020,
+                "combustible": "Gasolina"
+            },
+            "montoTotal": 25000
+        },
+        "numeroFactura": 1
+    },
+    {
+        "factura": {
+            "fecha": "2025-11-12T10:03:51.139339600",
+            "cliente": {
+                "apellido": "Gómez",
+                "telefono": "987-654-3210",
+                "sexo": "F",
+                "nombre": "Ana",
+                "edad": 25,
+                "dni": "23456789B",
+                "email": "ana.gomez@email.com"
+            },
+            "empleado": {
+                "puesto": "Gerente",
+                "apellido": "Gómez",
+                "salario": 3000.75,
+                "antiguedad": 10,
+                "telefono": "987-654-3210",
+                "nombre": "Ana",
+                "edad": 40,
+                "dni": "23456789B",
+                "email": "ana.gomez@email.com",
+                "activo": true
+            },
+            "numeroFactura": 2,
+            "vehiculo": {
+                "marca": "HONDA",
+                "puertas": 4,
+                "precio": 22500,
+                "color": "Negro",
+                "cilindrada": 2000,
+                "stock": true,
+                "modelo": "Civic",
+                "anio": 2022,
+                "combustible": "Gasolina"
+            },
+            "montoTotal": 30000
+        },
+        "numeroFactura": 2
+    },
+    {
+        "factura": {
+            "fecha": "2025-11-12T10:03:51.139339600",
+            "cliente": {
+                "apellido": "López",
+                "telefono": "456-789-0123",
+                "sexo": "M",
+                "nombre": "Carlos",
+                "edad": 40,
+                "dni": "34567890C",
+                "email": "carlos.lopez@email.com"
+            },
+            "empleado": {
+                "puesto": "Auxiliar",
+                "apellido": "López",
+                "salario": 1800,
+                "antiguedad": 2,
+                "telefono": "456-789-0123",
+                "nombre": "Carlos",
+                "edad": 25,
+                "dni": "34567890C",
+                "email": "carlos.lopez@email.com",
+                "activo": false
+            },
+            "numeroFactura": 3,
+            "vehiculo": {
+                "marca": "FORD",
+                "puertas": 4,
+                "precio": 18000,
+                "color": "Azul",
+                "cilindrada": 1600,
+                "stock": false,
+                "modelo": "Focus",
+                "anio": 2019,
+                "combustible": "Diésel"
+            },
+            "montoTotal": 18000
+        },
+        "numeroFactura": 3
+    },
+    {
+        "factura": {
+            "fecha": "2025-11-12T10:03:51.139339600",
+            "cliente": {
+                "apellido": "Rodríguez",
+                "telefono": "321-654-9870",
+                "sexo": "F",
+                "nombre": "María",
+                "edad": 35,
+                "dni": "45678901D",
+                "email": "maria.rodriguez@email.com"
+            },
+            "empleado": {
+                "puesto": "Analista",
+                "apellido": "Rodríguez",
+                "salario": 3200.25,
+                "antiguedad": 7,
+                "telefono": "321-654-9870",
+                "nombre": "María",
+                "edad": 35,
+                "dni": "45678901D",
+                "email": "maria.rodriguez@email.com",
+                "activo": true
+            },
+            "numeroFactura": 4,
+            "vehiculo": {
+                "marca": "CHEVROLET",
+                "puertas": 4,
+                "precio": 21000,
+                "color": "Rojo",
+                "cilindrada": 1800,
+                "stock": true,
+                "modelo": "Cruze",
+                "anio": 2021,
+                "combustible": "Gasolina"
+            },
+            "montoTotal": 21000
+        },
+        "numeroFactura": 4
+    },
+    {
+        "factura": {
+            "fecha": "2025-11-12T10:03:51.139339600",
+            "cliente": {
+                "apellido": "Sánchez",
+                "telefono": "654-321-0987",
+                "sexo": "M",
+                "nombre": "Pedro",
+                "edad": 50,
+                "dni": "56789012E",
+                "email": "pedro.sanchez@email.com"
+            },
+            "empleado": {
+                "puesto": "Supervisor",
+                "apellido": "Sánchez",
+                "salario": 2800,
+                "antiguedad": 15,
+                "telefono": "654-321-0987",
+                "nombre": "Pedro",
+                "edad": 45,
+                "dni": "56789012E",
+                "email": "pedro.sanchez@email.com",
+                "activo": true
+            },
+            "numeroFactura": 5,
+            "vehiculo": {
+                "marca": "NISSAN",
+                "puertas": 4,
+                "precio": 25000,
+                "color": "Plata",
+                "cilindrada": 2500,
+                "stock": true,
+                "modelo": "Altima",
+                "anio": 2023,
+                "combustible": "Gasolina"
+            },
+            "montoTotal": 35000
+        },
+        "numeroFactura": 5
+    }
+]

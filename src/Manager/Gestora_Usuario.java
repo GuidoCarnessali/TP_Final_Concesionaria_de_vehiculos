@@ -1,19 +1,25 @@
 package Manager;
 
+import Classes.Usuario;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Gestora_Usuario
 {
 
-    private Set<Usuario> listaUsuarios;
+    private HashSet<Usuario> listaUsuarios;
 
     public Gestora_Usuario() {
         this.listaUsuarios = new HashSet<>();
     }
 
-    public Set<Usuario> getListaUsuarios() {
+    public HashSet<Usuario> getListaUsuarios() {
         return listaUsuarios;
+    }
+
+    public void setListaUsuarios(HashSet<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
     }
 
     public boolean login(String nombreUsuario, String contrasenia) throws IncorrectUserNameOrPasswordException

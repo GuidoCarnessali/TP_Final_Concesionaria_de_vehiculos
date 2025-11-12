@@ -1,26 +1,5 @@
 [
     {"vehiculo": {
-        "marca": "HONDA",
-        "precio": 6500,
-        "color": "Rojo",
-        "cilindrada": 471,
-        "pasajeros": 2,
-        "stock": true,
-        "modelo": "CBR500R",
-        "anio": 2020
-    }},
-    {"vehiculo": {
-        "marca": "NISSAN",
-        "puertas": 4,
-        "precio": 25000,
-        "color": "Plata",
-        "cilindrada": 2500,
-        "stock": true,
-        "modelo": "Altima",
-        "anio": 2023,
-        "combustible": "Gasolina"
-    }},
-    {"vehiculo": {
         "marca": "FORD",
         "puertas": 4,
         "precio": 18000,
@@ -30,16 +9,6 @@
         "modelo": "Focus",
         "anio": 2019,
         "combustible": "Diésel"
-    }},
-    {"vehiculo": {
-        "marca": "SUZUKI",
-        "precio": 4200,
-        "color": "Negro",
-        "cilindrada": 248,
-        "pasajeros": 2,
-        "stock": false,
-        "modelo": "GSX250R",
-        "anio": 2019
     }},
     {"vehiculo": {
         "marca": "CHEVROLET",
@@ -53,15 +22,24 @@
         "combustible": "Gasolina"
     }},
     {"vehiculo": {
-        "marca": "TOYOTA",
-        "puertas": 4,
-        "precio": 20000,
-        "color": "Blanco",
-        "cilindrada": 1800,
+        "marca": "SUZUKI",
+        "precio": 4200,
+        "color": "Negro",
+        "cilindrada": 248,
+        "pasajeros": 2,
+        "stock": false,
+        "modelo": "GSX250R",
+        "anio": 2019
+    }},
+    {"vehiculo": {
+        "marca": "HONDA",
+        "precio": 6500,
+        "color": "Rojo",
+        "cilindrada": 471,
+        "pasajeros": 2,
         "stock": true,
-        "modelo": "Corolla",
-        "anio": 2020,
-        "combustible": "Gasolina"
+        "modelo": "CBR500R",
+        "anio": 2020
     }},
     {"vehiculo": {
         "marca": "YAMAHA",
@@ -74,6 +52,17 @@
         "anio": 2021
     }},
     {"vehiculo": {
+        "marca": "NISSAN",
+        "puertas": 4,
+        "precio": 25000,
+        "color": "Plata",
+        "cilindrada": 2500,
+        "stock": true,
+        "modelo": "Altima",
+        "anio": 2023,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
         "marca": "HONDA",
         "puertas": 4,
         "precio": 22500,
@@ -82,6 +71,17 @@
         "stock": true,
         "modelo": "Civic",
         "anio": 2022,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "TOYOTA",
+        "puertas": 4,
+        "precio": 20000,
+        "color": "Blanco",
+        "cilindrada": 1800,
+        "stock": true,
+        "modelo": "Corolla",
+        "anio": 2020,
         "combustible": "Gasolina"
     }}
 ]

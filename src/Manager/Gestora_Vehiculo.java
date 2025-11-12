@@ -18,6 +18,9 @@ public class Gestora_Vehiculo {
         return vehiculos;
     }
 
+    public void setVehiculos(Set<Vehiculo> vehiculos) {
+        this.vehiculos = vehiculos;
+    }
 
     //------------------ABMCL------------------
     //Alta, Baja, Modificación, Consulta, Listado

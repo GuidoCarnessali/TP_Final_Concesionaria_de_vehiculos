@@ -1,0 +1,77 @@
+[
+    {
+        "empleado": {
+            "puesto": "Supervisor",
+            "apellido": "Sánchez",
+            "salario": 2800,
+            "antiguedad": 15,
+            "telefono": "654-321-0987",
+            "nombre": "Pedro",
+            "edad": 45,
+            "dni": "56789012E",
+            "email": "pedro.sanchez@email.com",
+            "activo": true
+        },
+        "dni": "56789012E"
+    },
+    {
+        "empleado": {
+            "puesto": "Auxiliar",
+            "apellido": "López",
+            "salario": 1800,
+            "antiguedad": 2,
+            "telefono": "456-789-0123",
+            "nombre": "Carlos",
+            "edad": 25,
+            "dni": "34567890C",
+            "email": "carlos.lopez@email.com",
+            "activo": false
+        },
+        "dni": "34567890C"
+    },
+    {
+        "empleado": {
+            "puesto": "Desarrollador",
+            "apellido": "Pérez",
+            "salario": 2500.5,
+            "antiguedad": 5,
+            "telefono": "123-456-7890",
+            "nombre": "Juan",
+            "edad": 30,
+            "dni": "12345678A",
+            "email": "juan.perez@email.com",
+            "activo": true
+        },
+        "dni": "12345678A"
+    },
+    {
+        "empleado": {
+            "puesto": "Gerente",
+            "apellido": "Gómez",
+            "salario": 3000.75,
+            "antiguedad": 10,
+            "telefono": "987-654-3210",
+            "nombre": "Ana",
+            "edad": 40,
+            "dni": "23456789B",
+            "email": "ana.gomez@email.com",
+            "activo": true
+        },
+        "dni": "23456789B"
+    },
+    {
+        "empleado": {
+            "puesto": "Analista",
+            "apellido": "Rodríguez",
+            "salario": 3200.25,
+            "antiguedad": 7,
+            "telefono": "321-654-9870",
+            "nombre": "María",
+            "edad": 35,
+            "dni": "45678901D",
+            "email": "maria.rodriguez@email.com",
+            "activo": true
+        },
+        "dni": "45678901D"
+    }
+]

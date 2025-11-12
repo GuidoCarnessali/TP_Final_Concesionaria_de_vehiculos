@@ -1,0 +1,29 @@
+[
+    {"proveedor": {
+        "marcaQueProvee": "TOYOTA",
+        "direccion": "Av. Libertador 1234",
+        "empresa": "Autoparts S.A.",
+        "telefono": "112-233-4455",
+        "nombre": "Juan Pérez",
+        "email": "juan.perez@autoparts.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "YAMAHA",
+        "direccion": "Calle Ficticia 5678",
+        "empresa": "MotoDistribuidores",
+        "telefono": "223-344-5566",
+        "nombre": "Ana Gómez",
+        "email": "ana.gomez@motodistribuidores.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "FORD",
+        "direccion": "Av. 9 de Julio 1010",
+        "empresa": "Vehículos Globales",
+        "telefono": "334-455-6677",
+        "nombre": "Carlos López",
+        "email": "carlos.lopez@vehiculosglobales.com",
+        "activo": false
+    }}
+]

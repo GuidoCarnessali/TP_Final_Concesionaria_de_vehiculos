@@ -1,14 +1,6 @@
 import Classes.*;
 import Enums.Marca;
 import Manager.*;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -28,7 +20,7 @@ public class Main {
         Gestora_Usuario gestoraUsuario = new Gestora_Usuario();
         Gestora_Admin gestoraAdmin = new Gestora_Admin();
 
-        /*
+/*
         Empleado empleado1 = new Empleado("Juan", "Pérez", "12345678A", 2500.50, "Desarrollador", 30, 5, "juan.perez@email.com", "123-456-7890", true);
         Empleado empleado2 = new Empleado("Ana", "Gómez", "23456789B", 3000.75, "Gerente", 40, 10, "ana.gomez@email.com", "987-654-3210", true);
         Empleado empleado3 = new Empleado("Carlos", "López", "34567890C", 1800.00, "Auxiliar", 25, 2, "carlos.lopez@email.com", "456-789-0123", false);
@@ -123,50 +115,30 @@ public class Main {
         gestoraFactura.addFactura(factura5);
         gestoraFactura.showFacturas();
 
-        Camioneta miCamioneta = new Camioneta(Marca.FORD, "Ranger", 2024, "Blanco", 45000, true, 3200, 4, "Diésel", 1.8, 2.2);
-        Camión miCamion = new Camión(Marca.VOLKSWAGEN, "TGX", 2023, "Rojo", 120000, true, 10000, 2, "Diésel", 7.5, 2.5);
 
-
-        System.out.printf("\nDimension mionca: " + "%.2f", miCamion.calcularDimension());
-        System.out.printf("\nDimension chata: " + "%.2f",  miCamioneta.calcularDimension());
-
-
-
-        /*
-        OperacionLectoEscritura.writeFile("concesionaria", gestoraJSON.serializarListaVehiculos(gestoraVehiculo.getVehiculos()));
-        JSONTokener jsonTokener = OperacionLectoEscritura.readFile("concesionaria");
-        JSONArray jsonArray = new JSONArray(jsonTokener);
-        gestoraVehiculo.listaDeserializadaToVehiculos(gestoraJSON.deserializarListaVehiculos(jsonArray));
-        gestoraVehiculo.showVehiculos();
-
-
-
-
-        OperacionLectoEscritura.writeFile("concesionaria", gestoraJSON.serializarListaEmpleados(gestoraEmpleado.getEmpleados()));
-        OperacionLectoEscritura.writeFile("concesionaria", gestoraJSON.serializarListaEmpleados(gestoraEmpleado.getEmpleadosInactivos()));
-        JSONTokener jsonTokenerEp = OperacionLectoEscritura.readFile("concesionaria");
-        JSONArray jsonArray1 = new JSONArray(jsonTokenerEp);
-
-        gestoraEmpleado.listaDeserializadaToEmpleados(gestoraJSON.deserializarListaEmpleados(jsonArray1));
-        gestoraEmpleado.listaDeserializadaToEmpleadosInactivos(gestoraJSON.deserializarListaEmpleadosInactivos(jsonArray1));
-        System.out.println();
-        gestoraEmpleado.showEmpleadosInactivos();
-
-
-
-
-        gestoraVehiculo.buyVehicle(cliente1, auto1, empleado1, gestoraFactura);
-        gestoraFactura.showFacturas();
-          */
-
+/*
         Menu menu = new Menu();
         Usuario usuario = new Usuario("Manuel", "Einstein2194");
         gestoraUsuario.addUsuario(usuario);
         Admin admin = new Admin("Guido", "Soler3020");
         gestoraAdmin.addAdmin(admin);
         menu.iniciarSistema(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraJSON, gestoraProveedor, gestoraAdmin);
+
         //Hay que hacer lo de serializar usuarios y admins y deserializar
 
+        //gestoraJSON.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+            gestoraJSON.archivoToConcesionaria(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
+            gestoraFactura.showFacturas();
+            gestoraVehiculo.showVehiculos();
+            gestoraCliente.showClientes();
+            gestoraEmpleado.showEmpleados();
+            gestoraProveedor.showProveedores();
+
+ */
+
+        Menu menu = new Menu();
+        menu.iniciarSistema(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraJSON, gestoraProveedor, gestoraAdmin);
 
     }
 

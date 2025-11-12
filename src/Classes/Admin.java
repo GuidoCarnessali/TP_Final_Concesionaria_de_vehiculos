@@ -1,4 +1,4 @@
-package Manager;
+package Classes;
 
 import java.util.Objects;
 
@@ -10,6 +10,9 @@ public class Admin {
     public Admin(String nombreAdmin, String contrasenia) {
         this.nombreAdmin = nombreAdmin;
         this.contrasenia = contrasenia;
+    }
+
+    public Admin() {
     }
 
     public String getNombreAdmin() {

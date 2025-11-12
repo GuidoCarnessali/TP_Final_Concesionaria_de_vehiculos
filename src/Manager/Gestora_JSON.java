@@ -5,11 +5,21 @@ import Enums.Marca;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
 public class Gestora_JSON {
+
+    private final static String usuariosJSON = "usuarios.json";
+    private final static String adminsJSON = "admins.json";
+    private final static String vehiculosJSON = "vehiculos.json";
+    private final static String clientesJSON = "clientes.json";
+    private final static String empleadosJSON = "empleados.json";
+    private final static String facturasJSON = "facturas.json";
+    private final static String proveedoresJSON = "proveedores.json";
+
 
     public JSONObject serializarAuto(Auto a){
 
@@ -35,7 +45,6 @@ public class Gestora_JSON {
 
         return jsonObject;
     }
-
 
     public JSONObject serializarCamioneta (Camioneta a){
         JSONObject jsonObject = null;
@@ -110,7 +119,6 @@ public class Gestora_JSON {
 
         return jsonObject;
     }
-
 
     public JSONObject serializarCliente (Cliente c){
         JSONObject jsonObject = null;
@@ -192,7 +200,6 @@ public class Gestora_JSON {
         return jsonObject;
     }
 
-
     public JSONObject serializarProveedor(Proveedor p){
         JSONObject jsonObject = null;
         try{
@@ -211,8 +218,6 @@ public class Gestora_JSON {
     }
 
 
-    //
-     //
      //Deserialización
 
     public Auto deserializarAuto(JSONObject jsonObject) {
@@ -367,6 +372,7 @@ public class Gestora_JSON {
     }
 
     public Proveedor deserializarProveedor(JSONObject jsonObject) {
+
         Proveedor p = new Proveedor();
 
         try {
@@ -389,21 +395,27 @@ public class Gestora_JSON {
      // Serializar Listas
     //listas: (clientes, empleados(activos e inactivos), facturas, proveedores y vehiculos)
 
+    public JSONArray serializarListaClientes(HashMap<String, Cliente> clientes)
+    {
+            JSONArray jsonArray = null;
 
-        public JSONArray serializarListaClientes(HashMap<String, Cliente> clientes)
-        {
-            JSONArray jsonArray = new JSONArray();
+            try{
+                jsonArray = new JSONArray();
 
-            for (Map.Entry<String, Cliente> entry : clientes.entrySet()) {
+                for (Map.Entry<String, Cliente> entry : clientes.entrySet()) {
 
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("dni", entry.getKey());
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("dni", entry.getKey());
 
-                Cliente cliente = entry.getValue();
-                JSONObject clienteJson = serializarCliente(cliente);
+                    Cliente cliente = entry.getValue();
+                    JSONObject clienteJson = serializarCliente(cliente);
 
-                jsonObject.put("cliente", clienteJson);
-                jsonArray.put(jsonObject);
+                    jsonObject.put("cliente", clienteJson);
+                    jsonArray.put(jsonObject);
+                }
+            }catch (JSONException e)
+            {
+                e.printStackTrace();
             }
 
             return jsonArray;
@@ -411,82 +423,111 @@ public class Gestora_JSON {
 
     public JSONArray serializarListaEmpleados(Map<String, Empleado> empleados)
     {
-        JSONArray jsonArray = new JSONArray();
+        JSONArray jsonArray = null;
 
-        for (Map.Entry<String, Empleado> entry : empleados.entrySet()) {
+        try{
+            jsonArray = new JSONArray();
 
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("dni", entry.getKey());
+            for (Map.Entry<String, Empleado> entry : empleados.entrySet()) {
 
-            Empleado empleado = entry.getValue();
-            JSONObject empleadoJson = serializarEmpleado(empleado);
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("dni", entry.getKey());
 
-            jsonObject.put("empleado", empleadoJson);
-            jsonArray.put(jsonObject);
+                Empleado empleado = entry.getValue();
+                JSONObject empleadoJson = serializarEmpleado(empleado);
+
+                jsonObject.put("empleado", empleadoJson);
+                jsonArray.put(jsonObject);
+            }
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
         }
+
         return jsonArray;
     }
 
-
     public JSONArray serializarListaFacturas(Map<Integer, Factura> facturas) {
 
-        JSONArray jsonArray = new JSONArray();
+        JSONArray jsonArray = null;
 
-        for (Map.Entry<Integer, Factura> entry : facturas.entrySet()) {
+        try{
+            jsonArray = new JSONArray();
 
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("numeroFactura", entry.getKey());
+            for (Map.Entry<Integer, Factura> entry : facturas.entrySet()) {
 
-            Factura factura = entry.getValue();
-            JSONObject facturaJson = serializarFactura(factura);
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("numeroFactura", entry.getKey());
 
-            jsonObject.put("factura", facturaJson);
-            jsonArray.put(jsonObject);
+                Factura factura = entry.getValue();
+                JSONObject facturaJson = serializarFactura(factura);
+
+                jsonObject.put("factura", facturaJson);
+                jsonArray.put(jsonObject);
+            }
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
         }
+
         return jsonArray;
     }
 
     public JSONArray serializarListaProveedores(List<Proveedor> proveedores) {
 
-        JSONArray jsonArray = new JSONArray();
+        JSONArray jsonArray = null;
 
-        for (Proveedor proveedor : proveedores) {
+        try{
+            jsonArray = new JSONArray();
 
-            JSONObject jsonObject = new JSONObject();
-            JSONObject proveedorJson = serializarProveedor(proveedor);
-            jsonObject.put("proveedor", proveedorJson);
-            jsonArray.put(jsonObject);
+            for (Proveedor proveedor : proveedores) {
+
+                JSONObject jsonObject = new JSONObject();
+                JSONObject proveedorJson = serializarProveedor(proveedor);
+                jsonObject.put("proveedor", proveedorJson);
+                jsonArray.put(jsonObject);
+            }
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
         }
+
+
         return jsonArray;
     }
-
 
     public JSONArray serializarListaVehiculos(Set<Vehiculo> vehiculos) {
 
-        JSONArray jsonArray = new JSONArray();
+        JSONArray jsonArray = null;
 
-        for (Vehiculo vehiculo : vehiculos) {
+        try{
+            jsonArray = new JSONArray();
 
-            JSONObject jsonObject = new JSONObject();
+            for (Vehiculo vehiculo : vehiculos) {
 
-            if (vehiculo instanceof Auto) {
-                jsonObject.put("vehiculo", serializarAuto((Auto) vehiculo));
-            } else if (vehiculo instanceof Camioneta) {
-                jsonObject.put("vehiculo", serializarCamioneta((Camioneta) vehiculo));
-            } else if (vehiculo instanceof Camión) {
-                jsonObject.put("vehiculo", serializarCamion((Camión) vehiculo));
-            } else if (vehiculo instanceof Moto) {
-                jsonObject.put("vehiculo", serializarMoto((Moto) vehiculo));
+                JSONObject jsonObject = new JSONObject();
+
+                if (vehiculo instanceof Auto) {
+                    jsonObject.put("vehiculo", serializarAuto((Auto) vehiculo));
+                } else if (vehiculo instanceof Camioneta) {
+                    jsonObject.put("vehiculo", serializarCamioneta((Camioneta) vehiculo));
+                } else if (vehiculo instanceof Camión) {
+                    jsonObject.put("vehiculo", serializarCamion((Camión) vehiculo));
+                } else if (vehiculo instanceof Moto) {
+                    jsonObject.put("vehiculo", serializarMoto((Moto) vehiculo));
+                }
+
+                jsonArray.put(jsonObject);
             }
-
-            jsonArray.put(jsonObject);
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
         }
+
         return jsonArray;
     }
 
 
-    //
-     //
      //Deserialización de listas
 
     public HashMap<String, Cliente> deserializarListaClientes(JSONArray jsonArray) {
@@ -509,9 +550,9 @@ public class Gestora_JSON {
         return clientes;
     }
 
-    public Map<String, Empleado> deserializarListaEmpleados(JSONArray jsonArray) {
+    public HashMap<String, Empleado> deserializarListaEmpleados(JSONArray jsonArray) {
 
-        Map<String, Empleado> empleados = new HashMap<>();
+        HashMap<String, Empleado> empleados = new HashMap<>();
 
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -528,10 +569,9 @@ public class Gestora_JSON {
         return empleados;
     }
 
+    public HashMap<Integer, Factura> deserializarListaFacturas(JSONArray jsonArray) {
 
-    public Map<Integer, Factura> deserializarListaFacturas(JSONArray jsonArray) {
-
-        Map<Integer, Factura> facturas = new HashMap<>();
+        HashMap<Integer, Factura> facturas = new HashMap<>();
 
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -566,11 +606,9 @@ public class Gestora_JSON {
         return proveedores;
     }
 
+    public HashSet<Vehiculo> deserializarListaVehiculos(JSONArray jsonArray) {
 
-
-    public Set<Vehiculo> deserializarListaVehiculos(JSONArray jsonArray) {
-
-        Set<Vehiculo> vehiculos = new HashSet<>();
+        HashSet<Vehiculo> vehiculos = new HashSet<>();
 
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -594,12 +632,197 @@ public class Gestora_JSON {
         return vehiculos;
     }
 
+    public JSONObject serializarUsuario (Usuario u){
+        JSONObject jsonObject = null;
+
+        try{
+
+            jsonObject = new JSONObject();
+            jsonObject.put("nombreUsuario", u.getNombreUsuario());
+            jsonObject.put("contrasenia", u.getContrasenia());
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        return jsonObject;
+    }
+
+    public JSONObject serializarAdmin (Admin a){
+        JSONObject jsonObject = null;
+
+        try{
+
+            jsonObject = new JSONObject();
+            jsonObject.put("nombreAdmin", a.getNombreAdmin());
+            jsonObject.put("contrasenia", a.getContrasenia());
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        return jsonObject;
+    }
+
+    public JSONArray serializarListaUsuarios (HashSet<Usuario> usuarios)
+    {
+        JSONArray jsonArray = null;
+
+        try{
+
+            jsonArray = new JSONArray();
+
+            for (Usuario u : usuarios)
+            {
+                jsonArray.put(serializarUsuario(u));
+            }
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        return jsonArray;
+    }
+
+    public JSONArray serializarListaAdmins (HashSet<Admin> admins)
+    {
+        JSONArray jsonArray = null;
+
+        try{
+
+            jsonArray = new JSONArray();
+
+            for (Admin a : admins)
+            {
+                jsonArray.put(serializarAdmin(a));
+            }
+
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        return jsonArray;
+    }
+
+    public Usuario deserializarUsuario (JSONObject jsonObject)
+    {
+        Usuario u = new Usuario();
+
+        try{
+
+            u.setNombreUsuario(jsonObject.getString("nombreUsuario"));
+            u.setContrasenia(jsonObject.getString("contrasenia"));
+
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        return u;
+    }
+
+    public Admin deserializarAdmin(JSONObject jsonObject)
+    {
+        Admin a = new Admin();
+
+        try{
+
+            a.setNombreAdmin(jsonObject.getString("nombreAdmin"));
+            a.setContrasenia(jsonObject.getString("contrasenia"));
+
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        return a;
+    }
+
+    public HashSet<Usuario> deserializarListaUsuarios (JSONArray jsonArray)
+    {
+        HashSet<Usuario> listaUsuarios = new HashSet<>();
+
+        try{
+
+            for(int i=0; i<jsonArray.length(); i++)
+            {
+                Usuario u = deserializarUsuario(jsonArray.getJSONObject(i));
+                listaUsuarios.add(u);
+            }
+
+
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        return listaUsuarios;
+    }
+
+    public HashSet<Admin> deserializarListaAdmins (JSONArray jsonArray)
+    {
+        HashSet<Admin> listaAdmins = new HashSet<>();
+
+        try{
+
+            for(int i=0; i<jsonArray.length(); i++)
+            {
+                Admin a = deserializarAdmin(jsonArray.getJSONObject(i));
+                listaAdmins.add(a);
+            }
+
+
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        return listaAdmins;
+    }
+
+    public void concesionariaToArchivo (Gestora_Usuario gestoraUsuario, Gestora_Factura gestoraFactura, Gestora_Vehiculo gestoraVehiculo, Gestora_Cliente gestoraCliente, Gestora_Empleado gestoraEmpleado, Gestora_Proveedor gestoraProveedor, Gestora_Admin gestoraAdmin)
+    {
+        OperacionLectoEscritura.writeFile(usuariosJSON, serializarListaUsuarios(gestoraUsuario.getListaUsuarios()));
+        OperacionLectoEscritura.writeFile(adminsJSON, serializarListaAdmins(gestoraAdmin.getListaDeAdmins()));
+        OperacionLectoEscritura.writeFile(vehiculosJSON, serializarListaVehiculos(gestoraVehiculo.getVehiculos()));
+        OperacionLectoEscritura.writeFile(clientesJSON, serializarListaClientes(gestoraCliente.getClientes()));
+        OperacionLectoEscritura.writeFile(empleadosJSON, serializarListaEmpleados(gestoraEmpleado.getEmpleados()));
+        OperacionLectoEscritura.writeFile(facturasJSON, serializarListaFacturas(gestoraFactura.getFacturas()));
+        OperacionLectoEscritura.writeFile(proveedoresJSON, serializarListaProveedores(gestoraProveedor.getProveedores()));
+
+
+    }
+
+
+    public void archivoToConcesionaria (Gestora_Usuario gestoraUsuario, Gestora_Factura gestoraFactura, Gestora_Vehiculo gestoraVehiculo, Gestora_Cliente gestoraCliente, Gestora_Empleado gestoraEmpleado, Gestora_Proveedor gestoraProveedor, Gestora_Admin gestoraAdmin)
+    {
+        JSONTokener jsonTokener1 = OperacionLectoEscritura.readFile(usuariosJSON);
+        JSONTokener jsonTokener2 = OperacionLectoEscritura.readFile(adminsJSON);
+        JSONTokener jsonTokener3 = OperacionLectoEscritura.readFile(vehiculosJSON);
+        JSONTokener jsonTokener4 = OperacionLectoEscritura.readFile(clientesJSON);
+        JSONTokener jsonTokener5 = OperacionLectoEscritura.readFile(empleadosJSON);
+        JSONTokener jsonTokener6 = OperacionLectoEscritura.readFile(facturasJSON);
+        JSONTokener jsonTokener7 = OperacionLectoEscritura.readFile(proveedoresJSON);
+
+        try{
+
+            gestoraUsuario.setListaUsuarios(deserializarListaUsuarios(new JSONArray(jsonTokener1)));
+            gestoraAdmin.setListaDeAdmins(deserializarListaAdmins(new JSONArray(jsonTokener2)));
+            gestoraVehiculo.setVehiculos(deserializarListaVehiculos(new JSONArray(jsonTokener3)));
+            gestoraCliente.setClientes(deserializarListaClientes(new JSONArray(jsonTokener4)));
+            gestoraEmpleado.setEmpleados(deserializarListaEmpleados(new JSONArray(jsonTokener5)));
+            gestoraFactura.setFacturas(deserializarListaFacturas(new JSONArray(jsonTokener6)));
+            gestoraProveedor.setProveedores(deserializarListaProveedores(new JSONArray(jsonTokener7)));
+
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
 
 
 
-
-
-
+    }
 }
 
 

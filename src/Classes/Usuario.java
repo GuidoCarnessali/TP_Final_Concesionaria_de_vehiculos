@@ -1,4 +1,4 @@
-package Manager;
+package Classes;
 
 import java.util.Objects;
 

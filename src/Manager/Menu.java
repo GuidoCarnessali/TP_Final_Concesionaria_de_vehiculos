@@ -1,13 +1,15 @@
 package Manager;
 
+import org.json.JSONTokener;
+
 import java.util.Scanner;
 
 public class Menu {
 
-    private boolean adminStatus = false;
-
     public void iniciarSistema (Gestora_Usuario gestoraUsuario, Gestora_Factura gestoraFactura, Gestora_Vehiculo gestoraVehiculo, Gestora_Cliente gestoraCliente, Gestora_Empleado gestoraEmpleado, Gestora_JSON gestoraJson, Gestora_Proveedor gestoraProveedor, Gestora_Admin gestoraAdmin)
     {
+        gestoraJson.archivoToConcesionaria(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
         int opcion = -1;
         boolean salir = false;
         Scanner scan = new Scanner(System.in);
@@ -99,7 +101,9 @@ public class Menu {
 
                     if(verificarSalida == 1)
                     {
+                        gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
                         salir = true;
+
                     }
 
                     break;
@@ -113,10 +117,47 @@ public class Menu {
 
             }
         }
-
     }
 
+    public void desplegarMenuUsuario (Gestora_Usuario gestoraUsuario, Gestora_Factura gestoraFactura, Gestora_Vehiculo gestoraVehiculo, Gestora_Cliente gestoraCliente, Gestora_Empleado gestoraEmpleado, Gestora_JSON gestoraJson, Gestora_Proveedor gestoraProveedor){
 
+
+
+        int opcion = -1;
+        boolean salir = false;
+        Scanner scan = new Scanner(System.in);
+
+        while (!salir)
+        {
+            System.out.printf("1. Ver vehiculos. ");
+            System.out.printf("\n2. Comprar vehiculo. ");
+            System.out.println("3. Ver mi facturas. ");
+            System.out.println("4. Probar auto. ");
+
+            switch (opcion)
+            {
+                case 1:
+
+
+
+                    break;
+
+                case 2:
+
+
+
+                    break;
+            }
+
+
+        }
+
+
+
+
+
+
+    }
 
 
 

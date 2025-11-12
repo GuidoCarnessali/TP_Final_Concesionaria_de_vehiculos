@@ -21,6 +21,10 @@ public class Gestora_Empleado {
         return empleados;
     }
 
+    public void setEmpleados(Map<String, Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
     //------------------ABMCL------------------
     //Alta, Baja, Modificación, Consulta, Listado
     //Empleado

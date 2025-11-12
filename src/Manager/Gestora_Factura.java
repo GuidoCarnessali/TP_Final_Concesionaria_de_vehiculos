@@ -23,6 +23,9 @@ public class Gestora_Factura {
         return facturas;
     }
 
+    public void setFacturas(Map<Integer, Factura> facturas) {
+        this.facturas = facturas;
+    }
 
     //ABMCL
     //Alta, Baja, Modificación, Consulta y Listado

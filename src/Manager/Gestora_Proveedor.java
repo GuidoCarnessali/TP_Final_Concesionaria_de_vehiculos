@@ -21,6 +21,9 @@ public class Gestora_Proveedor {
         return proveedores;
     }
 
+    public void setProveedores(List<Proveedor> proveedores) {
+        this.proveedores = proveedores;
+    }
 
     //------------------ABMCL------------------
     //Alta, Baja, Modificación, Consulta, Listado

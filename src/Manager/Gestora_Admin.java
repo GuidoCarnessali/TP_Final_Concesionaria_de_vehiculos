@@ -1,14 +1,24 @@
 package Manager;
 
+import Classes.Admin;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Gestora_Admin {
 
-    private Set<Admin> listaDeAdmins;
+    private HashSet<Admin> listaDeAdmins;
 
     public Gestora_Admin() {
         this.listaDeAdmins = new HashSet<>();
+    }
+
+    public HashSet<Admin> getListaDeAdmins() {
+        return listaDeAdmins;
+    }
+
+    public void setListaDeAdmins(HashSet<Admin> listaDeAdmins) {
+        this.listaDeAdmins = listaDeAdmins;
     }
 
     public boolean login(String nombreUsuario, String contrasenia) throws IncorrectUserNameOrPasswordException

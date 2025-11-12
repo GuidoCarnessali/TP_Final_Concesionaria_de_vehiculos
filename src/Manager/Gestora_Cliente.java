@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class Gestora_Cliente {
 
-    private Map<String, Cliente> clientes;
+    private HashMap<String, Cliente> clientes;
 
     //Constructor
     public Gestora_Cliente() {
@@ -19,8 +19,12 @@ public class Gestora_Cliente {
     }
 
     //Getters
-    public Map<String, Cliente> getClientes() {
+    public HashMap<String, Cliente> getClientes() {
         return clientes;
+    }
+
+    public void setClientes(HashMap<String, Cliente> clientes) {
+        this.clientes = clientes;
     }
 
     //------------------ABMCL------------------
