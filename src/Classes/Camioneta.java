@@ -65,6 +65,16 @@ public class Camioneta extends Vehiculo implements iVehiculoDeCarga {
     }
 
     @Override
+    public String toString() {
+        return super.toString() +
+                "Cilindrada: " + cilindrada + "\n" +
+                "Puertas: " + puertas + "\n" +
+                "Combustible: " + combustible + "\n" +
+                "Ancho de la caja: " + anchoCaja + "\n" +
+                "Largo de la caja: " + largoCaja;
+    }
+
+    @Override
     public String encender() {
         return "Encendiendo la camioneta.";
     }

@@ -68,6 +68,16 @@ public class Camión extends Vehiculo implements iVehiculoDeCarga {
         this.anchoChasis = anchoChasis;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Cilindrada: =" + cilindrada + "\n" +
+                "Puertas: " + puertas + "\n" +
+                "Combustible: " + combustible + '\'' +
+                "Largo del chasis: " + largoChasis + "\n" +
+                "Ancho del chasis: " + anchoChasis;
+    }
+
     //Métodos
     @Override
     public String encender() {

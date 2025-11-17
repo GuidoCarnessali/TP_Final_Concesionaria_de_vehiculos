@@ -275,6 +275,8 @@ public class Menu {
                         case 2:
                             gestoraUsuario.crearUsuario();
                             break;
+                        default:
+                            System.out.println("Opcion invalida");
                     }
 
 
@@ -293,6 +295,9 @@ public class Menu {
                         case 2:
                             gestoraAdmin.crearAdmin();
                             break;
+
+                        default:
+                            System.out.println("Opcion invalida");
                     }
 
 
@@ -325,6 +330,8 @@ public class Menu {
                             System.out.println(gestoraCliente.searchCliente(dni2));
 
                             break;
+                        default:
+                            System.out.println("Opcion invalida");
                     }
 
 
@@ -370,6 +377,8 @@ public class Menu {
                             String dnib = scan.nextLine();
                             gestoraEmpleado.modifyEmpleado(dnib);
                             break;
+                        default:
+                            System.out.println("Opcion invalida");
                     }
                     break;
 
@@ -392,6 +401,9 @@ public class Menu {
                             scan.nextLine();
                             System.out.println(gestoraFactura.searchFactura(numfactura));
                             break;
+                        default:
+                            System.out.println("Opcion invalida");
+
                     }
 
                     break;
@@ -438,6 +450,8 @@ public class Menu {
                             String nombreAeliminar = scan.nextLine();
                             gestoraProveedor.removeProveedor(nombreAeliminar);
                             break;
+                        default:
+                            System.out.println("Opcion invalida");
                     }
 
 
@@ -447,6 +461,53 @@ public class Menu {
                     break;
 
                 case 7: //vehiculos
+
+                    int opcion7 = -1;
+                    System.out.println(" 1. Ver vehiculos. ");
+                    System.out.println("2. Ver vehiculos en stock. ");
+                    System.out.println("3. Ver vehiculos fuera de stock ");
+                    System.out.println("4. Crear vehiculo. ");
+                    System.out.println("5. Modificar vehiculo. ");
+                    System.out.println("6. Buscar vehiculo. ");
+                    System.out.println("7. Eliminar vehiculo. ");
+                    opcion7 = scan.nextInt();
+                    scan.nextLine();
+
+                    switch (opcion7){
+
+                        case 1:
+
+                            gestoraVehiculo.showVehiculos();
+
+                            break;
+                        case 2:
+
+                            gestoraVehiculo.showVehiculosActivos();
+
+                            break;
+                        case 3:
+
+                            gestoraVehiculo.showVehiculosInactivos();
+
+                            break;
+                        case 4:
+                            gestoraVehiculo.createVehiculo();
+                            break;
+                        case 5:
+                            System.out.println("Ingrese el nombre del modelo a modificar: ");
+                            String modeloviejo = scan.nextLine();
+
+                            gestoraVehiculo.modifyVehiculo(modeloviejo);
+                            break;
+
+
+
+                        default:
+                            System.out.println("Opcion invalida.");
+                    }
+
+
+
                     break;
 
                 case 8:

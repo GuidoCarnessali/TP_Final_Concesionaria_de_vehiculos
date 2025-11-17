@@ -4,6 +4,7 @@ import Classes.*;
 import Enums.Marca;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Gestora_Vehiculo {
@@ -59,18 +60,170 @@ public class Gestora_Vehiculo {
         return false;
     }
 
-    public void modifyVehiculo(Vehiculo v, Marca marca, String modelo, int anio, String color, double precio, boolean enStock)
+
+    public void modifyVehiculo(String modeloViejo)
     {
-        if(v != null && vehiculos.contains(v)) //Si el vehículo no es nulo y está en la lista de vehículos en stock lo modifico
-        {
-            v.setMarca(marca);
-            v.setModelo(modelo);
-            v.setAnio(anio);
-            v.setColor(color);
-            v.setPrecio(precio);
-            v.setEnStock(enStock);
+        Scanner scan = new Scanner(System.in);
+        Vehiculo viejo = null;
+
+        for (Vehiculo v : vehiculos) {
+            if (v.getModelo().equalsIgnoreCase(modeloViejo)) {
+                viejo = v;
+                break;
+            }
         }
+
+        if (viejo == null) {
+            System.err.println("No existe ningún vehículo con ese modelo.");
+            return;
+        }
+
+
+        System.out.println("Seleccione el tipo de vehículo:");
+        System.out.println("1. Auto");
+        System.out.println("2. Camioneta");
+        System.out.println("3. Camión");
+        System.out.println("4. Moto");
+
+        int opcionTipo = scan.nextInt();
+        scan.nextLine();
+
+        Vehiculo nuevo = null;
+
+        switch (opcionTipo) {
+            case 1:
+                nuevo = new Auto();
+                break;
+            case 2:
+                nuevo = new Camioneta();
+                break;
+            case 3:
+                nuevo = new Camión();
+                break;
+            case 4:
+                nuevo = new Moto();
+                break;
+            default:
+                System.out.println("Tipo inválido.");
+                return;
+        }
+
+        vehiculos.remove(viejo);
+
+
+        Marca[] marcas = Marca.values();
+        System.out.println("Seleccione la marca del vehículo:");
+
+        for (int i = 0; i < marcas.length; i++) {
+            System.out.println((i + 1) + ". " + marcas[i]);
+        }
+
+        Marca marcaSeleccionada = null;
+        while (marcaSeleccionada == null) {
+            System.out.print("Ingrese número de marca: ");
+            int op = scan.nextInt();
+            scan.nextLine();
+
+            if (op >= 1 && op <= marcas.length) {
+                marcaSeleccionada = marcas[op - 1];
+            } else {
+                System.out.println("Número inválido, intente nuevamente.");
+            }
+        }
+
+        nuevo.setMarca(marcaSeleccionada);
+
+
+
+        System.out.println("Ingrese el modelo: ");
+        nuevo.setModelo(scan.nextLine());
+
+        System.out.println("Ingrese el año: ");
+        nuevo.setAnio(scan.nextInt());
+        scan.nextLine();
+
+        System.out.println("Ingrese el color: ");
+        nuevo.setColor(scan.nextLine());
+
+        System.out.println("Ingrese el precio: ");
+        nuevo.setPrecio(scan.nextDouble());
+        scan.nextLine();
+
+        System.out.println("¿Está en stock? (true/false): ");
+        nuevo.setEnStock(scan.nextBoolean());
+        scan.nextLine();
+
+
+
+        if (nuevo instanceof Auto auto) {
+            System.out.println("Ingrese cilindrada: ");
+            auto.setCilindrada(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese cantidad de puertas: ");
+            auto.setPuertas(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese combustible: ");
+            auto.setCombustible(scan.nextLine());
+        }
+
+        else if (nuevo instanceof Camioneta cam) {
+            System.out.println("Ingrese cilindrada: ");
+            cam.setCilindrada(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese cantidad de puertas: ");
+            cam.setPuertas(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese combustible: ");
+            cam.setCombustible(scan.nextLine());
+
+            System.out.println("Ingrese ancho de la caja: ");
+            cam.setAnchoCaja(scan.nextDouble());
+
+            System.out.println("Ingrese largo de la caja: ");
+            cam.setLargoCaja(scan.nextDouble());
+            scan.nextLine();
+        }
+
+        else if (nuevo instanceof Camión cami) {
+            System.out.println("Ingrese cilindrada: ");
+            cami.setCilindrada(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese cantidad de puertas: ");
+            cami.setPuertas(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese combustible: ");
+            cami.setCombustible(scan.nextLine());
+
+            System.out.println("Ingrese largo del chasis: ");
+            cami.setLargoChasis(scan.nextDouble());
+
+            System.out.println("Ingrese ancho del chasis: ");
+            cami.setAnchoChasis(scan.nextDouble());
+            scan.nextLine();
+        }
+
+        else if (nuevo instanceof Moto moto) {
+            System.out.println("Ingrese cilindrada: ");
+            moto.setCilindrada(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese capacidad de pasajeros: ");
+            moto.setCapacidadPasajeros(scan.nextInt());
+            scan.nextLine();
+        }
+
+        vehiculos.add(nuevo);
+
+        System.out.println("Vehículo modificado correctamente.");
     }
+
+
 
     public Vehiculo searchVehiculo(Vehiculo v)
     {
@@ -101,6 +254,21 @@ public class Gestora_Vehiculo {
             }
 
         }
+
+        for (Vehiculo v : vehiculos){
+            if(v instanceof Camión){
+                System.out.println("--------------------");
+                System.out.println(v.toString());
+            }
+        }
+
+        for (Vehiculo v : vehiculos){
+            if(v instanceof Camioneta){
+                System.out.println("--------------------");
+                System.out.println(v.toString());
+            }
+        }
+
     }
 
         public int contarStock (String modelo)
@@ -181,4 +349,151 @@ public class Gestora_Vehiculo {
     }
 
 
+    public void createVehiculo()
+    {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Seleccione el tipo de vehículo a crear:");
+        System.out.println("1. Auto");
+        System.out.println("2. Camioneta");
+        System.out.println("3. Camión");
+        System.out.println("4. Moto");
+
+        int opcionTipo = scan.nextInt();
+        scan.nextLine();
+
+        Vehiculo nuevo = null;
+
+        switch (opcionTipo) {
+            case 1:
+                nuevo = new Auto();
+                break;
+            case 2:
+                nuevo = new Camioneta();
+                break;
+            case 3:
+                nuevo = new Camión();
+                break;
+            case 4:
+                nuevo = new Moto();
+                break;
+            default:
+                System.out.println("Tipo inválido.");
+                return;
+        }
+
+
+        Marca[] marcas = Marca.values();
+        System.out.println("Seleccione la marca del vehículo:");
+
+        for (int i = 0; i < marcas.length; i++) {
+            System.out.println((i + 1) + ". " + marcas[i]);
+        }
+
+        Marca marcaSeleccionada = null;
+        while (marcaSeleccionada == null) {
+            System.out.print("Ingrese número de marca: ");
+            int op = scan.nextInt();
+            scan.nextLine();
+
+            if (op >= 1 && op <= marcas.length) {
+                marcaSeleccionada = marcas[op - 1];
+            } else {
+                System.out.println("Número inválido, intente nuevamente.");
+            }
+        }
+
+        nuevo.setMarca(marcaSeleccionada);
+
+        System.out.println("Ingrese el modelo: ");
+        nuevo.setModelo(scan.nextLine());
+
+        System.out.println("Ingrese el año: ");
+        nuevo.setAnio(scan.nextInt());
+        scan.nextLine();
+
+        System.out.println("Ingrese el color: ");
+        nuevo.setColor(scan.nextLine());
+
+        System.out.println("Ingrese el precio: ");
+        nuevo.setPrecio(scan.nextDouble());
+        scan.nextLine();
+
+        nuevo.setEnStock(true);
+
+
+
+        if (nuevo instanceof Auto auto) {
+            System.out.println("Ingrese cilindrada: ");
+            auto.setCilindrada(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese cantidad de puertas: ");
+            auto.setPuertas(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese combustible: ");
+            auto.setCombustible(scan.nextLine());
+        }
+
+        else if (nuevo instanceof Camioneta cam) {
+            System.out.println("Ingrese cilindrada: ");
+            cam.setCilindrada(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese cantidad de puertas: ");
+            cam.setPuertas(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese combustible: ");
+            cam.setCombustible(scan.nextLine());
+
+            System.out.println("Ingrese ancho de la caja: ");
+            cam.setAnchoCaja(scan.nextDouble());
+
+            System.out.println("Ingrese largo de la caja: ");
+            cam.setLargoCaja(scan.nextDouble());
+            scan.nextLine();
+        }
+
+        else if (nuevo instanceof Camión cami) {
+            System.out.println("Ingrese cilindrada: ");
+            cami.setCilindrada(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese cantidad de puertas: ");
+            cami.setPuertas(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese combustible: ");
+            cami.setCombustible(scan.nextLine());
+
+            System.out.println("Ingrese largo del chasis: ");
+            cami.setLargoChasis(scan.nextDouble());
+
+            System.out.println("Ingrese ancho del chasis: ");
+            cami.setAnchoChasis(scan.nextDouble());
+            scan.nextLine();
+        }
+
+        else if (nuevo instanceof Moto moto) {
+            System.out.println("Ingrese cilindrada: ");
+            moto.setCilindrada(scan.nextInt());
+            scan.nextLine();
+
+            System.out.println("Ingrese capacidad de pasajeros: ");
+            moto.setCapacidadPasajeros(scan.nextInt());
+            scan.nextLine();
+        }
+
+
+        vehiculos.add(nuevo);
+
+        System.out.println("Vehículo creado exitosamente.");
+
+    }
+
+
+
 }
+
