@@ -32,6 +32,12 @@ public class Usuario {
     }
 
     @Override
+    public String toString() {
+        return "Nombre de usuario: " + nombreUsuario + "\n" +
+                "Contrasenia: " + contrasenia;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof Usuario usuario)) return false;
         return Objects.equals(nombreUsuario, usuario.nombreUsuario);

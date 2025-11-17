@@ -1,8 +1,11 @@
 package Manager;
 
 import Classes.Usuario;
+import Manager.Exceptions.IncorrectUserNameOrPasswordException;
+import Manager.Exceptions.UserAlreadyExistsException;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Gestora_Usuario
@@ -43,7 +46,7 @@ public class Gestora_Usuario
         throw new IncorrectUserNameOrPasswordException("");
     }
 
-    public boolean signUp (String name, String password)throws UserAlreadyExistsException{
+    public boolean signUp (String name, String password)throws UserAlreadyExistsException {
 
         for (Usuario aux : listaUsuarios){
 
@@ -59,9 +62,31 @@ public class Gestora_Usuario
         return true;
     }
 
+
+
     public void addUsuario (Usuario u)
     {
         listaUsuarios.add(u);
+    }
+
+    public void crearUsuario ()
+    {
+        Scanner scan = new Scanner(System.in);
+        Usuario u = new Usuario();
+        System.out.println("Ingrese un nombre: ");
+        u.setNombreUsuario(scan.nextLine());
+        System.out.println("Ingrese una contrasenia: ");
+        u.setContrasenia(scan.nextLine());
+        listaUsuarios.add(u);
+
+    }
+
+    public void showUsuarios ()
+    {
+        for (Usuario u : listaUsuarios)
+        {
+            System.out.println(u.toString());
+        }
     }
 
 

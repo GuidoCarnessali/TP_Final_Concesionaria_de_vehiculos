@@ -1,4 +1,4 @@
-package Manager;
+package Manager.Exceptions;
 
 public class IncorrectUserNameOrPasswordException extends Exception {
     public IncorrectUserNameOrPasswordException(String message) {

@@ -1,8 +1,12 @@
 package Manager;
 
 import Classes.Admin;
+import Classes.Usuario;
+import Manager.Exceptions.IncorrectUserNameOrPasswordException;
+import Manager.Exceptions.UserAlreadyExistsException;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Gestora_Admin {
@@ -43,7 +47,7 @@ public class Gestora_Admin {
         throw new IncorrectUserNameOrPasswordException("");
     }
 
-    public boolean signUp (String name, String password) throws UserAlreadyExistsException{
+    public boolean signUp (String name, String password) throws UserAlreadyExistsException {
 
         for (Admin aux : listaDeAdmins){
 
@@ -62,6 +66,25 @@ public class Gestora_Admin {
     public void addAdmin (Admin a)
     {
         listaDeAdmins.add(a);
+    }
+
+    public void crearAdmin ()
+    {
+        Scanner scan = new Scanner(System.in);
+        Admin a = new Admin();
+        System.out.println("Ingrese un nombre: ");
+        a.setNombreAdmin(scan.nextLine());
+        System.out.println("Ingrese una contrasenia: ");
+        a.setContrasenia(scan.nextLine());
+        listaDeAdmins.add(a);
+    }
+
+    public void showAdmins ()
+    {
+        for (Admin a : listaDeAdmins)
+        {
+            System.out.println(a.toString());
+        }
     }
 
 }

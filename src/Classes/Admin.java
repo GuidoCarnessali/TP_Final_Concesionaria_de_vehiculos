@@ -32,6 +32,12 @@ public class Admin {
     }
 
     @Override
+    public String toString() {
+        return "Nombre de admin:" + nombreAdmin + "\n" +
+                "Contrasenia:" + contrasenia;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof Admin admin)) return false;
         return Objects.equals(nombreAdmin, admin.nombreAdmin);

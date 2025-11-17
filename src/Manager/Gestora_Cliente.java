@@ -7,6 +7,7 @@ import Classes.Vehiculo;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Gestora_Cliente {
@@ -46,33 +47,49 @@ public class Gestora_Cliente {
     {
         if(c != null && clientes.containsKey(c.getDni())) //Si el cliente no es nulo y está en la lista de clientes según el dni lo elimino
         {
-            clientes.remove(c.getDni());                   //Elimino el cliente del mapa según su dni
+            clientes.remove(c.getDni());   //Elimino el cliente del mapa según su dni
             return true;
         }
 
         return false;
     }
 
-    public void modifyCliente(Cliente c, String nombre, String apellido, String dni, String email, String telefono, boolean activo)
+    public void modifyCliente(String dniViejo)
     {
-        if(c != null && clientes.containsKey(c.getDni())) //Si el cliente no es nulo y está en la lista de clientes según el dni lo modifico
-        {
-            c.setNombre(nombre);
-            c.setApellido(apellido);
-            c.setDni(dni);
-            c.setEmail(email);
-            c.setTelefono(telefono);
+        Scanner scan = new Scanner(System.in);
+        Cliente c = new Cliente();
+        if (clientes.containsKey(dniViejo)) {
+
+            clientes.remove(dniViejo);
+            System.out.println("Ingrese el nombre del cliente: ");
+            c.setNombre(scan.nextLine());
+            System.out.println("Ingrese el apellido del cliente: ");
+            c.setApellido(scan.nextLine());
+            System.out.println("Ingrese el DNI del cliente: ");
+            c.setDni(scan.nextLine());
+            System.out.println("Ingrese el email del cliente: ");
+            c.setEmail(scan.nextLine());
+            System.out.println("Ingrese el teléfono del cliente: ");
+            c.setTelefono(scan.nextLine());
+            System.out.println("Ingrese el sexo del cliente (M/F): ");
+            String sexoInput = scan.nextLine();
+            c.setSexo(sexoInput.charAt(0));
+            System.out.println("Ingrese la edad del cliente: ");
+            c.setEdad(scan.nextInt());
+            scan.nextLine();
+
+            clientes.put(c.getDni(), c);
+        }else {
+            System.err.println("No hay ningun cliente con ese DNI");
         }
     }
 
-    public Cliente searchCliente(Cliente c)
+    public String searchCliente(String dni)
     {
-        if(c != null && clientes.containsKey(c.getDni())) //Si el cliente no es nulo y está en la lista de clientes según el dni lo devuelvo
-        {
-            return clientes.get(c.getDni());              //Devuelvo el cliente del mapa según su dni
+        if(clientes.containsKey(dni)){
+            return clientes.get(dni).toString();
         }
-
-        return null;
+        return "No se ha encontrado un cliente con ese DNI. ";
     }
 
     public void showClientes()

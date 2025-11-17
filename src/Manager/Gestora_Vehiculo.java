@@ -84,6 +84,7 @@ public class Gestora_Vehiculo {
     }
 
     public void showVehiculos() {
+
         for (Vehiculo v : vehiculos) {
             if (v instanceof Auto) {
                 System.out.println("--------------------");
@@ -131,6 +132,7 @@ public class Gestora_Vehiculo {
             {
                 if (v.isEnStock())
                 {
+                    System.out.println("--------------");
                     System.out.println(v.toString());
                 }
             }
@@ -143,6 +145,7 @@ public class Gestora_Vehiculo {
         {
             if (!v.isEnStock())
             {
+                System.out.println("--------------");
                 System.out.println(v.toString());
             }
         }
@@ -162,6 +165,19 @@ public class Gestora_Vehiculo {
             }
 
         }
+    }
+
+    public Vehiculo filtrarVehiculo (String modelo, int anio, String color){
+
+        for (Vehiculo v : vehiculos)
+        {
+            if(v.getModelo().equalsIgnoreCase(modelo) && v.getAnio() == anio && v.getColor().equalsIgnoreCase(color))
+            {
+                return v;
+            }
+        }
+
+        return null;
     }
 
 

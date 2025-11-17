@@ -54,14 +54,14 @@ public class Gestora_Factura {
     //No hicimos la modificación de facturas, ya que no le vemos un uso cotidiano a eso
 
 
-
-    public Factura searchFactura(Factura f)
+    public String searchFactura(int numeroDeFactura)
     {
-        if(f != null && facturas.containsKey(f.getNumeroFactura())) //Si la factura no es nula y está en la lista de facturas según el número de factura lo devuelvo
+        if(facturas.containsKey(numeroDeFactura)) //Si la factura no es nula y está en la lista de facturas según el número de factura lo devuelvo
         {
-            return facturas.get(f.getNumeroFactura());              //Devuelvo la factura del mapa según su número de factura
+            return facturas.get(numeroDeFactura).toString();              //Devuelvo la factura del mapa según su número de factura
         }
-        return null;
+
+        return "No se ha encontrado una factura con ese numero. ";
     }
 
     public void showFacturas()
@@ -79,6 +79,17 @@ public class Gestora_Factura {
 
         facturas.putAll(facturasB);
 
+    }
+
+    public void filtrarPorDni (String dni)
+    {
+        for (Factura f: facturas.values())
+        {
+            if (f.getCliente().getDni().equalsIgnoreCase(dni))
+            {
+                System.out.println(f.toString());
+            }
+        }
     }
 
 

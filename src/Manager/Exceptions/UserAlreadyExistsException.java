@@ -1,4 +1,4 @@
-package Manager;
+package Manager.Exceptions;
 
 public class UserAlreadyExistsException extends Exception {
     public UserAlreadyExistsException(String message) {

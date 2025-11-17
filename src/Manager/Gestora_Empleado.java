@@ -3,8 +3,7 @@ package Manager;
 import Classes.Empleado;
 import Classes.Factura;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Gestora_Empleado {
 
@@ -54,28 +53,55 @@ public class Gestora_Empleado {
         return false;
     }
 
-    public void modifyEmpleado(Empleado e, String nombre, String apellido, String dni, double salario, String puesto, int edad, int antiguedad, String email, String telefono, boolean activo) {
-        if (e != null && empleados.containsKey(e.getDni())) //Si el empleado no es nulo y está en la lista de empleados según el dni lo modifico
-        {
-            e.setNombre(nombre);
-            e.setApellido(apellido);
-            e.setDni(dni);
-            e.setSalario(salario);
-            e.setPuesto(puesto);
-            e.setEdad(edad);
-            e.setAntiguedad(antiguedad);
-            e.setEmail(email);
-            e.setTelefono(telefono);
-            e.setActivo(activo);
+    public void modifyEmpleado(String dniViejo)
+    {
+        Scanner scan = new Scanner(System.in);
+        Empleado e = new Empleado();
+
+        if (empleados.containsKey(dniViejo)) {
+
+
+            empleados.remove(dniViejo);
+
+            System.out.println("Ingrese el nombre del empleado: ");
+            e.setNombre(scan.nextLine());
+            System.out.println("Ingrese el apellido del empleado: ");
+            e.setApellido(scan.nextLine());
+            System.out.println("Ingrese el DNI del empleado: ");
+            e.setDni(scan.nextLine());
+            System.out.println("Ingrese el salario del empleado: ");
+            e.setSalario(scan.nextDouble());
+            scan.nextLine();
+            System.out.println("Ingrese el puesto del empleado: ");
+            e.setPuesto(scan.nextLine());
+            System.out.println("Ingrese la edad del empleado: ");
+            e.setEdad(scan.nextInt());
+            scan.nextLine();
+            System.out.println("Ingrese la antigüedad del empleado (en años): ");
+            e.setAntiguedad(scan.nextInt());
+            scan.nextLine();
+            System.out.println("Ingrese el email del empleado: ");
+            e.setEmail(scan.nextLine());
+            System.out.println("Ingrese el teléfono del empleado: ");
+            e.setTelefono(scan.nextLine());
+            System.out.println("¿El empleado está activo? (true/false): ");
+            e.setActivo(scan.nextBoolean());
+            scan.nextLine();
+
+            empleados.put(e.getDni(), e);
+        }else {
+            System.err.println("No hay ningun empleado con ese DNI");
         }
     }
 
-    public Empleado searchEmpleado(Empleado e) {
-        if (e != null && empleados.containsKey(e.getDni())) //Si el empleado no es nulo y está en la lista de empleados según el dni lo devuelvo
+
+
+    public String searchEmpleado(String dni) {
+        if (empleados.containsKey(dni))
         {
-            return empleados.get(e.getDni());              //Devuelvo el empleado del mapa según su dni
+            return empleados.get(dni).toString();
         }
-        return null;
+        return "No se ha encontrado un empleado con ese DNI";
     }
 
     public void showEmpleados() {
@@ -116,6 +142,48 @@ public class Gestora_Empleado {
             }
 
         }
+    }
+
+    public Empleado obtenerEmpleadoRandom()
+    {
+
+        List<Empleado> lista = new ArrayList<>(empleados.values());
+
+        Random random = new Random();
+        int index = random.nextInt(lista.size());
+
+        return lista.get(index);
+    }
+
+    public void crearEmpleado ()
+    {
+        Scanner scan = new Scanner(System.in);
+
+        Empleado e = new Empleado();
+        System.out.println("Ingrese el nombre del empleado: ");
+        e.setNombre(scan.nextLine());
+        System.out.println("Ingrese el apellido del empleado: ");
+        e.setApellido(scan.nextLine());
+        System.out.println("Ingrese el DNI del empleado: ");
+        e.setDni(scan.nextLine());
+        System.out.println("Ingrese el salario del empleado: ");
+        e.setSalario(scan.nextDouble());
+        scan.nextLine();
+        System.out.println("Ingrese el puesto del empleado: ");
+        e.setPuesto(scan.nextLine());
+        System.out.println("Ingrese la edad del empleado: ");
+        e.setEdad(scan.nextInt());
+        scan.nextLine();
+        System.out.println("Ingrese la antigüedad del empleado (en años): ");
+        e.setAntiguedad(scan.nextInt());
+        scan.nextLine();
+        System.out.println("Ingrese el email del empleado: ");
+        e.setEmail(scan.nextLine());
+        System.out.println("Ingrese el teléfono del empleado: ");
+        e.setTelefono(scan.nextLine());
+        e.setActivo(true);
+
+        addEmpleado(e);
     }
 
 

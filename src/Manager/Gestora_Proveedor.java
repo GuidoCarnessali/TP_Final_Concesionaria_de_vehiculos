@@ -6,6 +6,7 @@ import Enums.Marca;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Gestora_Proveedor {
@@ -52,40 +53,77 @@ public class Gestora_Proveedor {
         return false;
     }
 
-    public boolean removeProveedor(Proveedor p)
-    {
-        if(p != null && proveedores.contains(p)) //Si el proveedor no es nulo y está en la lista de proveedores lo elimino
-        {
-            proveedores.remove(p);               //Elimino el proveedor de la lista
-            p.setActivo(false);
+    public boolean removeProveedor(String nombre) {
+
+        for (Proveedor p : proveedores) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
+
+                proveedores.remove(p);
+                p.setActivo(false);
+                proveedores.add(p);
+
+                return true;
+            }
+        }
+
+        return false; // No se encontró ningún proveedor con ese nombre
+    }
+
+
+    public void modifyProveedor(String nombreViejo) {
+
+        Scanner scan = new Scanner(System.in);
+        Proveedor p = null;
+
+        for (Proveedor prov : proveedores) {
+            if (prov.getNombre().equalsIgnoreCase(nombreViejo)) {
+                p = prov;
+                proveedores.remove(prov);
+            }
+        }
+
+        if (p != null) {
+
+
+            System.out.println("Ingrese el nombre del proveedor: ");
+            p.setNombre(scan.nextLine());
+
+            System.out.println("Ingrese la empresa del proveedor: ");
+            p.setEmpresa(scan.nextLine());
+
+            System.out.println("Ingrese la dirección del proveedor: ");
+            p.setDireccion(scan.nextLine());
+
+            System.out.println("Ingrese el teléfono del proveedor: ");
+            p.setTelefono(scan.nextLine());
+
+            System.out.println("Ingrese el email del proveedor: ");
+            p.setEmail(scan.nextLine());
+
+            System.out.println("Ingrese la marca que provee: ");
+            String marcaInput = scan.nextLine();
+            p.setMarcaQueProvee(Marca.valueOf(marcaInput.toUpperCase()));
+
+            System.out.println("¿El proveedor está activo? (true/false): ");
+            p.setActivo(scan.nextBoolean());
+            scan.nextLine();
+
             proveedores.add(p);
-            return true;
-        }
-        return false;
-    }
 
-    public void modifyProveedor(Proveedor p, String nombre, String empresa, String direccion, String telefono, String email, Marca marcaQueProvee, boolean activo)
-    {
-        if(p != null && proveedores.contains(p)) //Si el proveedor no es nulo y está en la lista de proveedores lo modifico
-        {
-            p.setNombre(nombre);
-            p.setEmpresa(empresa);
-            p.setDireccion(direccion);
-            p.setTelefono(telefono);
-            p.setEmail(email);
-            p.setMarcaQueProvee(marcaQueProvee);
-            p.setActivo(activo);
+        } else {
+            System.err.println("No se ha encontrado ningún proveedor con ese nombre. ");
         }
     }
 
-    public Proveedor searchProveedor(Proveedor p)
-    {
-        if(p != null && proveedores.contains(p)) //Si el proveedor no es nulo y está en la lista de proveedores lo devuelvo
-        {
-            return p;
+    public String searchProveedor(String nombre) {
+        for (Proveedor p : proveedores) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
+                return p.toString();
+            }
         }
-        return null;
+        return "No se ha encontrado un proveedor con ese nombre";
     }
+
 
     public void showProveedores()
     {
@@ -124,6 +162,37 @@ public class Gestora_Proveedor {
                 System.out.println(p.toString());
             }
         }
+    }
+
+    public void crearProveedor ()
+    {
+        Scanner scan = new Scanner(System.in);
+        Proveedor p = new Proveedor();
+
+        System.out.println("Ingrese el nombre del proveedor: ");
+        p.setNombre(scan.nextLine());
+
+        System.out.println("Ingrese la empresa del proveedor: ");
+        p.setEmpresa(scan.nextLine());
+
+        System.out.println("Ingrese la dirección del proveedor: ");
+        p.setDireccion(scan.nextLine());
+
+        System.out.println("Ingrese el teléfono del proveedor: ");
+        p.setTelefono(scan.nextLine());
+
+        System.out.println("Ingrese el email del proveedor: ");
+        p.setEmail(scan.nextLine());
+
+        System.out.println("Ingrese la marca que provee: ");
+        String marcaInput = scan.nextLine();
+        p.setMarcaQueProvee(Marca.valueOf(marcaInput.toUpperCase()));
+
+        System.out.println("¿El proveedor está activo? (true/false): ");
+        p.setActivo(scan.nextBoolean());
+        scan.nextLine();
+
+        proveedores.add(p);
     }
 
 

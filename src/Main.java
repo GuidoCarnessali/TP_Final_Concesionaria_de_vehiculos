@@ -133,13 +133,17 @@ public class Main {
             gestoraVehiculo.showVehiculos();
             gestoraCliente.showClientes();
             gestoraEmpleado.showEmpleados();
-            gestoraProveedor.showProveedores();
-
+            gestoraProveedor.showPr
+            oveedores();
  */
 
-        Menu menu = new Menu();
-        menu.iniciarSistema(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraJSON, gestoraProveedor, gestoraAdmin);
 
+
+        Menu menu = new Menu();
+        //menu.iniciarSistema(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraJSON, gestoraProveedor, gestoraAdmin);
+
+        menu.desplegarMenuAdmin(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraJSON, gestoraProveedor, gestoraAdmin);
+        //menu.desplegarMenuUsuario(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraJSON, gestoraProveedor, gestoraAdmin);
     }
 
 
