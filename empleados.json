@@ -1,6 +1,36 @@
 [
     {
         "empleado": {
+            "puesto": "Diseñador",
+            "apellido": "Silva",
+            "salario": 2400,
+            "antiguedad": 6,
+            "telefono": "258-456-1590",
+            "nombre": "Tomás",
+            "edad": 29,
+            "dni": "22334455",
+            "email": "tomas.silva@email.com",
+            "activo": true
+        },
+        "dni": "22334455"
+    },
+    {
+        "empleado": {
+            "puesto": "Capataz",
+            "apellido": "Ramos",
+            "salario": 2900,
+            "antiguedad": 9,
+            "telefono": "987-123-6540",
+            "nombre": "Miguel",
+            "edad": 42,
+            "dni": "55667788",
+            "email": "miguel.ramos@email.com",
+            "activo": true
+        },
+        "dni": "55667788"
+    },
+    {
+        "empleado": {
             "puesto": "Supervisor",
             "apellido": "Sánchez",
             "salario": 2800,
@@ -8,26 +38,26 @@
             "telefono": "654-321-0987",
             "nombre": "Pedro",
             "edad": 45,
-            "dni": "56789012E",
+            "dni": "56789012",
             "email": "pedro.sanchez@email.com",
             "activo": true
         },
-        "dni": "56789012E"
+        "dni": "56789012"
     },
     {
         "empleado": {
-            "puesto": "Auxiliar",
-            "apellido": "López",
-            "salario": 1800,
-            "antiguedad": 2,
-            "telefono": "456-789-0123",
-            "nombre": "Carlos",
-            "edad": 25,
-            "dni": "34567890C",
-            "email": "carlos.lopez@email.com",
-            "activo": false
+            "puesto": "Técnico",
+            "apellido": "Fernández",
+            "salario": 1950.75,
+            "antiguedad": 3,
+            "telefono": "789-123-4560",
+            "nombre": "Diego",
+            "edad": 28,
+            "dni": "78901234",
+            "email": "diego.fernandez@email.com",
+            "activo": true
         },
-        "dni": "34567890C"
+        "dni": "78901234"
     },
     {
         "empleado": {
@@ -38,26 +68,11 @@
             "telefono": "123-456-7890",
             "nombre": "Juan",
             "edad": 30,
-            "dni": "12345678A",
+            "dni": "12345678",
             "email": "juan.perez@email.com",
             "activo": true
         },
-        "dni": "12345678A"
-    },
-    {
-        "empleado": {
-            "puesto": "Gerente",
-            "apellido": "Gómez",
-            "salario": 3000.75,
-            "antiguedad": 10,
-            "telefono": "987-654-3210",
-            "nombre": "Ana",
-            "edad": 40,
-            "dni": "23456789B",
-            "email": "ana.gomez@email.com",
-            "activo": true
-        },
-        "dni": "23456789B"
+        "dni": "12345678"
     },
     {
         "empleado": {
@@ -68,10 +83,145 @@
             "telefono": "321-654-9870",
             "nombre": "María",
             "edad": 35,
-            "dni": "45678901D",
+            "dni": "45678901",
             "email": "maria.rodriguez@email.com",
             "activo": true
         },
-        "dni": "45678901D"
+        "dni": "45678901"
+    },
+    {
+        "empleado": {
+            "puesto": "Operario",
+            "apellido": "Ruiz",
+            "salario": 1500,
+            "antiguedad": 2,
+            "telefono": "357-654-2580",
+            "nombre": "Javier",
+            "edad": 26,
+            "dni": "33445566",
+            "email": "javier.ruiz@email.com",
+            "activo": false
+        },
+        "dni": "33445566"
+    },
+    {
+        "empleado": {
+            "puesto": "Investigadora",
+            "apellido": "Vega",
+            "salario": 3300,
+            "antiguedad": 11,
+            "telefono": "741-963-2580",
+            "nombre": "Elena",
+            "edad": 39,
+            "dni": "66778899",
+            "email": "elena.vega@email.com",
+            "activo": true
+        },
+        "dni": "66778899"
+    },
+    {
+        "empleado": {
+            "puesto": "Secretaria",
+            "apellido": "Molina",
+            "salario": 1600.5,
+            "antiguedad": 1,
+            "telefono": "741-258-9630",
+            "nombre": "Sofía",
+            "edad": 22,
+            "dni": "89012345",
+            "email": "sofia.molina@email.com",
+            "activo": true
+        },
+        "dni": "89012345"
+    },
+    {
+        "empleado": {
+            "puesto": "Administrativa",
+            "apellido": "Cabrera",
+            "salario": 2100,
+            "antiguedad": 4,
+            "telefono": "159-357-2580",
+            "nombre": "Valeria",
+            "edad": 32,
+            "dni": "11223344",
+            "email": "valeria.cabrera@email.com",
+            "activo": true
+        },
+        "dni": "11223344"
+    },
+    {
+        "empleado": {
+            "puesto": "Recepcionista",
+            "apellido": "Ortiz",
+            "salario": 1700,
+            "antiguedad": 1,
+            "telefono": "456-789-3210",
+            "nombre": "Camila",
+            "edad": 24,
+            "dni": "44556677",
+            "email": "camila.ortiz@email.com",
+            "activo": true
+        },
+        "dni": "44556677"
+    },
+    {
+        "empleado": {
+            "puesto": "Auxiliar",
+            "apellido": "López",
+            "salario": 1800,
+            "antiguedad": 2,
+            "telefono": "456-789-0123",
+            "nombre": "Carlos",
+            "edad": 25,
+            "dni": "34567890",
+            "email": "carlos.lopez@email.com",
+            "activo": false
+        },
+        "dni": "34567890"
+    },
+    {
+        "empleado": {
+            "puesto": "Contador",
+            "apellido": "Martínez",
+            "salario": 2700,
+            "antiguedad": 8,
+            "telefono": "654-987-1230",
+            "nombre": "Lucía",
+            "edad": 38,
+            "dni": "67890123",
+            "email": "lucia.martinez@email.com",
+            "activo": true
+        },
+        "dni": "67890123"
+    },
+    {
+        "empleado": {
+            "puesto": "Gerente",
+            "apellido": "Gómez",
+            "salario": 3000.75,
+            "antiguedad": 10,
+            "telefono": "987-654-3210",
+            "nombre": "Ana",
+            "edad": 40,
+            "dni": "23456789",
+            "email": "ana.gomez@email.com",
+            "activo": true
+        },
+        "dni": "23456789"
+    },
+    {
+        "empleado": {
+            "puesto": "Jefe de área",
+            "apellido": "Navarro",
+            "salario": 3500,
+            "antiguedad": 12,
+            "telefono": "963-852-7410",
+            "nombre": "Héctor",
+            "edad": 47,
+            "dni": "90123456",
+            "email": "hector.navarro@email.com",
+            "activo": true
+        },
+        "dni": "90123456"
     }
 ]

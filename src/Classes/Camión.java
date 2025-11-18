@@ -75,7 +75,8 @@ public class Camión extends Vehiculo implements iVehiculoDeCarga {
                 "Puertas: " + puertas + "\n" +
                 "Combustible: " + combustible + '\'' +
                 "Largo del chasis: " + largoChasis + "\n" +
-                "Ancho del chasis: " + anchoChasis;
+                "Ancho del chasis: " + anchoChasis + "\n" +
+                "Superficie: " + calcularDimension() + " cm2";
     }
 
     //Métodos

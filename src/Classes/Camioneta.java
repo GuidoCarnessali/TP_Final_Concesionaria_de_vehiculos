@@ -71,7 +71,8 @@ public class Camioneta extends Vehiculo implements iVehiculoDeCarga {
                 "Puertas: " + puertas + "\n" +
                 "Combustible: " + combustible + "\n" +
                 "Ancho de la caja: " + anchoCaja + "\n" +
-                "Largo de la caja: " + largoCaja;
+                "Largo de la caja: " + largoCaja + "\n" +
+                "Superficie de la caja: " + calcularDimension() + " cm2";
     }
 
     @Override

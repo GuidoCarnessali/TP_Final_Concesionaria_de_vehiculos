@@ -5,6 +5,7 @@ import Classes.Empleado;
 import Classes.Vehiculo;
 import Manager.Exceptions.IncorrectUserNameOrPasswordException;
 import Manager.Exceptions.UserAlreadyExistsException;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -559,7 +560,8 @@ public class Menu {
                         System.out.println("5. Modificar vehiculo. ");
                         System.out.println("6. Buscar vehiculo. ");
                         System.out.println("7. Eliminar vehiculo. ");
-                        System.out.println("8. Volver al menu principal ↩. ");
+                        System.out.println("8. Contar stock de un modelo");
+                        System.out.println("9. Volver al menu principal ↩. ");
                         opcion7 = scan.nextInt();
                         scan.nextLine();
 
@@ -621,6 +623,25 @@ public class Menu {
 
                                 break;
                             case 8:
+
+                                int stockDelModelo = 0;
+                                String modeloaBuscar;
+                                System.out.println("Ingrese el nombre del modelo que desea buscar: ");
+                                modeloaBuscar = scan.nextLine();
+                                stockDelModelo= gestoraVehiculo.contarStock(modeloaBuscar);
+
+                                if(stockDelModelo == 1){
+                                    System.out.println("Hay " + stockDelModelo + " unidad de ese modelo");
+                                }else if(stockDelModelo> 1){
+                                    System.out.println("Hay " + stockDelModelo + " unidades de ese modelo");
+                                }else {
+                                    System.out.println("No hay unidades de ese modelo en stock. ");
+                                }
+
+
+                                break;
+
+                            case 9:
                                 salir7 = true;
                                 break;
 
@@ -659,13 +680,6 @@ public class Menu {
             }
         }
 
-
-
-
     }
-
-
-
-
 
 }

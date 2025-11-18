@@ -18,5 +18,11 @@ public enum Marca {
     SUZUKI,
     KAWASAKI,
     DUCATI,
-    HARLEY_DAVIDSON
+    HARLEY_DAVIDSON,
+
+
+    //MARCA DE CAMIONES
+    VOLVO,
+    SCANIA,
+    IVECO,
 }

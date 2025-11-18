@@ -66,7 +66,7 @@ public class Gestora_Cliente {
                 System.out.println("Ingrese el nombre del cliente: ");
                 nombre = scan.nextLine();
 
-                if (nombre.matches("[a-zA-Z]+")) {
+                if (nombre.matches("[a-zA-Z ]+")) {
                     c.setNombre(nombre);
                     break;
                 } else {
@@ -80,7 +80,7 @@ public class Gestora_Cliente {
                 System.out.println("Ingrese el apellido del cliente: ");
                 apellido = scan.nextLine();
 
-                if (apellido.matches("[a-zA-Z]+")) {
+                if (apellido.matches("[a-zA-Z ]+")) {
                     c.setApellido(apellido);
                     break;
                 } else {

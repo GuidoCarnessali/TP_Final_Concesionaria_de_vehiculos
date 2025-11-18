@@ -58,40 +58,121 @@ public class Gestora_Empleado {
         Scanner scan = new Scanner(System.in);
         Empleado e = new Empleado();
 
-        if (empleados.containsKey(dniViejo)) {
-
-
-            empleados.remove(dniViejo);
-
-            System.out.println("Ingrese el nombre del empleado: ");
-            e.setNombre(scan.nextLine());
-            System.out.println("Ingrese el apellido del empleado: ");
-            e.setApellido(scan.nextLine());
-            System.out.println("Ingrese el DNI del empleado: ");
-            e.setDni(scan.nextLine());
-            System.out.println("Ingrese el salario del empleado: ");
-            e.setSalario(scan.nextDouble());
-            scan.nextLine();
-            System.out.println("Ingrese el puesto del empleado: ");
-            e.setPuesto(scan.nextLine());
-            System.out.println("Ingrese la edad del empleado: ");
-            e.setEdad(scan.nextInt());
-            scan.nextLine();
-            System.out.println("Ingrese la antigüedad del empleado (en años): ");
-            e.setAntiguedad(scan.nextInt());
-            scan.nextLine();
-            System.out.println("Ingrese el email del empleado: ");
-            e.setEmail(scan.nextLine());
-            System.out.println("Ingrese el teléfono del empleado: ");
-            e.setTelefono(scan.nextLine());
-            System.out.println("¿El empleado está activo? (true/false): ");
-            e.setActivo(scan.nextBoolean());
-            scan.nextLine();
-
-            empleados.put(e.getDni(), e);
-        }else {
-            System.err.println("No hay ningun empleado con ese DNI");
+        if (!empleados.containsKey(dniViejo)) {
+            System.err.println("No hay ningún empleado con ese DNI");
+            return;
         }
+
+        empleados.remove(dniViejo);
+
+        String nombre;
+        while (true) {
+            System.out.println("Ingrese el nombre del empleado: ");
+            nombre = scan.nextLine();
+            if (nombre.matches("[A-Za-z ]+")) break;
+            System.out.println(" El nombre solo puede contener letras y espacios.");
+        }
+        e.setNombre(nombre);
+
+        String apellido;
+        while (true) {
+            System.out.println("Ingrese el apellido del empleado: ");
+            apellido = scan.nextLine();
+            if (apellido.matches("[A-Za-z ]+")) break;
+            System.out.println("El apellido solo puede contener letras y espacios.");
+        }
+        e.setApellido(apellido);
+
+        String dni;
+        while (true) {
+            System.out.println("Ingrese el DNI del empleado: ");
+            dni = scan.nextLine();
+            if (dni.matches("[0-9]+") && Integer.parseInt(dni) > 0) break;
+            System.out.println("El DNI debe ser un número entero positivo mayor a 0.");
+        }
+        e.setDni(dni);
+
+        Double salario = null;
+        while (salario == null) {
+            System.out.println("Ingrese el salario del empleado: ");
+            String input = scan.nextLine();
+            try {
+                double s = Double.parseDouble(input);
+                if (s > 0) {
+                    salario = s;
+                } else {
+                    System.out.println("El salario debe ser un número mayor a 0.");
+                }
+            } catch (NumberFormatException ex) {
+                System.out.println("Debe ingresar un número decimal válido.");
+            }
+        }
+        e.setSalario(salario);
+
+        String puesto;
+        while (true) {
+            System.out.println("Ingrese el puesto del empleado: ");
+            puesto = scan.nextLine();
+            if (puesto.matches("[A-Za-z ]+")) break;
+            System.out.println("El puesto solo puede contener letras y espacios.");
+        }
+        e.setPuesto(puesto);
+
+        Integer edad = null;
+        while (edad == null) {
+            System.out.println("Ingrese la edad del empleado: ");
+            String input = scan.nextLine();
+            if (input.matches("[0-9]+")) {
+                int value = Integer.parseInt(input);
+                if (value > 0) edad = value;
+                else System.out.println("La edad debe ser mayor a 0.");
+            } else {
+                System.out.println("La edad debe ser un número entero positivo.");
+            }
+        }
+        e.setEdad(edad);
+
+        Integer antiguedad = null;
+        while (antiguedad == null) {
+            System.out.println("Ingrese la antigüedad del empleado (en años): ");
+            String input = scan.nextLine();
+            if (input.matches("[0-9]+")) {
+                int value = Integer.parseInt(input);
+                if (value > 0) antiguedad = value;
+                else System.out.println("La antigüedad debe ser mayor a 0.");
+            } else {
+                System.out.println("Debe ingresar un número entero positivo.");
+            }
+        }
+        e.setAntiguedad(antiguedad);
+
+
+        // --- EMAIL ---
+        System.out.println("Ingrese el email del empleado: ");
+        e.setEmail(scan.nextLine());
+
+        String telefono;
+        while (true) {
+            System.out.println("Ingrese el teléfono del empleado: ");
+            telefono = scan.nextLine();
+            if (telefono.matches("[0-9-]+")) break;
+            System.out.println("El teléfono solo puede contener números y guiones.");
+        }
+        e.setTelefono(telefono);
+
+        Boolean activo = null;
+        while (activo == null) {
+            System.out.println("¿El empleado está activo? (true/false): ");
+            String input = scan.nextLine().toLowerCase();
+            if (input.equals("true")) activo = true;
+            else if (input.equals("false")) activo = false;
+            else System.out.println("Debe ingresar 'true' o 'false'.");
+        }
+        e.setActivo(activo);
+
+
+        // --- GUARDAR ---
+        empleados.put(e.getDni(), e);
     }
 
 
@@ -155,35 +236,113 @@ public class Gestora_Empleado {
         return lista.get(index);
     }
 
-    public void crearEmpleado ()
+    public void crearEmpleado()
     {
         Scanner scan = new Scanner(System.in);
-
         Empleado e = new Empleado();
-        System.out.println("Ingrese el nombre del empleado: ");
-        e.setNombre(scan.nextLine());
-        System.out.println("Ingrese el apellido del empleado: ");
-        e.setApellido(scan.nextLine());
-        System.out.println("Ingrese el DNI del empleado: ");
-        e.setDni(scan.nextLine());
-        System.out.println("Ingrese el salario del empleado: ");
-        e.setSalario(scan.nextDouble());
-        scan.nextLine();
-        System.out.println("Ingrese el puesto del empleado: ");
-        e.setPuesto(scan.nextLine());
-        System.out.println("Ingrese la edad del empleado: ");
-        e.setEdad(scan.nextInt());
-        scan.nextLine();
-        System.out.println("Ingrese la antigüedad del empleado (en años): ");
-        e.setAntiguedad(scan.nextInt());
-        scan.nextLine();
+
+        String nombre;
+        while (true) {
+            System.out.println("Ingrese el nombre del empleado: ");
+            nombre = scan.nextLine();
+            if (nombre.matches("[A-Za-z ]+")) break;
+            System.err.println("El nombre solo puede contener letras y espacios.");
+        }
+        e.setNombre(nombre);
+
+        String apellido;
+        while (true) {
+            System.out.println("Ingrese el apellido del empleado: ");
+            apellido = scan.nextLine();
+            if (apellido.matches("[A-Za-z ]+")) break;
+            System.err.println("El apellido solo puede contener letras y espacios.");
+        }
+        e.setApellido(apellido);
+
+        String dni;
+        while (true) {
+            System.out.println("Ingrese el DNI del empleado: ");
+            dni = scan.nextLine();
+            if (dni.matches("[0-9]+") && Integer.parseInt(dni) > 0) break;
+            System.err.println("El DNI debe ser un número entero positivo mayor a 0.");
+        }
+        e.setDni(dni);
+
+        Double salario = null;
+        while (salario == null) {
+            System.out.println("Ingrese el salario del empleado: ");
+            String input = scan.nextLine();
+            try {
+                double s = Double.parseDouble(input);
+                if (s > 0) salario = s;
+                else System.err.println("El salario debe ser mayor a 0.");
+            } catch (NumberFormatException ex) {
+                System.err.println("Ingrese un número decimal válido.");
+            }
+        }
+        e.setSalario(salario);
+
+        String puesto;
+        while (true) {
+            System.out.println("Ingrese el puesto del empleado: ");
+            puesto = scan.nextLine();
+            if (puesto.matches("[A-Za-z ]+")) break;
+            System.err.println("El puesto solo puede contener letras y espacios.");
+        }
+        e.setPuesto(puesto);
+
+        Integer edad = null;
+        while (edad == null) {
+            System.out.println("Ingrese la edad del empleado: ");
+            String input = scan.nextLine();
+            if (input.matches("[0-9]+")) {
+                int value = Integer.parseInt(input);
+                if (value > 0) edad = value;
+                else System.err.println("La edad debe ser mayor a 0.");
+            } else {
+                System.err.println("La edad debe ser un número entero positivo.");
+            }
+        }
+        e.setEdad(edad);
+
+        Integer antiguedad = null;
+        while (antiguedad == null) {
+            System.out.println("Ingrese la antigüedad del empleado (en años): ");
+            String input = scan.nextLine();
+            if (input.matches("[0-9]+")) {
+                int value = Integer.parseInt(input);
+                if (value > 0) antiguedad = value;
+                else System.err.println("La antigüedad debe ser mayor a 0.");
+            } else {
+                System.err.println("Debe ingresar un número entero positivo.");
+            }
+        }
+        e.setAntiguedad(antiguedad);
+
         System.out.println("Ingrese el email del empleado: ");
         e.setEmail(scan.nextLine());
-        System.out.println("Ingrese el teléfono del empleado: ");
-        e.setTelefono(scan.nextLine());
-        e.setActivo(true);
+
+        String telefono;
+        while (true) {
+            System.out.println("Ingrese el teléfono del empleado: ");
+            telefono = scan.nextLine();
+            if (telefono.matches("[0-9-]+")) break;
+            System.err.println("El teléfono solo puede contener números y guiones.");
+        }
+        e.setTelefono(telefono);
+
+        Boolean activo = null;
+        while (activo == null) {
+            System.out.println("¿El empleado está activo? (true/false): ");
+            String input = scan.nextLine().toLowerCase();
+            if (input.equals("true")) activo = true;
+            else if (input.equals("false")) activo = false;
+            else System.err.println("Debe ingresar 'true' o 'false'.");
+        }
+        e.setActivo(activo);
 
         addEmpleado(e);
+        System.out.println("Empleado creado correctamente.");
     }
 
 
