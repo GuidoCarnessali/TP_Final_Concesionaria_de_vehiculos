@@ -56,6 +56,7 @@ public class Gestora_Usuario
 
         }
 
+
         Usuario usuario = new Usuario(name, password);
         listaUsuarios.add(usuario);
 
@@ -89,7 +90,11 @@ public class Gestora_Usuario
         }
     }
 
-
+    public boolean esValido(String input) {
+        // Esta expresión regular permite solo letras, números y algunos caracteres como guiones bajos o puntos.
+        String patron = "^[a-zA-Z0-9._-]+$";
+        return input.matches(patron);
+    }
 
 
 

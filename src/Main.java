@@ -149,23 +149,8 @@ public class Main {
         menu.iniciarSistema(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraJSON, gestoraProveedor, gestoraAdmin);
 
 
-        //NUMEROS NEGATIVOS
-        //REGISTER SIN CARACTER ESPECIAL (usuario y admin)
-        //IMPUT MISSMATCH a la hora de bsucar un auto (usuario y admin) letras en campo numerico
-        //CREACION DE USUARIOS SIN CARACTER ESPECIAL:
 
-        /*Cliente:
-        Nombre: Tomas
-        Apellido: Barros
-        DNI: 45678901D
-        Email: mdkanmdjawknmda@gmail.com
-        Telefono: 2236341290
-        Sexo: P
-        Edad: -32
 
-         */
-
-        //MODIFICAR Y CREAR EMPLEADOS LIMITAR LOS CARACTERES ACEPTADOS
 
     }
 

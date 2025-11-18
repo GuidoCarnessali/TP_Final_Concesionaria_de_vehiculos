@@ -83,5 +83,16 @@
         "modelo": "Corolla",
         "anio": 2020,
         "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "SUZUKI",
+        "puertas": 1,
+        "precio": 0,
+        "color": "roja",
+        "cilindrada": 200,
+        "stock": true,
+        "modelo": "s18",
+        "anio": 1999,
+        "combustible": "diessel"
     }}
 ]

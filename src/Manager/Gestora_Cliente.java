@@ -5,10 +5,7 @@ import Classes.Empleado;
 import Classes.Factura;
 import Classes.Vehiculo;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Gestora_Cliente {
 
@@ -58,29 +55,84 @@ public class Gestora_Cliente {
     {
         Scanner scan = new Scanner(System.in);
         Cliente c = new Cliente();
+
         if (clientes.containsKey(dniViejo)) {
 
             clientes.remove(dniViejo);
-            System.out.println("Ingrese el nombre del cliente: ");
-            c.setNombre(scan.nextLine());
-            System.out.println("Ingrese el apellido del cliente: ");
-            c.setApellido(scan.nextLine());
+
+            // NOMBRE (solo letras)
+            String nombre;
+            while (true) {
+                System.out.println("Ingrese el nombre del cliente: ");
+                nombre = scan.nextLine();
+
+                if (nombre.matches("[a-zA-Z]+")) {
+                    c.setNombre(nombre);
+                    break;
+                } else {
+                    System.err.println("Error: el nombre solo puede contener letras A-Z o a-z.");
+                }
+            }
+
+            // APELLIDO (solo letras)
+            String apellido;
+            while (true) {
+                System.out.println("Ingrese el apellido del cliente: ");
+                apellido = scan.nextLine();
+
+                if (apellido.matches("[a-zA-Z]+")) {
+                    c.setApellido(apellido);
+                    break;
+                } else {
+                    System.err.println("Error: el apellido solo puede contener letras A-Z o a-z.");
+                }
+            }
+
+            // DNI (sin validaciones porque lo dejaste libre)
             System.out.println("Ingrese el DNI del cliente: ");
             c.setDni(scan.nextLine());
+
+            // EMAIL
             System.out.println("Ingrese el email del cliente: ");
             c.setEmail(scan.nextLine());
+
+            // TELÉFONO
             System.out.println("Ingrese el teléfono del cliente: ");
             c.setTelefono(scan.nextLine());
-            System.out.println("Ingrese el sexo del cliente (M/F): ");
-            String sexoInput = scan.nextLine();
-            c.setSexo(sexoInput.charAt(0));
-            System.out.println("Ingrese la edad del cliente: ");
-            c.setEdad(scan.nextInt());
-            scan.nextLine();
+
+            // SEXO (solo M o F)
+            String sexoInput;
+            while (true) {
+                System.out.println("Ingrese el sexo del cliente (M/F): ");
+                sexoInput = scan.nextLine().trim().toUpperCase();
+
+                if (sexoInput.equals("M") || sexoInput.equals("F")) {
+                    c.setSexo(sexoInput.charAt(0));
+                    break;
+                } else {
+                    System.err.println("Error: solo puede ingresar 'M' o 'F'.");
+                }
+            }
+
+            // EDAD (solo entero)
+            while (true) {
+                try {
+                    System.out.println("Ingrese la edad del cliente: ");
+                    int edad = scan.nextInt();
+                    scan.nextLine();
+                    c.setEdad(edad);
+                    break;
+                } catch (InputMismatchException e) {
+                    System.err.println("Error: la edad debe ser un número entero.");
+                    scan.nextLine(); // limpiar buffer
+                }
+            }
 
             clientes.put(c.getDni(), c);
-        }else {
-            System.err.println("No hay ningun cliente con ese DNI");
+            System.out.println("Cliente modificado correctamente.");
+
+        } else {
+            System.err.println("No hay ningún cliente con ese DNI");
         }
     }
 

@@ -6,9 +6,14 @@ import Classes.Vehiculo;
 import Manager.Exceptions.IncorrectUserNameOrPasswordException;
 import Manager.Exceptions.UserAlreadyExistsException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+    public boolean esValido(String input) {
+        String patron = "^[a-zA-Z0-9._-]+$";
+        return input.matches(patron);
+    }
 
     public void iniciarSistema (Gestora_Usuario gestoraUsuario, Gestora_Factura gestoraFactura, Gestora_Vehiculo gestoraVehiculo, Gestora_Cliente gestoraCliente, Gestora_Empleado gestoraEmpleado, Gestora_JSON gestoraJson, Gestora_Proveedor gestoraProveedor, Gestora_Admin gestoraAdmin)
     {
@@ -64,6 +69,11 @@ public class Menu {
 
                     System.out.println("Ingrese su nombre de usuario: ");
                     name2 = scan.nextLine();
+                    while(!esValido(name2)){
+                        System.err.println("El nombre solo puede tener letras, numeros, . , - , _ ");
+                        System.out.println("Ingrese su nombre de usuario: ");
+                        name2 = scan.nextLine();
+                    }
                     System.out.println("Ingrese su contrasenia: ");
                     password2 = scan.nextLine();
 
@@ -92,7 +102,7 @@ public class Menu {
                         gestoraAdmin.login(name3, password3);
                         try {
                             System.out.println("CARGANDO . . .");
-                            Thread.sleep(2000); // 2 segundos
+                            Thread.sleep(1300); // 2 segundos
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -183,13 +193,25 @@ public class Menu {
                 case 6:
 
                     String modelo;
-                    int anio;
+                    int anio = 0;
                     String color;
+                    boolean valido = false;
+
 
                     System.out.println("Ingrese el modelo a buscar: ");
                     modelo = scan.nextLine();
-                    System.out.println("Ingrese el anio a buscar: ");
-                    anio = scan.nextInt();
+
+                    while (!valido) {
+                        try {
+                            System.out.println("Ingrese el año a buscar: ");
+                            anio = scan.nextInt();
+                            valido = true;
+                        } catch (InputMismatchException e) {
+                            System.err.println("Error: solo puede ingresar números enteros.");
+                            scan.nextLine();
+                        }
+                    }
+
                     scan.nextLine();
                     System.out.println("Ingrese el color a buscar: ");
                     color = scan.nextLine();
@@ -290,6 +312,7 @@ public class Menu {
                     boolean salir1 = false;
                     int opcion1 = -1;
                     while (!salir1) {
+                        System.out.println("\n-------------------");
                         System.out.println(" 1. Ver usuarios. ");
                         System.out.println("2. Crear un usuario. ");
                         System.out.println("3. Volver al menu principal ↩.");
@@ -316,9 +339,10 @@ public class Menu {
                     boolean salir2 = false;
                     int opcion2 = -1;
                     while(!salir2) {
-                    System.out.println(" 1. Ver admins. ");
-                    System.out.println("2. Crear un admin. ");
-                    System.out.println("3. Volver al menu principal ↩.");
+                        System.out.println("\n-------------------");
+                        System.out.println(" 1. Ver admins. ");
+                        System.out.println("2. Crear un admin. ");
+                        System.out.println("3. Volver al menu principal ↩.");
 
                         opcion2 = scan.nextInt();
                         scan.nextLine();
@@ -344,6 +368,7 @@ public class Menu {
                     boolean salir3 = false;
                     int opcion3 = -1;
                     while (!salir3) {
+                        System.out.println("\n-------------------");
                         System.out.println(" 1. Ver clientes. ");
                         System.out.println("2. Modificar cliente ");
                         System.out.println("3. Buscar cliente");
@@ -384,6 +409,7 @@ public class Menu {
                     boolean salir4 = false;
                     int opcion4 = -1;
                     while (!salir4) {
+                        System.out.println("\n-------------------");
                         System.out.println(" 1. Ver empleados. ");
                         System.out.println("2. Ver solo empleados activos.  ");
                         System.out.println("3. Ver solo empleados inactivos. ");
@@ -436,6 +462,7 @@ public class Menu {
                     boolean salir5 = false;
                     int opcion5 = -1;
                     while (!salir5) {
+                        System.out.println("\n-------------------");
                         System.out.println(" 1. Ver facturas. ");
                         System.out.println("2. Buscar facturas");
                         System.out.println("3. Volver al menu principal ↩. ");
@@ -468,6 +495,7 @@ public class Menu {
                     boolean salir6 = false;
                     int opcion6 = -1;
                     while (!salir6) {
+                        System.out.println("\n-------------------");
                         System.out.println(" 1. Ver proveedores. ");
                         System.out.println("2. Ver proveedores activos. ");
                         System.out.println("3. Ver proveedores inactivos. ");
@@ -476,6 +504,7 @@ public class Menu {
                         System.out.println("6. Buscar proveedores. ");
                         System.out.println("7. Eliminar proveedor. ");
                         System.out.println("8. Volver al menu principal ↩. ");
+                        System.out.println("-------------------");
                         opcion6 = scan.nextInt();
                         scan.nextLine();
 
@@ -522,6 +551,7 @@ public class Menu {
                     boolean salir7 = false;
                     int opcion7 = -1;
                     while (!salir7) {
+                        System.out.println("\n-------------------");
                         System.out.println(" 1. Ver vehiculos. ");
                         System.out.println("2. Ver vehiculos en stock. ");
                         System.out.println("3. Ver vehiculos fuera de stock ");
@@ -568,13 +598,26 @@ public class Menu {
                             case 7:
                                 System.out.println("Ingrese el nombre del modelo a eliminar: ");
                                 String modeloAeliminar = scan.nextLine();
+
                                 System.out.println("Ingrese el color del modelo a eliminar: ");
                                 String colorAeliminar = scan.nextLine();
-                                System.out.println("Ingrese el anio del modelo a eliminar: ");
-                                int anioAeliminar = scan.nextInt();
-                                scan.nextLine();
-                                gestoraVehiculo.removeVehiculo(modeloAeliminar, anioAeliminar, colorAeliminar);
 
+                                int anioAeliminar = 0;
+
+
+                                while (true) {
+                                    try {
+                                        System.out.println("Ingrese el año del modelo a eliminar: ");
+                                        anioAeliminar = scan.nextInt();
+                                        scan.nextLine();
+                                        break;
+                                    } catch (InputMismatchException e) {
+                                        System.err.println("Error: debe ingresar un número entero. Intente nuevamente.");
+                                        scan.nextLine();
+                                    }
+                                }
+
+                                gestoraVehiculo.removeVehiculo(modeloAeliminar, anioAeliminar, colorAeliminar);
 
                                 break;
                             case 8:
