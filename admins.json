@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "nombreAdmin": "1",
+        "contrasenia": "1"
+    },
+    {
+        "nombreAdmin": "guido",
+        "contrasenia": "1234"
+    },
+    {
+        "nombreAdmin": "manu123",
+        "contrasenia": "manu123"
+    },
+    {
+        "nombreAdmin": "valen",
+        "contrasenia": "123"
+    }
+]

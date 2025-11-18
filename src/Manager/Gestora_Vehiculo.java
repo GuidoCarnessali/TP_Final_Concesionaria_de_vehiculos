@@ -3,23 +3,21 @@ package Manager;
 import Classes.*;
 import Enums.Marca;
 
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Gestora_Vehiculo {
 
-    private Set<Vehiculo> vehiculos;                    //Hacerlo Hashset ya que no importa el orden y no se repiten
+    private ArrayList<Vehiculo> vehiculos = new ArrayList<>();                //Hacerlo Hashset ya que no importa el orden y no se repiten
 
     public Gestora_Vehiculo() {
-        this.vehiculos = new HashSet<>();
+        this.vehiculos = vehiculos;
     }
 
-    public Set<Vehiculo> getVehiculos() {
+    public ArrayList<Vehiculo> getVehiculos() {
         return vehiculos;
     }
 
-    public void setVehiculos(Set<Vehiculo> vehiculos) {
+    public void setVehiculos(ArrayList<Vehiculo> vehiculos) {
         this.vehiculos = vehiculos;
     }
 
@@ -47,18 +45,40 @@ public class Gestora_Vehiculo {
         return false;
     }
 
-    public boolean removeVehiculo(Vehiculo v)
+    public boolean removeVehiculo(String modelo, int anio, String color)
     {
-        if(v != null && vehiculos.contains(v))  //Si el vehículo no es nulo y está en la lista de vehículos en stock lo elimino
-        {                                       //Ademas lo paso a la lista de vehículos no en stock
-           vehiculos.remove(v);
-           v.setEnStock(false);
-           vehiculos.add(v);
+        Vehiculo encontrado = null;
 
-            return true;
+        for (Vehiculo v : vehiculos) {
+            if (v.getModelo().equalsIgnoreCase(modelo) &&
+                    v.getAnio() == anio &&
+                    v.getColor().equalsIgnoreCase(color))
+            {
+                encontrado = v;
+                break;
+            }
         }
-        return false;
+
+        if (encontrado == null) {
+            return false;
+        }
+
+        vehiculos.remove(encontrado);
+        encontrado.setEnStock(false);
+        vehiculos.add(encontrado);
+
+        return true;
     }
+
+    public boolean removeVehiculo(Vehiculo v) {
+        if(v != null && vehiculos.contains(v))
+        {  vehiculos.remove(v);
+            v.setEnStock(false);
+            vehiculos.add(v);
+            return true;
+        } return false;
+    }
+
 
 
     public void modifyVehiculo(String modeloViejo)
@@ -224,17 +244,104 @@ public class Gestora_Vehiculo {
     }
 
 
+    public void showMotos(){
+        for (Vehiculo v : vehiculos){
+            if (v instanceof Moto) {
+                System.out.println("--------------------");
+                System.out.println(v.toString());
+            }
+        }
+    }
 
-    public Vehiculo searchVehiculo(Vehiculo v)
+    public void showAutos(){
+        for (Vehiculo v : vehiculos){
+            if (v instanceof Auto) {
+                System.out.println("--------------------");
+                System.out.println(v.toString());
+            }
+        }
+    }
+
+    public void showCamion(){
+        for (Vehiculo v : vehiculos){
+            if (v instanceof Camión) {
+                System.out.println("--------------------");
+                System.out.println(v.toString());
+            }
+        }
+    }
+
+    public void showCamionetas(){
+        for (Vehiculo v : vehiculos){
+            if (v instanceof Camioneta) {
+                System.out.println("--------------------");
+                System.out.println(v.toString());
+            }
+        }
+    }
+
+
+
+
+    public void searchVehiculo(String modelo)
     {
-        if(v != null && vehiculos.contains(v)) //Si el vehículo no es nulo y está en la lista de vehículos en stock lo devuelvo
-        {
-            return v;
+        for (Vehiculo v : vehiculos) {
+
+            if (v.getModelo().equalsIgnoreCase(modelo)) {
+
+                System.out.println("=== Vehículo encontrado ===");
+                System.out.println("Modelo: " + v.getModelo());
+                System.out.println("Marca: " + v.getMarca());
+                System.out.println("Año: " + v.getAnio());
+                System.out.println("Precio: " + v.getPrecio());
+
+
+                if (v instanceof Auto) {
+                    Auto a = (Auto) v;
+                    System.out.println("Tipo: Auto");
+                    System.out.println("Cilindrada: " + a.getCilindrada());
+                    System.out.println("Puertas: " + a.getPuertas());
+                    System.out.println("Combustible: " + a.getCombustible());
+                }
+
+
+                else if (v instanceof Moto) {
+                    Moto m = (Moto) v;
+                    System.out.println("Tipo: Moto");
+                    System.out.println("Cilindrada: " + m.getCilindrada());
+                    System.out.println("Capacidad de pasajeros: " + m.getCapacidadPasajeros());
+                }
+
+
+                else if (v instanceof Camioneta) {
+                    Camioneta c = (Camioneta) v;
+                    System.out.println("Tipo: Camioneta");
+                    System.out.println("Cilindrada: " + c.getCilindrada());
+                    System.out.println("Puertas: " + c.getPuertas());
+                    System.out.println("Combustible: " + c.getCombustible());
+                    System.out.println("Ancho caja: " + c.getAnchoCaja());
+                    System.out.println("Largo caja: " + c.getLargoCaja());
+                }
+
+                // ---------- CAMIÓN ----------
+                else if (v instanceof Camión) {
+                    Camión cam = (Camión) v;
+                    System.out.println("Tipo: Camión");
+                    System.out.println("Cilindrada: " + cam.getCilindrada());
+                    System.out.println("Puertas: " + cam.getPuertas());
+                    System.out.println("Combustible: " + cam.getCombustible());
+                    System.out.println("Largo chasis: " + cam.getLargoChasis());
+                    System.out.println("Ancho chasis: " + cam.getAnchoChasis());
+                }
+
+
+            }
         }
 
-        return null;
-
+        System.out.println("No se encontró ningún vehículo con modelo: " + modelo);
     }
+
+
 
     public void showVehiculos() {
 

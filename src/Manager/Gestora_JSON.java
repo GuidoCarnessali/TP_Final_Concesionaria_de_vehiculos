@@ -496,7 +496,7 @@ public class Gestora_JSON {
         return jsonArray;
     }
 
-    public JSONArray serializarListaVehiculos(Set<Vehiculo> vehiculos) {
+    public JSONArray serializarListaVehiculos(ArrayList<Vehiculo> vehiculos) {
 
         JSONArray jsonArray = null;
 
@@ -606,9 +606,9 @@ public class Gestora_JSON {
         return proveedores;
     }
 
-    public HashSet<Vehiculo> deserializarListaVehiculos(JSONArray jsonArray) {
+    public ArrayList<Vehiculo> deserializarListaVehiculos(JSONArray jsonArray) {
 
-        HashSet<Vehiculo> vehiculos = new HashSet<>();
+       ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 
         try {
             for (int i = 0; i < jsonArray.length(); i++) {
