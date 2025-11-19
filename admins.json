@@ -65,9 +65,14 @@
         "activo": true
     },
     {
+        "nombreAdmin": "Marcela123",
+        "contrasenia": "marcelita12345",
+        "activo": true
+    },
+    {
         "nombreAdmin": "1",
         "contrasenia": "1",
-        "activo": false
+        "activo": true
     },
     {
         "nombreAdmin": "admin_este",

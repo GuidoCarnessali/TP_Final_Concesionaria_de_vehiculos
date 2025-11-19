@@ -1,7 +1,7 @@
 [
     {
         "empleado": {
-            "puesto": "Diseñador",
+            "puesto": "Vendedor",
             "apellido": "Silva",
             "salario": 2400,
             "antiguedad": 6,
@@ -115,7 +115,7 @@
             "edad": 39,
             "dni": "66778899",
             "email": "elena.vega@email.com",
-            "activo": true
+            "activo": false
         },
         "dni": "66778899"
     },
@@ -163,6 +163,21 @@
             "activo": true
         },
         "dni": "11223344"
+    },
+    {
+        "empleado": {
+            "puesto": "vendedor",
+            "apellido": "Navarro",
+            "salario": 3000000,
+            "antiguedad": 5,
+            "telefono": "223651234",
+            "nombre": "Valentina",
+            "edad": 28,
+            "dni": "2137553332",
+            "email": "valentina@gmail.com",
+            "activo": true
+        },
+        "dni": "2137553332"
     },
     {
         "empleado": {

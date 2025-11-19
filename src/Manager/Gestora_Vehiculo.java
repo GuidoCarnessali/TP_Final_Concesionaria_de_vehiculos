@@ -1073,7 +1073,7 @@ public class Gestora_Vehiculo {
             double ancho = 0;
             while (true) {
                 try {
-                    System.out.println("Ingrese ancho de la caja: ");
+                    System.out.println("Ingrese ancho de la caja en centimetros: ");
                     ancho = scan.nextDouble();
                     if (ancho > 0) break;
                     System.out.println("Debe ser mayor a 0.");
@@ -1087,7 +1087,7 @@ public class Gestora_Vehiculo {
             double largo = 0;
             while (true) {
                 try {
-                    System.out.println("Ingrese largo de la caja: ");
+                    System.out.println("Ingrese largo de la caja en centimetros: ");
                     largo = scan.nextDouble();
                     if (largo > 0) break;
                     System.out.println("Debe ser mayor a 0.");
@@ -1135,7 +1135,7 @@ public class Gestora_Vehiculo {
             double largo = 0;
             while (true) {
                 try {
-                    System.out.println("Ingrese largo del chasis: ");
+                    System.out.println("Ingrese largo del chasis centimetros: ");
                     largo = scan.nextDouble();
                     if (largo > 0) break;
                     System.out.println("Debe ser mayor a 0.");
@@ -1149,7 +1149,7 @@ public class Gestora_Vehiculo {
             double ancho = 0;
             while (true) {
                 try {
-                    System.out.println("Ingrese ancho del chasis: ");
+                    System.out.println("Ingrese ancho del chasis centimetros: ");
                     ancho = scan.nextDouble();
                     if (ancho > 0) break;
                     System.out.println("Debe ser mayor a 0.");

@@ -12,12 +12,12 @@
     {
         "contrasenia": "MartinPwd",
         "nombreUsuario": "martin.diaz",
-        "activo": true
+        "activo": false
     },
     {
         "contrasenia": "Lucia321",
         "nombreUsuario": "lucia.fernandez",
-        "activo": false
+        "activo": true
     },
     {
         "contrasenia": "manu1234",
@@ -32,6 +32,11 @@
     {
         "contrasenia": "MatiasPass",
         "nombreUsuario": "matias.arce",
+        "activo": true
+    },
+    {
+        "contrasenia": "marcelito12345",
+        "nombreUsuario": "Marce",
         "activo": true
     },
     {

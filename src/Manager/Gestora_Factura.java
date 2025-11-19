@@ -71,7 +71,8 @@ public class Gestora_Factura {
         System.out.println("2. Empleado");
         System.out.println("3. Vehículo");
         System.out.println("4. Monto total");
-        System.out.println("5. Cancelar");
+        System.out.println("5. Modificar estado activo");
+        System.out.println("6. Cancelar");
 
         while (true) {
             try {
@@ -134,7 +135,23 @@ public class Gestora_Factura {
                 break;
 
             case 5:
+
+                while (true) {
+                    System.out.println("¿La factura está activo? (true/false): ");
+                    String input = scan.nextLine().trim().toLowerCase();
+                    if (input.equals("true") || input.equals("false")) {
+                        f.setActivo(Boolean.parseBoolean(input));
+                        break;
+                    } else System.out.println("Debe ingresar 'true' o 'false'.");
+                }
+                break;
+
+            case 6:
                 return f;
+
+            default:
+                System.out.println("Opcion invalida, vuelva a ingresar nuevamente");
+                break;
         }
 
         System.out.println("Factura modificada correctamente.");

@@ -222,17 +222,6 @@
         "combustible": "Gasolina"
     }},
     {"vehiculo": {
-        "marca": "BMW",
-        "puertas": 5,
-        "precio": 62000,
-        "color": "Blanco",
-        "cilindrada": 2000,
-        "stock": true,
-        "modelo": "X3",
-        "anio": 2021,
-        "combustible": "Gasolina"
-    }},
-    {"vehiculo": {
         "marca": "TOYOTA",
         "puertas": 4,
         "precio": 23000,
@@ -344,5 +333,29 @@
         "anio": 2021,
         "combustible": "Diésel",
         "anchoCaja": 150
+    }},
+    {"vehiculo": {
+        "marca": "BMW",
+        "puertas": 5,
+        "precio": 62000,
+        "color": "Blanco",
+        "cilindrada": 2000,
+        "stock": false,
+        "modelo": "X3",
+        "anio": 2021,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "VOLVO",
+        "puertas": 2,
+        "precio": 250000,
+        "color": "naranja",
+        "cilindrada": 8000,
+        "ancho": 3,
+        "largo": 8,
+        "stock": true,
+        "modelo": "FH7300",
+        "anio": 2026,
+        "combustible": "gasoil"
     }}
 ]

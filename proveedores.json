@@ -108,15 +108,6 @@
         "activo": true
     }},
     {"proveedor": {
-        "marcaQueProvee": "NISSAN",
-        "direccion": "Av. Saavedra 920, Chaco",
-        "empresa": "Estrella SRL",
-        "telefono": "3624432299",
-        "nombre": "Proveedores Estrella",
-        "email": "estrella@proveedora.com",
-        "activo": true
-    }},
-    {"proveedor": {
         "marcaQueProvee": "DUCATI",
         "direccion": "Sarmiento 123, San Juan",
         "empresa": "Nova Partners SA",
@@ -132,6 +123,24 @@
         "telefono": "1133001100",
         "nombre": "Proveedor Andes",
         "email": "contacto@andessupply.com",
+        "activo": false
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "BMW",
+        "direccion": "Av. Saavedra 920, Chaco",
+        "empresa": "Estrella SRL",
+        "telefono": "3624432299",
+        "nombre": "Proveedores Estrella",
+        "email": "estrella@proveedora.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "AUDI",
+        "direccion": "av.39",
+        "empresa": "Audi Sports",
+        "telefono": "2238789875",
+        "nombre": "Audi",
+        "email": "audi@gmail.com",
         "activo": false
     }}
 ]

@@ -86,7 +86,8 @@ public abstract class Vehiculo {
                 "\nModelo: " + modelo +
                 "\nAño: " + anio +
                 "\nColor: " + color +
-                "\nPrecio: " + precio;
+                "\nPrecio: " + precio+
+                "\nStock:"+ enStock;
     }
 
     @Override

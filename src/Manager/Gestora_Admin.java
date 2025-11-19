@@ -38,11 +38,15 @@ public class Gestora_Admin {
 
             if (aux.getNombreAdmin().equals(nombreUsuario))
             {
-                if (aux.getContrasenia().equals(contrasenia))
+                if(aux.isActivo()) {
+                    if (aux.getContrasenia().equals(contrasenia)) {
+                        return true;
+                    } else {
+                        throw new IncorrectUserNameOrPasswordException("");
+                    }
+                }else
                 {
-                    return true;
-                }else{
-                    throw new IncorrectUserNameOrPasswordException("");
+                    System.out.println("ERROR. El admin esta dado de baja.");
                 }
 
             }
@@ -273,5 +277,15 @@ public class Gestora_Admin {
             System.out.println(a.toString());
         }
     }
+
+    public String searchAdmin(String nombreAdmin) {
+        for (Admin a : listaDeAdmins) {
+            if (a.getNombreAdmin().equalsIgnoreCase(nombreAdmin)) {
+                return a.toString();
+            }
+        }
+        return "No se ha encontrado un administrador con ese nombre.";
+    }
+
 
 }

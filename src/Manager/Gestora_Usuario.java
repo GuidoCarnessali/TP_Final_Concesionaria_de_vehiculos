@@ -31,11 +31,16 @@ public class Gestora_Usuario {
         for (Usuario aux : listaUsuarios) {
 
             if (aux.getNombreUsuario().equals(nombreUsuario)) {
-                if (aux.getContrasenia().equals(contrasenia)) {
-                    return true;
+
+                if(!aux.isActivo())
+                {
+                    System.out.println("ERROR. El usuario esta dado de baja.");
+                }else if(aux.getContrasenia().equals(contrasenia)) {
+                        return true;
                 } else {
-                    throw new IncorrectUserNameOrPasswordException("");
+                        throw new IncorrectUserNameOrPasswordException("");
                 }
+
             }
         }
 
@@ -87,6 +92,16 @@ public class Gestora_Usuario {
 
         return false;
     }
+
+    public String searchUsuario(String nombreUsuario) {
+        for (Usuario u : listaUsuarios) {
+            if (u.getNombreUsuario().equalsIgnoreCase(nombreUsuario)) {
+                return u.toString();
+            }
+        }
+        return "No se ha encontrado un usuario con ese nombre de usuario.";
+    }
+
 
     public void showUsuarios() {
         for (Usuario u : listaUsuarios) {

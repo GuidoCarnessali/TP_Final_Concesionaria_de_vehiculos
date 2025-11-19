@@ -73,7 +73,7 @@ public class Camión extends Vehiculo implements iVehiculoDeCarga {
         return super.toString() +
                 "Cilindrada: =" + cilindrada + "\n" +
                 "Puertas: " + puertas + "\n" +
-                "Combustible: " + combustible + '\'' +
+                "Combustible: " + combustible + "\n" +
                 "Largo del chasis: " + largoChasis + "\n" +
                 "Ancho del chasis: " + anchoChasis + "\n" +
                 "Superficie: " + calcularDimension() + " cm2";

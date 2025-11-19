@@ -81,6 +81,8 @@ public class Menu {
 
                     try {
                         gestoraUsuario.signUp(name2, password2);
+                        gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
 
                     }catch (UserAlreadyExistsException e ){
                         System.err.println(e.getMessage());
@@ -104,7 +106,7 @@ public class Menu {
                         gestoraAdmin.login(name3, password3);
                         try {
                             System.out.println("CARGANDO . . .");
-                            Thread.sleep(1300); // 2 segundos
+                            Thread.sleep(800);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -132,7 +134,6 @@ public class Menu {
 
                     if(verificarSalida == 1)
                     {
-                        gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
                         salir = true;
 
                     }
@@ -228,6 +229,8 @@ public class Menu {
                         Cliente c= gestoraCliente.crearCliente();
 
                         gestoraVehiculo.buyVehicle(c, vehiculoAcomprar, gestoraEmpleado.obtenerEmpleadoRandom(), gestoraFactura, gestoraCliente);
+                        gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                     }else {
                         System.err.println("El vehiculo no esta disponible");
                     }
@@ -306,7 +309,8 @@ public class Menu {
                         System.out.println("2. Crear un usuario. ");
                         System.out.println("3. Dar de baja un usuario. ");
                         System.out.println("4. Modificar usuario. ");
-                        System.out.println("5. Volver al menu principal ↩.");
+                        System.out.println("5. Buscar un usuario");
+                        System.out.println("6. Volver al menu principal ↩.");
                         opcion1 = scan.nextInt();
                         scan.nextLine();
                         switch (opcion1) {
@@ -316,20 +320,31 @@ public class Menu {
                                 break;
                             case 2:
                                 gestoraUsuario.crearUsuario();
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 3:
-
                                 System.out.println("Ingrese el nombre de usuario a dar de baja: ");
                                 String nombreUsuarioABorrar = scan.nextLine();
                                 gestoraUsuario.removeUsuario(nombreUsuarioABorrar);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 4:
                                 System.out.println("Ingrese el nombre de usuario a modificar: ");
                                 String username = scan.nextLine();
                                 gestoraUsuario.modifyUsuario(username);
-
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
                                 break;
+
                             case 5:
+                                System.out.println("Ingrese el nombre del usuario a buscar: ");
+                                String nombreUsuario=scan.nextLine();
+                                System.out.println("--------");
+                                System.out.println(gestoraUsuario.searchUsuario(nombreUsuario));
+                                break;
+
+                            case 6:
                                 salir1 = true;
                                 break;
                             default:
@@ -348,7 +363,8 @@ public class Menu {
                         System.out.println("2. Crear un admin. ");
                         System.out.println("3. Dar de baja un admin. ");
                         System.out.println("4. Modificar un admin. ");
-                        System.out.println("5. Volver al menu principal ↩.");
+                        System.out.println("5. Buscar un admin.");
+                        System.out.println("6. Volver al menu principal ↩.");
 
                         opcion2 = scan.nextInt();
                         scan.nextLine();
@@ -358,19 +374,32 @@ public class Menu {
                                 break;
                             case 2:
                                 gestoraAdmin.crearAdmin();
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 3:
                                 System.out.println("Ingrese el nombre del admin a dar de baja: ");
                                 String username = scan.nextLine();
                                 gestoraAdmin.removeAdmin(username);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
 
                                 break;
                             case 4:
                                 System.out.println("Ingrese el nombre del admin a modificar: ");
                                 String username2 = scan.nextLine();
                                 gestoraAdmin.modifyAdmin(username2);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
+
                             case 5:
+                                System.out.println("Ingrese el nombre del admin a buscar: ");
+                                String nombreAdmin=scan.nextLine();
+                                System.out.println("----------");
+                                System.out.println(gestoraAdmin.searchAdmin(nombreAdmin));
+                                break;
+
+                            case 6:
                                 salir2 = true;
                                 break;
 
@@ -390,7 +419,8 @@ public class Menu {
                         System.out.println("2. Modificar cliente. ");
                         System.out.println("3. Buscar cliente. ");
                         System.out.println("4. Dar de baja un cliente. ");
-                        System.out.println("5. Volver al menu principal ↩.");
+                        System.out.println("5. Crear cliente.");
+                        System.out.println("6. Volver al menu principal ↩.");
                         opcion3 = scan.nextInt();
                         scan.nextLine();
                         switch (opcion3) {
@@ -403,6 +433,7 @@ public class Menu {
                                 System.out.println("Ingrese el DNI del cliente a modificar: ");
                                 dni = scan.nextLine();
                                 gestoraCliente.modifyCliente(dni);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
 
                                 break;
                             case 3:
@@ -416,9 +447,18 @@ public class Menu {
                                 System.out.println("Ingrese el dni del cliente a dar de baja: ");
                                 String dniViejo = scan.nextLine();
                                 gestoraCliente.removeCliente(dniViejo);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
 
                                 break;
+
                             case 5:
+                                Cliente c= gestoraCliente.crearCliente();
+                                gestoraCliente.addCliente(c);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
+                                break;
+
+                            case 6:
                                 salir3 = true;
                                 break;
                             default:
@@ -460,6 +500,7 @@ public class Menu {
                             case 4:
 
                                 gestoraEmpleado.crearEmpleado();
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
 
                                 break;
 
@@ -467,6 +508,8 @@ public class Menu {
                                 System.out.println("Ingrese el dni del empleado a modificar: ");
                                 String dnia = scan.nextLine();
                                 gestoraEmpleado.modifyEmpleado(dnia);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 6:
                                 System.out.println("Ingrese el dni a buscar");
@@ -485,6 +528,8 @@ public class Menu {
                                     if (dniaDardebaja.matches("[0-9]+") && Integer.parseInt(dniaDardebaja) > 0) {
                                         verificador2 = true;
                                         gestoraEmpleado.removeEmpleado(dniaDardebaja);
+                                        gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                     } else {
                                         System.err.println("DNI no válido. Debe ser un número positivo.");
                                     }
@@ -557,6 +602,8 @@ public class Menu {
                                     Cliente c= gestoraCliente.crearCliente();
 
                                     gestoraVehiculo.buyVehicle(c, vehiculoAcomprar, gestoraEmpleado.obtenerEmpleadoRandom(), gestoraFactura, gestoraCliente);
+                                    gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 }else {
                                     System.err.println("El vehiculo no esta disponible");
                                 }
@@ -617,6 +664,8 @@ public class Menu {
 
                                 if (eliminada) {
                                     System.out.println("Factura eliminada correctamente.");
+                                    gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 } else {
                                     System.err.println("No se pudo eliminar la factura.");
                                 }
@@ -657,6 +706,8 @@ public class Menu {
 
                                 if (facturaModificada != null) {
                                     System.out.println("La factura se modificó correctamente.");
+                                    gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 } else {
                                     System.err.println("No se pudo modificar la factura.");
                                 }
@@ -704,11 +755,15 @@ public class Menu {
                                 break;
                             case 4:
                                 gestoraProveedor.crearProveedor();
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 5:
                                 System.out.println("Ingrese el nombre del proveedor a modificar: ");
                                 String nombreViejo = scan.nextLine();
                                 gestoraProveedor.modifyProveedor(nombreViejo);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 6:
                                 System.out.println("Ingrese el nombre del proveedor a buscar: ");
@@ -719,6 +774,8 @@ public class Menu {
                                 System.out.println("Ingrese el nombre del proveedor a eliminar: ");
                                 String nombreAeliminar = scan.nextLine();
                                 gestoraProveedor.removeProveedor(nombreAeliminar);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 8:
                                 salir6 = true;
@@ -751,8 +808,36 @@ public class Menu {
                         switch (opcion7) {
 
                             case 1:
+                                System.out.println("-----------------");
+                                System.out.println("1. Mostrar todos los vehiculos.");
+                                System.out.println("2. Mostrar motos.");
+                                System.out.println("3. Mostrar autos.");
+                                System.out.println("4. Mostrar camiones.");
+                                System.out.println("5. Mostrar camionetas.");
+                                System.out.println("-----------------");
 
-                                gestoraVehiculo.showVehiculos();
+                                int opcionVehiculos=-1;
+                                opcionVehiculos= scan.nextInt();
+                                scan.nextLine();
+
+                                switch (opcionVehiculos) {
+                                    case 1:
+
+                                        gestoraVehiculo.showVehiculos();
+                                        break;
+                                    case 2:
+                                        gestoraVehiculo.showMotos();
+                                        break;
+                                    case 3:
+                                        gestoraVehiculo.showAutos();
+                                        break;
+                                    case 4:
+                                        gestoraVehiculo.showCamion();
+                                        break;
+                                    case 5:
+                                        gestoraVehiculo.showCamionetas();
+                                        break;
+                                }
 
                                 break;
                             case 2:
@@ -767,12 +852,15 @@ public class Menu {
                                 break;
                             case 4:
                                 gestoraVehiculo.createVehiculo();
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 5:
                                 System.out.println("Ingrese el nombre del modelo a modificar: ");
                                 String modeloviejo = scan.nextLine();
-
                                 gestoraVehiculo.modifyVehiculo(modeloviejo);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
+
                                 break;
                             case 6:
                                 System.out.println("Ingrese el nombre del modelo a buscar: ");
@@ -803,6 +891,7 @@ public class Menu {
                                 }
 
                                 gestoraVehiculo.removeVehiculo(modeloAeliminar, anioAeliminar, colorAeliminar);
+                                gestoraJson.concesionariaToArchivo(gestoraUsuario, gestoraFactura, gestoraVehiculo, gestoraCliente, gestoraEmpleado, gestoraProveedor, gestoraAdmin);
 
                                 break;
                             case 8:
@@ -850,6 +939,7 @@ public class Menu {
 
                         if (verificarSalida == 1) {
                             salir = true;
+
                         }
 
                         break;
