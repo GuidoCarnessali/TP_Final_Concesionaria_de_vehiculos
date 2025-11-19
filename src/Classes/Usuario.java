@@ -6,14 +6,18 @@ public class Usuario {
     //Atributos
     private String nombreUsuario;
     private String contrasenia;
+    private boolean activo = true;
+
 
 
 
     //constructor
 
+
     public Usuario(String nombreUsuario, String contrasenia) {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
+        this.activo = true;
     }
 
     public Usuario() {
@@ -34,11 +38,22 @@ public class Usuario {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
+
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
     //Metodos
     @Override
     public String toString() {
         return "Nombre de usuario: " + nombreUsuario + "\n" +
-                "Contrasenia: " + contrasenia;
+                "Contrasenia: " + contrasenia + "\n" +
+                "Activo: " + activo;
     }
 
     @Override

@@ -1,70 +1,87 @@
 [
     {
         "contrasenia": "NicoUser1",
-        "nombreUsuario": "nicolas.castro"
+        "nombreUsuario": "nicolas.castro",
+        "activo": true
     },
     {
         "contrasenia": "MariaPass1",
-        "nombreUsuario": "maria.gomez"
+        "nombreUsuario": "maria.gomez",
+        "activo": false
     },
     {
         "contrasenia": "MartinPwd",
-        "nombreUsuario": "martin.diaz"
+        "nombreUsuario": "martin.diaz",
+        "activo": true
     },
     {
         "contrasenia": "Lucia321",
-        "nombreUsuario": "lucia.fernandez"
+        "nombreUsuario": "lucia.fernandez",
+        "activo": false
     },
     {
         "contrasenia": "manu1234",
-        "nombreUsuario": "manu123"
+        "nombreUsuario": "manu123",
+        "activo": true
     },
     {
         "contrasenia": "Brenda007",
-        "nombreUsuario": "brenda.mendez"
+        "nombreUsuario": "brenda.mendez",
+        "activo": false
     },
     {
         "contrasenia": "MatiasPass",
-        "nombreUsuario": "matias.arce"
+        "nombreUsuario": "matias.arce",
+        "activo": true
     },
     {
         "contrasenia": "Andres01",
-        "nombreUsuario": "andres.molina"
+        "nombreUsuario": "andres.molina",
+        "activo": false
     },
     {
         "contrasenia": "Tomas2023",
-        "nombreUsuario": "tomas.suarez"
+        "nombreUsuario": "tomas.suarez",
+        "activo": true
     },
     {
         "contrasenia": "ValePass7",
-        "nombreUsuario": "valentina.lopez"
+        "nombreUsuario": "valentina.lopez",
+        "activo": false
+    },
+    {
+        "contrasenia": "guidote",
+        "nombreUsuario": "guido1234",
+        "activo": true
     },
     {
         "contrasenia": "Cami2022",
-        "nombreUsuario": "camila.rios"
+        "nombreUsuario": "camila.rios",
+        "activo": true
     },
     {
         "contrasenia": "Laura2025",
-        "nombreUsuario": "laura.sosa"
+        "nombreUsuario": "laura.sosa",
+        "activo": false
     },
     {
         "contrasenia": "Fede098",
-        "nombreUsuario": "federico.silva"
+        "nombreUsuario": "federico.silva",
+        "activo": false
     },
     {
         "contrasenia": "SofiA123",
-        "nombreUsuario": "sofia.luna"
-    },
-    {
-        "contrasenia": "Juan2024",
-        "nombreUsuario": "juan.perez"
+        "nombreUsuario": "sofia.luna",
+        "activo": false
     },
     {
         "contrasenia": "Carlos123",
-        "nombreUsuario": "carlos.rojas"
+        "nombreUsuario": "carlos.rojas",
+        "activo": true
     },
     {
-        "contrasenia": "guido1234",
-        "nombreUsuario": "guido123"
+        "contrasenia": "Juan2024",
+        "nombreUsuario": "juan.perez",
+        "activo": false
     }
 ]

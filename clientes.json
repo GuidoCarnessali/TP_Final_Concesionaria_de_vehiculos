@@ -7,7 +7,8 @@
             "nombre": "Guido valentin",
             "edad": 18,
             "dni": "47641915",
-            "email": "guidocarnessali@gmail.com"
+            "email": "guidocarnessali@gmail.com",
+            "activo": true
         },
         "dni": "47641915"
     },
@@ -19,7 +20,8 @@
             "nombre": "Ernesto",
             "edad": 41,
             "dni": "50555666",
-            "email": "ernesto.montiel@example.com"
+            "email": "ernesto.montiel@example.com",
+            "activo": true
         },
         "dni": "50555666"
     },
@@ -31,7 +33,8 @@
             "nombre": "Bárbara",
             "edad": 29,
             "dni": "50444555",
-            "email": "barbara.lagos@example.com"
+            "email": "barbara.lagos@example.com",
+            "activo": true
         },
         "dni": "50444555"
     },
@@ -43,7 +46,8 @@
             "nombre": "Luis",
             "edad": 38,
             "dni": "25748645",
-            "email": "luchitosuarez@gmail.com"
+            "email": "luchitosuarez@gmail.com",
+            "activo": true
         },
         "dni": "25748645"
     },
@@ -55,7 +59,8 @@
             "nombre": "Julieta",
             "edad": 30,
             "dni": "38421674",
-            "email": "juligomez@gmail.com"
+            "email": "juligomez@gmail.com",
+            "activo": true
         },
         "dni": "38421674"
     },
@@ -67,7 +72,8 @@
             "nombre": "Gabriel",
             "edad": 32,
             "dni": "50333444",
-            "email": "gabriel.toledo@example.com"
+            "email": "gabriel.toledo@example.com",
+            "activo": true
         },
         "dni": "50333444"
     },
@@ -79,7 +85,8 @@
             "nombre": "Lautaro",
             "edad": 27,
             "dni": "50111222",
-            "email": "lautaro.benitez@example.com"
+            "email": "lautaro.benitez@example.com",
+            "activo": true
         },
         "dni": "50111222"
     },
@@ -91,7 +98,8 @@
             "nombre": "Matheo",
             "edad": 35,
             "dni": "51565656",
-            "email": "matheo.caballero@example.com"
+            "email": "matheo.caballero@example.com",
+            "activo": true
         },
         "dni": "51565656"
     },
@@ -103,7 +111,8 @@
             "nombre": "Milagros",
             "edad": 25,
             "dni": "50222333",
-            "email": "milagros.acosta@example.com"
+            "email": "milagros.acosta@example.com",
+            "activo": true
         },
         "dni": "50222333"
     },
@@ -115,7 +124,8 @@
             "nombre": "Selena",
             "edad": 22,
             "dni": "51454545",
-            "email": "selena.morales@example.com"
+            "email": "selena.morales@example.com",
+            "activo": true
         },
         "dni": "51454545"
     },
@@ -127,7 +137,8 @@
             "nombre": "Carolina",
             "edad": 45,
             "dni": "25854328",
-            "email": "caroarchuby@gmail.com"
+            "email": "caroarchuby@gmail.com",
+            "activo": true
         },
         "dni": "25854328"
     },
@@ -139,7 +150,8 @@
             "nombre": "Darwin",
             "edad": 50,
             "dni": "25874365",
-            "email": "darwinunez@gmail.com"
+            "email": "darwinunez@gmail.com",
+            "activo": true
         },
         "dni": "25874365"
     },
@@ -151,7 +163,8 @@
             "nombre": "Ailén",
             "edad": 26,
             "dni": "50888999",
-            "email": "ailen.campos@example.com"
+            "email": "ailen.campos@example.com",
+            "activo": true
         },
         "dni": "50888999"
     },
@@ -163,7 +176,8 @@
             "nombre": "Damián",
             "edad": 33,
             "dni": "51343434",
-            "email": "damian.carrizo@example.com"
+            "email": "damian.carrizo@example.com",
+            "activo": true
         },
         "dni": "51343434"
     },
@@ -175,7 +189,8 @@
             "nombre": "Milton",
             "edad": 50,
             "dni": "25491624",
-            "email": "miltonvilla@gmail.com"
+            "email": "miltonvilla@gmail.com",
+            "activo": true
         },
         "dni": "25491624"
     },
@@ -187,7 +202,8 @@
             "nombre": "Ramiro Manuel",
             "edad": 18,
             "dni": "47517826",
-            "email": "ramavilla@gmail.com"
+            "email": "ramavilla@gmail.com",
+            "activo": true
         },
         "dni": "47517826"
     },
@@ -199,7 +215,8 @@
             "nombre": "Juliana",
             "edad": 24,
             "dni": "51232323",
-            "email": "juliana.moyano@example.com"
+            "email": "juliana.moyano@example.com",
+            "activo": true
         },
         "dni": "51232323"
     },
@@ -211,7 +228,8 @@
             "nombre": "Rodrigo",
             "edad": 34,
             "dni": "50777888",
-            "email": "rodrigo.villalba@example.com"
+            "email": "rodrigo.villalba@example.com",
+            "activo": true
         },
         "dni": "50777888"
     },
@@ -223,7 +241,8 @@
             "nombre": "Santiago",
             "edad": 31,
             "dni": "50999000",
-            "email": "santiago.rivas@example.com"
+            "email": "santiago.rivas@example.com",
+            "activo": true
         },
         "dni": "50999000"
     },
@@ -235,7 +254,8 @@
             "nombre": "Joao",
             "edad": 26,
             "dni": "42987546",
-            "email": "joaofelix@gmail.com"
+            "email": "joaofelix@gmail.com",
+            "activo": true
         },
         "dni": "42987546"
     },
@@ -247,7 +267,8 @@
             "nombre": "Bruno",
             "edad": 28,
             "dni": "51121212",
-            "email": "bruno.arce@example.com"
+            "email": "bruno.arce@example.com",
+            "activo": true
         },
         "dni": "51121212"
     },
@@ -259,7 +280,8 @@
             "nombre": "Valentina",
             "edad": 19,
             "dni": "47559590",
-            "email": "navarrovalen@gmail.com"
+            "email": "navarrovalen@gmail.com",
+            "activo": true
         },
         "dni": "47559590"
     },
@@ -271,7 +293,8 @@
             "nombre": "Lucía",
             "edad": 23,
             "dni": "50666777",
-            "email": "lucia.serrano@example.com"
+            "email": "lucia.serrano@example.com",
+            "activo": true
         },
         "dni": "50666777"
     },
@@ -283,7 +306,8 @@
             "nombre": "Noelia",
             "edad": 30,
             "dni": "51010101",
-            "email": "noelia.fuster@example.com"
+            "email": "noelia.fuster@example.com",
+            "activo": true
         },
         "dni": "51010101"
     }

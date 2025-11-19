@@ -10,6 +10,8 @@ public class Cliente {
     private Character sexo;
     private int edad;
 
+    private boolean activo = true;
+
     //Constructor
 
 
@@ -21,6 +23,18 @@ public class Cliente {
         this.telefono = telefono;
         this.sexo = sexo;
         this.edad = edad;
+        this.activo = true;
+    }
+
+    public Cliente(String nombre, String apellido, String dni, String email, String telefono, Character sexo, int edad, boolean activo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.email = email;
+        this.telefono = telefono;
+        this.sexo = sexo;
+        this.edad = edad;
+        this.activo = activo;
     }
 
     public Cliente()
@@ -84,6 +98,13 @@ public class Cliente {
         this.edad = edad;
     }
 
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 
     //Métodos
     public String toString() {
@@ -95,7 +116,8 @@ public class Cliente {
                 "\nEmail: " + email +
                 "\nTelefono: " + telefono +
                 "\nSexo: " + sexo +
-                "\nEdad: " + edad;
+                "\nEdad: " + edad +
+                "\nActivo: " + activo;
     }
 
 

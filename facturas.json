@@ -9,7 +9,8 @@
                 "nombre": "Juan",
                 "edad": 30,
                 "dni": "12345678A",
-                "email": "juan.perez@email.com"
+                "email": "juan.perez@email.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Desarrollador",
@@ -49,7 +50,8 @@
                 "nombre": "Ana",
                 "edad": 25,
                 "dni": "23456789B",
-                "email": "ana.gomez@email.com"
+                "email": "ana.gomez@email.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Gerente",
@@ -89,7 +91,8 @@
                 "nombre": "Carlos",
                 "edad": 40,
                 "dni": "34567890C",
-                "email": "carlos.lopez@email.com"
+                "email": "carlos.lopez@email.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Auxiliar",
@@ -129,7 +132,8 @@
                 "nombre": "María",
                 "edad": 35,
                 "dni": "45678901D",
-                "email": "maria.rodriguez@email.com"
+                "email": "maria.rodriguez@email.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Analista",
@@ -169,7 +173,8 @@
                 "nombre": "Pedro",
                 "edad": 50,
                 "dni": "56789012E",
-                "email": "pedro.sanchez@email.com"
+                "email": "pedro.sanchez@email.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Supervisor",
@@ -209,7 +214,8 @@
                 "nombre": "Juan Manuel",
                 "edad": 19,
                 "dni": "47559480",
-                "email": "jjuanmafz@gmail.com"
+                "email": "jjuanmafz@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Contador",
@@ -249,7 +255,8 @@
                 "nombre": "Guido valentin",
                 "edad": 18,
                 "dni": "47641915",
-                "email": "guidocarnessali@gmail.com"
+                "email": "guidocarnessali@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Operario",
@@ -289,7 +296,8 @@
                 "nombre": "Luis",
                 "edad": 38,
                 "dni": "25748645",
-                "email": "luchitosuarez@gmail.com"
+                "email": "luchitosuarez@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Recepcionista",
@@ -329,7 +337,8 @@
                 "nombre": "Darwin",
                 "edad": 50,
                 "dni": "25874365",
-                "email": "darwinunez@gmail.com"
+                "email": "darwinunez@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Marketing",
@@ -368,7 +377,8 @@
                 "nombre": "Joao",
                 "edad": 26,
                 "dni": "42987546",
-                "email": "joaofelix@gmail.com"
+                "email": "joaofelix@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Investigadora",
@@ -410,7 +420,8 @@
                 "nombre": "Milton",
                 "edad": 50,
                 "dni": "25491624",
-                "email": "miltonvilla@gmail.com"
+                "email": "miltonvilla@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Contador",
@@ -450,7 +461,8 @@
                 "nombre": "Julieta",
                 "edad": 30,
                 "dni": "38421674",
-                "email": "juligomez@gmail.com"
+                "email": "juligomez@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Contador",
@@ -490,7 +502,8 @@
                 "nombre": "Ramiro Manuel",
                 "edad": 18,
                 "dni": "47517826",
-                "email": "ramavilla@gmail.com"
+                "email": "ramavilla@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Contador",
@@ -530,7 +543,8 @@
                 "nombre": "Valentina",
                 "edad": 19,
                 "dni": "47559590",
-                "email": "navarrovalen@gmail.com"
+                "email": "navarrovalen@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Desarrollador",
@@ -570,7 +584,8 @@
                 "nombre": "Carolina",
                 "edad": 45,
                 "dni": "25854328",
-                "email": "caroarchuby@gmail.com"
+                "email": "caroarchuby@gmail.com",
+                "activo": true
             },
             "empleado": {
                 "puesto": "Supervisor",

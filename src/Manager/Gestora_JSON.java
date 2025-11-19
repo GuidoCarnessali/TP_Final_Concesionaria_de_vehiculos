@@ -135,6 +135,7 @@ public class Gestora_JSON {
             jsonObject.put("telefono", c.getTelefono());
             jsonObject.put("sexo",c.getSexo());
             jsonObject.put("edad",c.getEdad());
+            jsonObject.put("activo", c.isActivo());
 
         }catch (JSONException e){
             e.printStackTrace();
@@ -316,6 +317,8 @@ public class Gestora_JSON {
             c.setTelefono(jsonObject.getString("telefono"));
             c.setSexo(Character.valueOf(jsonObject.getString("sexo").charAt(0)));
             c.setEdad(jsonObject.getInt("edad"));
+            c.setActivo(jsonObject.getBoolean("activo"));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -643,6 +646,7 @@ public class Gestora_JSON {
             jsonObject = new JSONObject();
             jsonObject.put("nombreUsuario", u.getNombreUsuario());
             jsonObject.put("contrasenia", u.getContrasenia());
+            jsonObject.put("activo", u.isActivo());
 
         }catch (JSONException e){
             e.printStackTrace();
@@ -659,6 +663,7 @@ public class Gestora_JSON {
             jsonObject = new JSONObject();
             jsonObject.put("nombreAdmin", a.getNombreAdmin());
             jsonObject.put("contrasenia", a.getContrasenia());
+            jsonObject.put("activo", a.isActivo());
 
         }catch (JSONException e){
             e.printStackTrace();
@@ -716,6 +721,7 @@ public class Gestora_JSON {
 
             u.setNombreUsuario(jsonObject.getString("nombreUsuario"));
             u.setContrasenia(jsonObject.getString("contrasenia"));
+            u.setActivo(jsonObject.getBoolean("activo"));
 
         }catch (JSONException e)
         {
@@ -733,6 +739,7 @@ public class Gestora_JSON {
 
             a.setNombreAdmin(jsonObject.getString("nombreAdmin"));
             a.setContrasenia(jsonObject.getString("contrasenia"));
+            a.setActivo(jsonObject.getBoolean("activo"));
 
         }catch (JSONException e)
         {

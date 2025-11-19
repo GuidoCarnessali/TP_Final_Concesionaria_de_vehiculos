@@ -388,17 +388,32 @@ public class Menu {
                         System.out.println("\n-------------------");
                         System.out.println(" 1. Ver usuarios. ");
                         System.out.println("2. Crear un usuario. ");
-                        System.out.println("3. Volver al menu principal ↩.");
+                        System.out.println("3. Dar de baja un usuario. ");
+                        System.out.println("4. Modificar usuario. ");
+                        System.out.println("5. Volver al menu principal ↩.");
                         opcion1 = scan.nextInt();
                         scan.nextLine();
                         switch (opcion1) {
                             case 1:
+
                                 gestoraUsuario.showUsuarios();
                                 break;
                             case 2:
                                 gestoraUsuario.crearUsuario();
                                 break;
                             case 3:
+
+                                System.out.println("Ingrese el nombre de usuario a dar de baja: ");
+                                String nombreUsuarioABorrar = scan.nextLine();
+                                gestoraUsuario.removeUsuario(nombreUsuarioABorrar);
+                                break;
+                            case 4:
+                                System.out.println("Ingrese el nombre de usuario a modificar: ");
+                                String username = scan.nextLine();
+                                gestoraUsuario.modifyUsuario(username);
+
+                                break;
+                            case 5:
                                 salir1 = true;
                                 break;
                             default:
@@ -415,7 +430,9 @@ public class Menu {
                         System.out.println("\n-------------------");
                         System.out.println(" 1. Ver admins. ");
                         System.out.println("2. Crear un admin. ");
-                        System.out.println("3. Volver al menu principal ↩.");
+                        System.out.println("3. Dar de baja un admin. ");
+                        System.out.println("4. Modificar un admin. ");
+                        System.out.println("5. Volver al menu principal ↩.");
 
                         opcion2 = scan.nextInt();
                         scan.nextLine();
@@ -427,6 +444,17 @@ public class Menu {
                                 gestoraAdmin.crearAdmin();
                                 break;
                             case 3:
+                                System.out.println("Ingrese el nombre del admin a dar de baja: ");
+                                String username = scan.nextLine();
+                                gestoraAdmin.removeAdmin(username);
+
+                                break;
+                            case 4:
+                                System.out.println("Ingrese el nombre del admin a modificar: ");
+                                String username2 = scan.nextLine();
+                                gestoraAdmin.modifyAdmin(username2);
+                                break;
+                            case 5:
                                 salir2 = true;
                                 break;
 
@@ -443,9 +471,10 @@ public class Menu {
                     while (!salir3) {
                         System.out.println("\n-------------------");
                         System.out.println(" 1. Ver clientes. ");
-                        System.out.println("2. Modificar cliente ");
-                        System.out.println("3. Buscar cliente");
-                        System.out.println("4. Volver al menu principal ↩.");
+                        System.out.println("2. Modificar cliente. ");
+                        System.out.println("3. Buscar cliente. ");
+                        System.out.println("4. Dar de baja un cliente. ");
+                        System.out.println("5. Volver al menu principal ↩.");
                         opcion3 = scan.nextInt();
                         scan.nextLine();
                         switch (opcion3) {
@@ -468,6 +497,12 @@ public class Menu {
 
                                 break;
                             case 4:
+                                System.out.println("Ingrese el dni del cliente a dar de baja: ");
+                                String dniViejo = scan.nextLine();
+                                gestoraCliente.removeCliente(dniViejo);
+
+                                break;
+                            case 5:
                                 salir3 = true;
                                 break;
                             default:

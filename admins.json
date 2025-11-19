@@ -1,78 +1,97 @@
 [
     {
+        "nombreAdmin": "sistema_secure_2",
+        "contrasenia": "secure555",
+        "activo": true
+    },
+    {
         "nombreAdmin": "superadmin_x",
-        "contrasenia": "superx12"
+        "contrasenia": "superx12",
+        "activo": true
     },
     {
         "nombreAdmin": "carolina",
-        "contrasenia": "archuby"
+        "contrasenia": "archuby",
+        "activo": true
     },
     {
         "nombreAdmin": "control_master",
-        "contrasenia": "master2023"
+        "contrasenia": "master2023",
+        "activo": true
     },
     {
         "nombreAdmin": "guido",
-        "contrasenia": "1234"
+        "contrasenia": "1234",
+        "activo": false
     },
     {
         "nombreAdmin": "admin_global",
-        "contrasenia": "global1010"
+        "contrasenia": "global1010",
+        "activo": true
     },
     {
         "nombreAdmin": "manu123",
-        "contrasenia": "manu123"
+        "contrasenia": "manu123",
+        "activo": false
     },
     {
         "nombreAdmin": "valen",
-        "contrasenia": "123"
+        "contrasenia": "123",
+        "activo": false
     },
     {
         "nombreAdmin": "coordinador_oeste",
-        "contrasenia": "oeste1234"
+        "contrasenia": "oeste1234",
+        "activo": true
     },
     {
         "nombreAdmin": "panel_admin1",
-        "contrasenia": "adminpanel"
+        "contrasenia": "adminpanel",
+        "activo": true
     },
     {
         "nombreAdmin": "root_central",
-        "contrasenia": "central01"
+        "contrasenia": "central01",
+        "activo": true
     },
     {
         "nombreAdmin": "admin_pro",
-        "contrasenia": "proadmin"
+        "contrasenia": "proadmin",
+        "activo": true
     },
     {
         "nombreAdmin": "gestor_sur",
-        "contrasenia": "suradmin1"
+        "contrasenia": "suradmin1",
+        "activo": true
     },
     {
         "nombreAdmin": "1",
-        "contrasenia": "1"
+        "contrasenia": "1",
+        "activo": false
     },
     {
         "nombreAdmin": "admin_este",
-        "contrasenia": "este2024"
-    },
-    {
-        "nombreAdmin": "sistema_secure",
-        "contrasenia": "secure555"
+        "contrasenia": "este2024",
+        "activo": false
     },
     {
         "nombreAdmin": "zona_admin",
-        "contrasenia": "zonapass1"
+        "contrasenia": "zonapass1modified",
+        "activo": true
     },
     {
         "nombreAdmin": "supervisor_norte",
-        "contrasenia": "norte2025"
+        "contrasenia": "norte2025",
+        "activo": true
     },
     {
         "nombreAdmin": "master_control",
-        "contrasenia": "control999"
+        "contrasenia": "control999",
+        "activo": true
     },
     {
         "nombreAdmin": "panel_root",
-        "contrasenia": "rootpanel"
+        "contrasenia": "rootpanel",
+        "activo": true
     }
 ]
