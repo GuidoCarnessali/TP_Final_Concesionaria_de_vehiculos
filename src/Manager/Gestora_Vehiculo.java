@@ -86,338 +86,393 @@ public class Gestora_Vehiculo {
 
     public void modifyVehiculo(String modeloViejo) {
         Scanner scan = new Scanner(System.in);
-        Vehiculo viejo = null;
+        Vehiculo v = null;
 
-        for (Vehiculo v : vehiculos) {
-            if (v.getModelo().equalsIgnoreCase(modeloViejo)) {
-                viejo = v;
+        for (Vehiculo x : vehiculos) {
+            if (x.getModelo().equalsIgnoreCase(modeloViejo)) {
+                v = x;
                 break;
             }
         }
 
-        if (viejo == null) {
-            System.err.println("No existe ningún vehículo con ese modelo.");
+        if (v == null) {
+            System.err.println("No existe un vehículo con ese modelo.");
             return;
         }
 
-        System.out.println("Seleccione el tipo de vehículo:");
-        System.out.println("1. Auto");
-        System.out.println("2. Camioneta");
-        System.out.println("3. Camión");
-        System.out.println("4. Moto");
-
-        int opcionTipo = 0;
         while (true) {
-            try {
-                System.out.print("Ingrese opción: ");
-                opcionTipo = scan.nextInt();
-                scan.nextLine();
-                if (opcionTipo >= 1 && opcionTipo <= 4) break;
-                System.err.println("Opción inválida, debe ser entre 1 y 4.");
-            } catch (InputMismatchException e) {
-                System.err.println("Error: debe ingresar un número entero.");
-                scan.nextLine();
-            }
-        }
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Modificar todos los campos");
+            System.out.println("2. Modificar marca");
+            System.out.println("3. Modificar modelo");
+            System.out.println("4. Modificar año");
+            System.out.println("5. Modificar color");
+            System.out.println("6. Modificar precio");
+            System.out.println("7. Modificar stock");
+            System.out.println("8. Modificar campos específicos del tipo");
+            System.out.println("9. Salir");
 
-        Vehiculo nuevo = switch (opcionTipo) {
-            case 1 -> new Auto();
-            case 2 -> new Camioneta();
-            case 3 -> new Camión();
-            case 4 -> new Moto();
-            default -> null;
-        };
-
-        vehiculos.remove(viejo);
-
-        Marca[] marcas = Marca.values();
-
-        System.out.println("Seleccione la marca del vehículo:");
-        for (int i = 0; i < marcas.length; i++) {
-            System.out.println((i + 1) + ". " + marcas[i]);
-        }
-
-        Marca marcaSeleccionada = null;
-        while (marcaSeleccionada == null) {
-            try {
-                System.out.print("Ingrese número de marca (1-15): ");
-                int op = scan.nextInt();
-                scan.nextLine();
-                if (op >= 1 && op <= marcas.length) {
-                    marcaSeleccionada = marcas[op - 1];
-                } else {
-                    System.err.println("Número inválido.");
-                }
-            } catch (InputMismatchException e) {
-                System.err.println("Error: ingrese un entero.");
-                scan.nextLine();
-            }
-        }
-
-        nuevo.setMarca(marcaSeleccionada);
-
-        System.out.print("Ingrese modelo: ");
-        nuevo.setModelo(scan.nextLine());
-
-        while (true) {
-            try {
-                System.out.print("Ingrese año: ");
-                int anio = scan.nextInt();
-                scan.nextLine();
-                if (anio > 0) {
-                    nuevo.setAnio(anio);
-                    break;
-                }
-                System.err.println("El año debe ser mayor a 0.");
-            } catch (InputMismatchException e) {
-                System.err.println("Error: debe ingresar un número entero.");
-                scan.nextLine();
-            }
-        }
-
-        System.out.print("Ingrese color: ");
-        nuevo.setColor(scan.nextLine());
-
-        while (true) {
-            try {
-                System.out.print("Ingrese precio: ");
-                double precio = scan.nextDouble();
-                scan.nextLine();
-                if (precio > 0) {
-                    nuevo.setPrecio(precio);
-                    break;
-                }
-                System.err.println("El precio debe ser mayor a 0.");
-            } catch (InputMismatchException e) {
-                System.err.println("Error: debe ingresar un número decimal.");
-                scan.nextLine();
-            }
-        }
-
-        while (true) {
-            System.out.print("¿Está en stock? (true/false): ");
-            String bool = scan.nextLine().toLowerCase();
-            if (bool.equals("true") || bool.equals("false")) {
-                nuevo.setEnStock(Boolean.parseBoolean(bool));
-                break;
-            }
-            System.err.println("Error: debe ingresar true o false.");
-        }
-
-        if (nuevo instanceof Auto auto) {
-
+            int op = 0;
             while (true) {
+
                 try {
-                    System.out.print("Ingrese cilindrada: ");
-                    int cil = scan.nextInt();
+                    op = scan.nextInt();
                     scan.nextLine();
-                    if (cil > 0) {
-                        auto.setCilindrada(cil);
-                        break;
-                    }
-                    System.err.println("Debe ser mayor a 0.");
+                    if (op >= 1 && op <= 9) break;
+                    System.err.println("Opción inválida.");
                 } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un entero.");
+                    System.err.println("Debe ingresar un número entero.");
                     scan.nextLine();
                 }
             }
 
-            while (true) {
-                try {
-                    System.out.print("Ingrese cantidad de puertas: ");
-                    int puertas = scan.nextInt();
-                    scan.nextLine();
-                    if (puertas > 0) {
-                        auto.setPuertas(puertas);
-                        break;
+            if (op == 9) break;
+
+            switch (op) {
+
+                case 1 -> {
+                    Marca[] marcas = Marca.values();
+                    System.out.println("Seleccione la marca:");
+                    for (int i = 0; i < marcas.length; i++) {
+                        System.out.println((i + 1) + ". " + marcas[i]);
                     }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un entero.");
-                    scan.nextLine();
+                    Marca seleccion = null;
+                    while (seleccion == null) {
+                        try {
+                            int m = scan.nextInt();
+                            scan.nextLine();
+                            if (m >= 1 && m <= marcas.length) {
+                                seleccion = marcas[m - 1];
+                            } else {
+                                System.err.println("Número inválido.");
+                            }
+                        } catch (InputMismatchException e) {
+                            System.err.println("Ingrese un número entero.");
+                            scan.nextLine();
+                        }
+                    }
+                    v.setMarca(seleccion);
+
+                    System.out.print("Ingrese modelo: ");
+                    v.setModelo(scan.nextLine());
+
+                    while (true) {
+                        try {
+                            System.out.print("Ingrese año: ");
+                            int anio = scan.nextInt();
+                            scan.nextLine();
+                            if (anio > 0) {
+                                v.setAnio(anio);
+                                break;
+                            }
+                            System.err.println("Debe ser mayor a 0.");
+                        } catch (InputMismatchException e) {
+                            System.err.println("Ingrese un entero.");
+                            scan.nextLine();
+                        }
+                    }
+
+                    System.out.print("Ingrese color: ");
+                    v.setColor(scan.nextLine());
+
+                    while (true) {
+                        try {
+                            System.out.print("Ingrese precio: ");
+                            double precio = scan.nextDouble();
+                            scan.nextLine();
+                            if (precio > 0) {
+                                v.setPrecio(precio);
+                                break;
+                            }
+                            System.err.println("Debe ser mayor a 0.");
+                        } catch (InputMismatchException e) {
+                            System.err.println("Debe ingresar un número decimal.");
+                            scan.nextLine();
+                        }
+                    }
+
+                    while (true) {
+                        System.out.print("¿Está en stock? (true/false): ");
+                        String s = scan.nextLine().toLowerCase();
+                        if (s.equals("true") || s.equals("false")) {
+                            v.setEnStock(Boolean.parseBoolean(s));
+                            break;
+                        }
+                        System.err.println("Debe ingresar true o false.");
+                    }
+
+                    modificarEspecificos(v, scan);
+                    System.out.println("Modificación completa.");
                 }
-            }
 
-            System.out.print("Ingrese combustible: ");
-            auto.setCombustible(scan.nextLine());
-        }
-
-        else if (nuevo instanceof Camioneta cam) {
-
-            while (true) {
-                try {
-                    System.out.print("Ingrese cilindrada: ");
-                    int cil = scan.nextInt();
-                    scan.nextLine();
-                    if (cil > 0) {
-                        cam.setCilindrada(cil);
-                        break;
+                case 2 -> {
+                    Marca[] marcas = Marca.values();
+                    System.out.println("Seleccione la marca:");
+                    for (int i = 0; i < marcas.length; i++) {
+                        System.out.println((i + 1) + ". " + marcas[i]);
                     }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un entero.");
-                    scan.nextLine();
+                    Marca seleccion = null;
+                    while (seleccion == null) {
+                        try {
+                            int m = scan.nextInt();
+                            scan.nextLine();
+                            if (m >= 1 && m <= marcas.length) {
+                                seleccion = marcas[m - 1];
+                            } else {
+                                System.err.println("Número inválido.");
+                            }
+                        } catch (InputMismatchException e) {
+                            System.err.println("Ingrese un entero.");
+                            scan.nextLine();
+                        }
+                    }
+                    v.setMarca(seleccion);
                 }
-            }
 
-            while (true) {
-                try {
-                    System.out.print("Ingrese cantidad de puertas: ");
-                    int puertas = scan.nextInt();
-                    scan.nextLine();
-                    if (puertas > 0) {
-                        cam.setPuertas(puertas);
-                        break;
-                    }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un entero.");
-                    scan.nextLine();
+                case 3 -> {
+                    System.out.print("Ingrese modelo nuevo: ");
+                    v.setModelo(scan.nextLine());
                 }
-            }
 
-            System.out.print("Ingrese combustible: ");
-            cam.setCombustible(scan.nextLine());
-
-            while (true) {
-                try {
-                    System.out.print("Ingrese ancho de la caja: ");
-                    double ancho = scan.nextDouble();
-                    if (ancho > 0) {
-                        cam.setAnchoCaja(ancho);
-                        break;
+                case 4 -> {
+                    while (true) {
+                        try {
+                            System.out.print("Ingrese año nuevo: ");
+                            int anio = scan.nextInt();
+                            scan.nextLine();
+                            if (anio > 0) {
+                                v.setAnio(anio);
+                                break;
+                            }
+                            System.err.println("Debe ser mayor a 0.");
+                        } catch (InputMismatchException e) {
+                            System.err.println("Ingrese un entero.");
+                            scan.nextLine();
+                        }
                     }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un número decimal.");
-                    scan.nextLine();
                 }
-            }
 
-            while (true) {
-                try {
-                    System.out.print("Ingrese largo de la caja: ");
-                    double largo = scan.nextDouble();
-                    scan.nextLine();
-                    if (largo > 0) {
-                        cam.setLargoCaja(largo);
-                        break;
+                case 5 -> {
+                    System.out.print("Ingrese color nuevo: ");
+                    v.setColor(scan.nextLine());
+                }
+
+                case 6 -> {
+                    while (true) {
+                        try {
+                            System.out.print("Ingrese precio nuevo: ");
+                            double precio = scan.nextDouble();
+                            scan.nextLine();
+                            if (precio > 0) {
+                                v.setPrecio(precio);
+                                break;
+                            }
+                            System.err.println("Debe ser mayor a 0.");
+                        } catch (InputMismatchException e) {
+                            System.err.println("Ingrese un número decimal.");
+                            scan.nextLine();
+                        }
                     }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un número decimal.");
-                    scan.nextLine();
+                }
+
+                case 7 -> {
+                    while (true) {
+                        System.out.print("¿Está en stock? (true/false): ");
+                        String s = scan.nextLine().toLowerCase();
+                        if (s.equals("true") || s.equals("false")) {
+                            v.setEnStock(Boolean.parseBoolean(s));
+                            break;
+                        }
+                        System.err.println("Debe ingresar true o false.");
+                    }
+                }
+
+                case 8 -> {
+                    modificarEspecificos(v, scan);
                 }
             }
         }
 
-        else if (nuevo instanceof Camión cami) {
-
-            while (true) {
-                try {
-                    System.out.print("Ingrese cilindrada: ");
-                    int cil = scan.nextInt();
-                    scan.nextLine();
-                    if (cil > 0) {
-                        cami.setCilindrada(cil);
-                        break;
-                    }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un entero.");
-                    scan.nextLine();
-                }
-            }
-
-            while (true) {
-                try {
-                    System.out.print("Ingrese cantidad de puertas: ");
-                    int puertas = scan.nextInt();
-                    scan.nextLine();
-                    if (puertas > 0) {
-                        cami.setPuertas(puertas);
-                        break;
-                    }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un entero.");
-                    scan.nextLine();
-                }
-            }
-
-            System.out.print("Ingrese combustible: ");
-            cami.setCombustible(scan.nextLine());
-
-            while (true) {
-                try {
-                    System.out.print("Ingrese largo del chasis: ");
-                    double largo = scan.nextDouble();
-                    if (largo > 0) {
-                        cami.setLargoChasis(largo);
-                        break;
-                    }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un double.");
-                    scan.nextLine();
-                }
-            }
-
-            while (true) {
-                try {
-                    System.out.print("Ingrese ancho del chasis: ");
-                    double ancho = scan.nextDouble();
-                    scan.nextLine();
-                    if (ancho > 0) {
-                        cami.setAnchoChasis(ancho);
-                        break;
-                    }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un double.");
-                    scan.nextLine();
-                }
-            }
-        }
-
-        else if (nuevo instanceof Moto moto) {
-
-            while (true) {
-                try {
-                    System.out.print("Ingrese cilindrada: ");
-                    int cil = scan.nextInt();
-                    scan.nextLine();
-                    if (cil > 0) {
-                        moto.setCilindrada(cil);
-                        break;
-                    }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un entero.");
-                    scan.nextLine();
-                }
-            }
-
-            while (true) {
-                try {
-                    System.out.print("Ingrese capacidad de pasajeros: ");
-                    int cap = scan.nextInt();
-                    scan.nextLine();
-                    if (cap > 0) {
-                        moto.setCapacidadPasajeros(cap);
-                        break;
-                    }
-                    System.err.println("Debe ser mayor a 0.");
-                } catch (InputMismatchException e) {
-                    System.err.println("Debe ingresar un entero.");
-                    scan.nextLine();
-                }
-            }
-        }
-
-        vehiculos.add(nuevo);
-        System.out.println("Vehículo modificado correctamente.");
+        System.out.println("Modificación finalizada.");
     }
+
+    private void modificarEspecificos(Vehiculo v, Scanner scan) {
+
+        if (v instanceof Auto a) {
+            while (true) {
+                try {
+                    System.out.print("Cilindrada: ");
+                    int c = scan.nextInt();
+                    scan.nextLine();
+                    if (c > 0) {
+                        a.setCilindrada(c);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            while (true) {
+                try {
+                    System.out.print("Puertas: ");
+                    int p = scan.nextInt();
+                    scan.nextLine();
+                    if (p > 0) {
+                        a.setPuertas(p);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            System.out.print("Combustible: ");
+            a.setCombustible(scan.nextLine());
+        }
+
+        else if (v instanceof Camioneta c) {
+            while (true) {
+                try {
+                    System.out.print("Cilindrada: ");
+                    int ci = scan.nextInt();
+                    scan.nextLine();
+                    if (ci > 0) {
+                        c.setCilindrada(ci);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            while (true) {
+                try {
+                    System.out.print("Puertas: ");
+                    int p = scan.nextInt();
+                    scan.nextLine();
+                    if (p > 0) {
+                        c.setPuertas(p);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            System.out.print("Combustible: ");
+            c.setCombustible(scan.nextLine());
+
+            while (true) {
+                try {
+                    System.out.print("Ancho caja: ");
+                    double an = scan.nextDouble();
+                    if (an > 0) {
+                        c.setAnchoCaja(an);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            while (true) {
+                try {
+                    System.out.print("Largo caja: ");
+                    double la = scan.nextDouble();
+                    scan.nextLine();
+                    if (la > 0) {
+                        c.setLargoCaja(la);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+        }
+
+        else if (v instanceof Camión c) {
+            while (true) {
+                try {
+                    System.out.print("Cilindrada: ");
+                    int ci = scan.nextInt();
+                    scan.nextLine();
+                    if (ci > 0) {
+                        c.setCilindrada(ci);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            while (true) {
+                try {
+                    System.out.print("Puertas: ");
+                    int p = scan.nextInt();
+                    scan.nextLine();
+                    if (p > 0) {
+                        c.setPuertas(p);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            System.out.print("Combustible: ");
+            c.setCombustible(scan.nextLine());
+
+            while (true) {
+                try {
+                    System.out.print("Largo chasis: ");
+                    double la = scan.nextDouble();
+                    if (la > 0) {
+                        c.setLargoChasis(la);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            while (true) {
+                try {
+                    System.out.print("Ancho chasis: ");
+                    double an = scan.nextDouble();
+                    scan.nextLine();
+                    if (an > 0) {
+                        c.setAnchoChasis(an);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+        }
+
+        else if (v instanceof Moto m) {
+            while (true) {
+                try {
+                    System.out.print("Cilindrada: ");
+                    int ci = scan.nextInt();
+                    scan.nextLine();
+                    if (ci > 0) {
+                        m.setCilindrada(ci);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+            while (true) {
+                try {
+                    System.out.print("Capacidad pasajeros: ");
+                    int ca = scan.nextInt();
+                    scan.nextLine();
+                    if (ca > 0) {
+                        m.setCapacidadPasajeros(ca);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    scan.nextLine();
+                }
+            }
+        }
+    }
+
 
     public void showMotos(){
         for (Vehiculo v : vehiculos){

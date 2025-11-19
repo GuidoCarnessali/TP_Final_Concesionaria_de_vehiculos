@@ -1,14 +1,5 @@
 [
     {"proveedor": {
-        "marcaQueProvee": "TOYOTA",
-        "direccion": "Av. Libertador 1234, CABA",
-        "empresa": "Andes Supply SA",
-        "telefono": "1133001100",
-        "nombre": "Proveedor Andes",
-        "email": "contacto@andessupply.com",
-        "activo": true
-    }},
-    {"proveedor": {
         "marcaQueProvee": "HARLEY_DAVIDSON",
         "direccion": "Calle Mitre 455, Córdoba",
         "empresa": "Sol Distribuciones SRL",
@@ -132,6 +123,15 @@
         "telefono": "2644305500",
         "nombre": "Nova Partners",
         "email": "contacto@novapartners.com",
+        "activo": false
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "TOYOTA",
+        "direccion": "Av. Libertador 1234, CABA",
+        "empresa": "Andes Supply SA",
+        "telefono": "1133001100",
+        "nombre": "Proveedor Andes",
+        "email": "contacto@andessupply.com",
         "activo": false
     }}
 ]
