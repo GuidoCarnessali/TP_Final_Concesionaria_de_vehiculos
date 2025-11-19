@@ -1,14 +1,13 @@
 package Manager;
 
-import Classes.Cliente;
-import Classes.Empleado;
-import Classes.Vehiculo;
+import Classes.*;
 import Manager.Exceptions.IncorrectUserNameOrPasswordException;
 import Manager.Exceptions.UserAlreadyExistsException;
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.concurrent.Callable;
 
 public class Menu {
 
@@ -226,90 +225,7 @@ public class Menu {
                     {
 
                         System.out.println("Para continuar la compra, necesitamos sus datos: ");
-                        Cliente c = new Cliente();
-
-                        String nombre;
-                        while (true) {
-                            System.out.println("Nombre: ");
-                            nombre = scan.nextLine();
-                            if (nombre.matches("[a-zA-Z ]+")) {
-                                c.setNombre(nombre);
-                                break;
-                            } else {
-                                System.out.println("Error: El nombre solo puede contener letras y espacios.");
-                            }
-                        }
-
-                        String apellido;
-                        while (true) {
-                            System.out.println("Apellido: ");
-                            apellido = scan.nextLine();
-                            if (apellido.matches("[a-zA-Z ]+")) {
-                                c.setApellido(apellido);
-                                break;
-                            } else {
-                                System.out.println("Error: El apellido solo puede contener letras y espacios.");
-                            }
-                        }
-
-                        String dni;
-                        while (true) {
-                            System.out.println("DNI: ");
-                            dni = scan.nextLine();
-                            if (dni.matches("\\d+")) {
-                                c.setDni(dni);
-                                break;
-                            } else {
-                                System.out.println("Error: El DNI solo puede contener números.");
-                            }
-                        }
-
-                        System.out.println("Email: ");
-                        c.setEmail(scan.nextLine());
-
-                        String telefono;
-                        while (true) {
-                            System.out.println("Telefono: ");
-                            telefono = scan.nextLine();
-                            if (telefono.matches("[0-9\\-]+")) {
-                                c.setTelefono(telefono);
-                                break;
-                            } else {
-                                System.out.println("Error: El teléfono solo puede contener números y guiones.");
-                            }
-                        }
-
-                        char sexo;
-                        while (true) {
-                            System.out.println("Sexo (M/F/O): ");
-                            String input = scan.nextLine().toUpperCase();
-                            if (input.matches("[MFO]")) {
-                                sexo = input.charAt(0);
-                                c.setSexo(sexo);
-                                break;
-                            } else {
-                                System.out.println("Error: Sexo válido: M, F u O.");
-                            }
-                        }
-
-                        int edad;
-                        while (true) {
-                            System.out.println("Edad: ");
-                            if (scan.hasNextInt()) {
-                                edad = scan.nextInt();
-                                if (edad > 0) {
-                                    c.setEdad(edad);
-                                    scan.nextLine();
-                                    break;
-                                } else {
-                                    System.out.println("Error: La edad debe ser un entero positivo.");
-                                }
-                            } else {
-                                System.out.println("Error: Debe ingresar un número entero.");
-                                scan.nextLine();
-                            }
-                        }
-
+                        Cliente c= gestoraCliente.crearCliente();
 
                         gestoraVehiculo.buyVehicle(c, vehiculoAcomprar, gestoraEmpleado.obtenerEmpleadoRandom(), gestoraFactura, gestoraCliente);
                     }else {
@@ -590,9 +506,12 @@ public class Menu {
                     int opcion5 = -1;
                     while (!salir5) {
                         System.out.println("\n-------------------");
-                        System.out.println(" 1. Ver facturas. ");
-                        System.out.println("2. Buscar facturas");
-                        System.out.println("3. Volver al menu principal ↩. ");
+                        System.out.println("1. Ver facturas. ");
+                        System.out.println("2. Crear una factura (vender vehiculo).");
+                        System.out.println("3. Buscar facturas.");
+                        System.out.println("4. Dar de baja una factura.");
+                        System.out.println("5. Modificar una factura.");
+                        System.out.println("6. Volver al menu principal ↩. ");
                         opcion5 = scan.nextInt();
                         scan.nextLine();
 
@@ -601,7 +520,50 @@ public class Menu {
                             case 1:
                                 gestoraFactura.showFacturas();
                                 break;
+
                             case 2:
+
+                                String modelo;
+                                int anio = 0;
+                                String color;
+                                boolean valido = false;
+
+
+                                System.out.println("Ingrese el modelo del vehiculo: ");
+                                modelo = scan.nextLine();
+
+                                while (!valido) {
+                                    try {
+                                        System.out.println("Ingrese el año del vehiculo: ");
+                                        anio = scan.nextInt();
+                                        valido = true;
+                                    } catch (InputMismatchException e) {
+                                        System.err.println("Error: solo puede ingresar números enteros.");
+                                        scan.nextLine();
+                                    }
+                                }
+
+                                scan.nextLine();
+                                System.out.println("Ingrese el color del vehiculo: ");
+                                color = scan.nextLine();
+
+
+                                Vehiculo vehiculoAcomprar = gestoraVehiculo.filtrarVehiculo(modelo, anio, color);
+
+                                if(vehiculoAcomprar != null && vehiculoAcomprar.isEnStock())
+                                {
+
+                                    System.out.println("Ingrese los datos del cliente: ");
+                                    Cliente c= gestoraCliente.crearCliente();
+
+                                    gestoraVehiculo.buyVehicle(c, vehiculoAcomprar, gestoraEmpleado.obtenerEmpleadoRandom(), gestoraFactura, gestoraCliente);
+                                }else {
+                                    System.err.println("El vehiculo no esta disponible");
+                                }
+
+                                break;
+
+                            case 3:
                                 int numfactura = 0;
                                 boolean verificador = false;
                                 while(!verificador){
@@ -620,7 +582,89 @@ public class Menu {
 
                                 System.out.println(gestoraFactura.searchFactura(numfactura));
                                 break;
-                            case 3:
+
+                            case 4:
+                                int numFactura4 = -1;
+                                boolean validar4 = false;
+
+                                while (!validar4) {
+                                    try {
+                                        System.out.print("Ingrese el número de factura a eliminar: ");
+                                        numFactura4 = scan.nextInt();
+                                        scan.nextLine();
+
+                                        if (numFactura4 <= 0) {
+                                            System.err.println("El número debe ser mayor a 0.");
+                                            continue;
+                                        }
+
+                                        if (!gestoraFactura.getFacturas().containsKey(numFactura4)) {
+                                            System.err.println("No existe una factura con ese número.");
+                                            break;
+                                        }
+
+                                        validar4 = true;
+
+                                    } catch (InputMismatchException e) {
+                                        System.err.println("Debe ingresar un número entero.");
+                                        scan.nextLine();
+                                    }
+                                }
+
+                                if (!validar4) break;
+
+                                boolean eliminada = gestoraFactura.removeFactura(numFactura4);
+
+                                if (eliminada) {
+                                    System.out.println("Factura eliminada correctamente.");
+                                } else {
+                                    System.err.println("No se pudo eliminar la factura.");
+                                }
+
+                                break;
+
+                            case 5:
+                                int numFactura5 = -1;
+                                boolean validar5 = false;
+
+                                while (!validar5) {
+                                    try {
+                                        System.out.print("Ingrese el número de factura a modificar: ");
+                                        numFactura5 = scan.nextInt();
+                                        scan.nextLine();
+
+                                        if (numFactura5 <= 0) {
+                                            System.err.println("El número debe ser mayor a 0.");
+                                            continue;
+                                        }
+
+                                        if (!gestoraFactura.getFacturas().containsKey(numFactura5)) {
+                                            System.err.println("No existe una factura con ese número.");
+                                            break;
+                                        }
+
+                                        validar5 = true;
+
+                                    } catch (InputMismatchException e) {
+                                        System.err.println("Debe ingresar un número entero.");
+                                        scan.nextLine();
+                                    }
+                                }
+
+                                if (!validar5) break;
+
+                                Factura facturaModificada = gestoraFactura.modifyFactura(numFactura5, gestoraCliente, gestoraEmpleado, gestoraVehiculo);
+
+                                if (facturaModificada != null) {
+                                    System.out.println("La factura se modificó correctamente.");
+                                } else {
+                                    System.err.println("No se pudo modificar la factura.");
+                                }
+
+                                break;
+
+
+                            case 6:
                                 salir5 = true;
                                 break;
                             default:

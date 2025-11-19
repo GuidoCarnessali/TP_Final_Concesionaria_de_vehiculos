@@ -472,6 +472,211 @@ public class Gestora_Vehiculo {
             }
         }
     }
+    public Vehiculo modifyVehiculoFactura(String modeloViejo) {
+
+        Scanner scan = new Scanner(System.in);
+        Vehiculo v = null;
+
+        // Buscar vehículo por modelo
+        for (Vehiculo x : vehiculos) {
+            if (x.getModelo().equalsIgnoreCase(modeloViejo)) {
+                v = x;
+                break;
+            }
+        }
+
+        if (v == null) {
+            System.err.println("No existe un vehículo con ese modelo.");
+            return null;
+        }
+
+        while (true) {
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Modificar todos los campos");
+            System.out.println("2. Modificar marca");
+            System.out.println("3. Modificar modelo");
+            System.out.println("4. Modificar año");
+            System.out.println("5. Modificar color");
+            System.out.println("6. Modificar precio");
+            System.out.println("7. Modificar stock");
+            System.out.println("8. Modificar campos específicos del tipo");
+            System.out.println("9. Salir");
+
+            int op = 0;
+            while (true) {
+                try {
+                    op = scan.nextInt();
+                    scan.nextLine();
+                    if (op >= 1 && op <= 9) break;
+                    System.err.println("Opción inválida.");
+                } catch (InputMismatchException e) {
+                    System.err.println("Debe ingresar un número entero.");
+                    scan.nextLine();
+                }
+            }
+
+            if (op == 9) break;
+
+            switch (op) {
+
+                case 1 -> {
+                    // MARCA
+                    Marca[] marcas = Marca.values();
+                    System.out.println("Seleccione la marca:");
+                    for (int i = 0; i < marcas.length; i++) {
+                        System.out.println((i + 1) + ". " + marcas[i]);
+                    }
+                    Marca seleccion = null;
+                    while (seleccion == null) {
+                        try {
+                            int m = scan.nextInt();
+                            scan.nextLine();
+                            if (m >= 1 && m <= marcas.length) {
+                                seleccion = marcas[m - 1];
+                            }
+                        } catch (InputMismatchException e) {
+                            scan.nextLine();
+                        }
+                    }
+                    v.setMarca(seleccion);
+
+                    // MODELO
+                    System.out.print("Ingrese modelo: ");
+                    v.setModelo(scan.nextLine());
+
+                    // AÑO
+                    while (true) {
+                        try {
+                            System.out.print("Ingrese año: ");
+                            int anio = scan.nextInt();
+                            scan.nextLine();
+                            if (anio > 0) {
+                                v.setAnio(anio);
+                                break;
+                            }
+                        } catch (InputMismatchException e) {
+                            scan.nextLine();
+                        }
+                    }
+
+                    // COLOR
+                    System.out.print("Ingrese color: ");
+                    v.setColor(scan.nextLine());
+
+                    // PRECIO
+                    while (true) {
+                        try {
+                            System.out.print("Ingrese precio: ");
+                            double precio = scan.nextDouble();
+                            scan.nextLine();
+                            if (precio > 0) {
+                                v.setPrecio(precio);
+                                break;
+                            }
+                        } catch (InputMismatchException e) {
+                            scan.nextLine();
+                        }
+                    }
+
+                    // STOCK
+                    while (true) {
+                        System.out.print("¿Está en stock? (true/false): ");
+                        String s = scan.nextLine().toLowerCase();
+                        if (s.equals("true") || s.equals("false")) {
+                            v.setEnStock(Boolean.parseBoolean(s));
+                            break;
+                        }
+                    }
+
+                    modificarEspecificos(v, scan);
+                    System.out.println("Modificación completa.");
+                }
+
+                case 2 -> {
+                    Marca[] marcas = Marca.values();
+                    System.out.println("Seleccione la marca:");
+                    for (int i = 0; i < marcas.length; i++) {
+                        System.out.println((i + 1) + ". " + marcas[i]);
+                    }
+                    Marca seleccion = null;
+                    while (seleccion == null) {
+                        try {
+                            int m = scan.nextInt();
+                            scan.nextLine();
+                            if (m >= 1 && m <= marcas.length) {
+                                seleccion = marcas[m - 1];
+                            }
+                        } catch (InputMismatchException e) {
+                            scan.nextLine();
+                        }
+                    }
+                    v.setMarca(seleccion);
+                }
+
+                case 3 -> {
+                    System.out.print("Ingrese modelo nuevo: ");
+                    v.setModelo(scan.nextLine());
+                }
+
+                case 4 -> {
+                    while (true) {
+                        try {
+                            System.out.print("Ingrese año nuevo: ");
+                            int anio = scan.nextInt();
+                            scan.nextLine();
+                            if (anio > 0) {
+                                v.setAnio(anio);
+                                break;
+                            }
+                        } catch (InputMismatchException e) {
+                            scan.nextLine();
+                        }
+                    }
+                }
+
+                case 5 -> {
+                    System.out.print("Ingrese color nuevo: ");
+                    v.setColor(scan.nextLine());
+                }
+
+                case 6 -> {
+                    while (true) {
+                        try {
+                            System.out.print("Ingrese precio nuevo: ");
+                            double precio = scan.nextDouble();
+                            scan.nextLine();
+                            if (precio > 0) {
+                                v.setPrecio(precio);
+                                break;
+                            }
+                        } catch (InputMismatchException e) {
+                            scan.nextLine();
+                        }
+                    }
+                }
+
+                case 7 -> {
+                    while (true) {
+                        System.out.print("¿Está en stock? (true/false): ");
+                        String s = scan.nextLine().toLowerCase();
+                        if (s.equals("true") || s.equals("false")) {
+                            v.setEnStock(Boolean.parseBoolean(s));
+                            break;
+                        }
+                    }
+                }
+
+                case 8 -> {
+                    modificarEspecificos(v, scan);
+                }
+            }
+        }
+
+        System.out.println("Modificación finalizada.");
+
+        return v;  // ← CLAVE: devolvemos el vehículo modificado
+    }
+
 
 
     public void showMotos(){
@@ -571,6 +776,18 @@ public class Gestora_Vehiculo {
             }
         }
 
+    }
+    public Vehiculo searchVehiculoFactura(String modelo)
+    {
+        for (Vehiculo v : vehiculos) {
+
+            if (v.getModelo().equalsIgnoreCase(modelo))
+            {
+                return v;
+            }
+        }
+
+        return null;
     }
 
 

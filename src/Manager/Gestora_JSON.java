@@ -179,7 +179,7 @@ public class Gestora_JSON {
             jsonObject.put("montoTotal", f.getMontoTotal());
             jsonObject.put("cliente", serializarCliente(f.getCliente()));
             jsonObject.put("empleado", serializarEmpleado(f.getEmpleado()));
-
+            jsonObject.put("activo", f.isActivo());
 
             Vehiculo v = f.getVehiculo();
             if (v instanceof Auto) {
@@ -356,7 +356,7 @@ public class Gestora_JSON {
             f.setMontoTotal(jsonObject.getDouble("montoTotal"));
             f.setCliente(deserializarCliente(jsonObject.getJSONObject("cliente")));
             f.setEmpleado(deserializarEmpleado(jsonObject.getJSONObject("empleado")));
-
+            f.setActivo(jsonObject.getBoolean("activo"));
             JSONObject vehiculo = jsonObject.getJSONObject("vehiculo");
 
             if (vehiculo.has("largoCaja")) {

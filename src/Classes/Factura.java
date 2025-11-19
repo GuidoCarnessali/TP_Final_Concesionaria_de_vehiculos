@@ -13,6 +13,7 @@ public class Factura {
     private Cliente cliente;
     private Empleado empleado; //El empleado no deberia ser random, sino un vendedor de la concesionaria
     private Vehiculo vehiculo;
+    private boolean activo=true;
 
     //Constructor
     public Factura(double montoTotal, Cliente cliente, Empleado empleado, Vehiculo vehiculo) {
@@ -23,6 +24,18 @@ public class Factura {
         this.cliente = cliente;
         this.empleado = empleado;
         this.vehiculo = vehiculo;
+        this.activo=true;
+    }
+
+    public Factura(double montoTotal, Cliente cliente, Empleado empleado, Vehiculo vehiculo, boolean activo) {
+
+        this.numeroFactura = ++contadorFacturas;
+        this.fecha = LocalDateTime.now();
+        this.montoTotal = montoTotal;
+        this.cliente = cliente;
+        this.empleado = empleado;
+        this.vehiculo = vehiculo;
+        this.activo=activo;
     }
 
     public Factura(){
@@ -63,7 +76,9 @@ public class Factura {
         return vehiculo;
     }
 
-
+    public boolean isActivo() {
+        return activo;
+    }
 
     //Setters
     public void setMontoTotal(double montoTotal) {
@@ -90,7 +105,11 @@ public class Factura {
         this.fecha = fecha;
     }
 
-    //Métodos
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+//Métodos
 
     public String toString()
     {
@@ -100,7 +119,8 @@ public class Factura {
                 "\nMonto Total: $" + this.montoTotal +
                 "\nCliente: " + this.cliente.getNombre() + " " + this.cliente.getApellido() +
                 "\nEmpleado: " + this.empleado.getNombre() + " " + this.empleado.getApellido() +
-                "\nVehículo: " + this.vehiculo.getMarca() + " " + this.vehiculo.getModelo() + " " + this.vehiculo.getAnio();
+                "\nVehículo: " + this.vehiculo.getMarca() + " " + this.vehiculo.getModelo() + " " + this.vehiculo.getAnio()+
+                "\nActivo:"+ activo;
     }
 
 }

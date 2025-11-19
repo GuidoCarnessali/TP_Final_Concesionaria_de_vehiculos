@@ -1,12 +1,9 @@
 package Manager;
 
-import Classes.Factura;
-import Classes.Proveedor;
+import Classes.*;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class Gestora_Factura {
 
@@ -30,6 +27,122 @@ public class Gestora_Factura {
     //ABMCL
     //Alta, Baja, Modificación, Consulta y Listado
     //Factura
+
+
+    public void crearFactura (Cliente c, Vehiculo v, Empleado e, Gestora_Factura gestoraFactura,Gestora_Vehiculo gestoraVehiculo, Gestora_Cliente gestoraCliente)
+    {
+        if (v != null && e != null)
+        {
+            if (gestoraVehiculo.getVehiculos().contains(v) && v.isEnStock())
+            {
+                gestoraVehiculo.removeVehiculo(v);
+
+                Factura factura = new Factura(v.getPrecio(), c, e, v);
+
+                gestoraFactura.addFactura(factura);
+                gestoraCliente.addCliente(c);
+            }else {
+                System.out.println("El vehiculo no esta disponible");
+            }
+
+        }
+    }
+
+    public Factura modifyFactura(int numeroFactura, Gestora_Cliente gestoraCliente, Gestora_Empleado gestoraEmpleado, Gestora_Vehiculo gestoraVehiculo) {
+
+        Factura f = null;
+        for (Factura fac : facturas.values()) {
+            if (fac.getNumeroFactura() == numeroFactura) {
+                f = fac;
+                break;
+            }
+        }
+
+        if (f == null) {
+            System.err.println("No existe una factura con ese número.");
+            return null;
+        }
+
+        Scanner scan = new Scanner(System.in);
+        int opcion = 0;
+
+        System.out.println("Seleccione qué desea modificar:");
+        System.out.println("1. Cliente");
+        System.out.println("2. Empleado");
+        System.out.println("3. Vehículo");
+        System.out.println("4. Monto total");
+        System.out.println("5. Cancelar");
+
+        while (true) {
+            try {
+                System.out.print("Opción: ");
+                opcion = scan.nextInt();
+                scan.nextLine();
+                if (opcion >= 1 && opcion <= 5) break;
+                System.err.println("Número inválido.");
+            } catch (InputMismatchException e) {
+                System.err.println("Ingrese un número entero.");
+                scan.nextLine();
+            }
+        }
+
+        switch (opcion) {
+
+            case 1:
+                Cliente cli = null;
+                while (cli == null) {
+                    cli = gestoraCliente.modifyClienteFactura(f.getCliente().getDni());
+                    if (cli == null) System.out.println("No se pudo modificar el cliente.");
+                }
+                f.setCliente(cli);
+                break;
+
+            case 2:
+                Empleado emp = null;
+                while (emp == null) {
+                    emp = gestoraEmpleado.modifyEmpleadoFactura(f.getEmpleado().getDni());
+                    if (emp == null) System.out.println("No se pudo modificar el empleado.");
+                }
+                f.setEmpleado(emp);
+                break;
+
+            case 3:
+                Vehiculo veh = null;
+                while (veh == null) {
+                    veh = gestoraVehiculo.modifyVehiculoFactura(f.getVehiculo().getModelo());
+                    if (veh == null) System.out.println("No se pudo modificar el vehículo.");
+                }
+                f.setVehiculo(veh);
+                break;
+
+            case 4:
+                while (true) {
+                    try {
+                        System.out.print("Nuevo monto total: ");
+                        double m = scan.nextDouble();
+                        scan.nextLine();
+                        if (m > 0) {
+                            f.setMontoTotal(m);
+                            break;
+                        }
+                        System.err.println("Debe ser mayor a 0.");
+                    } catch (InputMismatchException e) {
+                        System.err.println("Ingrese un número decimal.");
+                        scan.nextLine();
+                    }
+                }
+                break;
+
+            case 5:
+                return f;
+        }
+
+        System.out.println("Factura modificada correctamente.");
+        return f;
+    }
+
+
+
     public boolean addFactura(Factura f)
     {
         if(f != null && !facturas.containsKey(f.getNumeroFactura())) //Si la factura no es nula y no está en la lista de facturas según el número de factura lo agrego
@@ -49,6 +162,22 @@ public class Gestora_Factura {
             return true;
         }
         return false;
+    }
+
+    public boolean removeFactura(int numeroFactura) {
+
+        for (Factura f : facturas.values()) {
+            if (f.getNumeroFactura() == numeroFactura) {
+
+                facturas.remove(numeroFactura);
+                f.setActivo(false);
+                facturas.put(f.getNumeroFactura(), f);
+
+                return true;
+            }
+        }
+
+        return false; // No se encontró ninguna factura con ese número
     }
 
     //No hicimos la modificación de facturas, ya que no le vemos un uso cotidiano a eso
