@@ -6,7 +6,11 @@ public class Usuario {
     //Atributos
     private String nombreUsuario;
     private String contrasenia;
+
+
+
     //constructor
+
     public Usuario(String nombreUsuario, String contrasenia) {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;

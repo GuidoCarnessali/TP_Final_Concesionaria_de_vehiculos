@@ -520,7 +520,7 @@ public class Menu {
                             case 6:
                                 System.out.println("Ingrese el dni a buscar");
                                 String dnib = scan.nextLine();
-                                gestoraEmpleado.modifyEmpleado(dnib);
+                                System.out.println(gestoraEmpleado.searchEmpleado(dnib));
                                 break;
                             case 7:
                                 boolean verificador2 = false;
@@ -574,8 +574,11 @@ public class Menu {
                                         System.out.println("Ingrese el numero de factura a buscar: ");
                                         numfactura = scan.nextInt();
                                         scan.nextLine();
+                                        gestoraFactura.searchFactura(numfactura);
+                                        verificador = true;
                                     }catch(InputMismatchException e){
-                                        System.err.println("Ingrese un numero.");
+                                        System.err.println("Error. Intente nuevamente. ");
+                                        scan.nextLine();
                                     }
                                 }
 

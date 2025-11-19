@@ -283,7 +283,6 @@ public class Gestora_Proveedor {
 
             Marca[] marcas = Marca.values();
 
-            // Mostrar todas enumeradas
             for (int i = 0; i < marcas.length; i++) {
                 System.out.println((i + 1) + ". " + marcas[i]);
             }
@@ -291,7 +290,6 @@ public class Gestora_Proveedor {
             System.out.println("Ingrese el número correspondiente: ");
             String input = scan.nextLine();
 
-            // Validar que sea número
             if (!input.matches("[0-9]+")) {
                 System.out.println("Debe ingresar solo números.");
                 continue;
@@ -299,15 +297,17 @@ public class Gestora_Proveedor {
 
             int opcion = Integer.parseInt(input);
 
-            // Validar rango
             if (opcion < 1 || opcion > marcas.length) {
-                System.out.println(" Número fuera de rango.");
+                System.out.println("Número fuera de rango.");
                 continue;
             }
 
             marca = marcas[opcion - 1];
             break;
         }
+
+        p.setMarcaQueProvee(marca);
+
         // --- BOOLEAN ACTIVO ---
         Boolean activo = null;
         while (activo == null) {

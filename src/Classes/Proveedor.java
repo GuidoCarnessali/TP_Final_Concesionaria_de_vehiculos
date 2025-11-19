@@ -85,6 +85,8 @@ public class Proveedor {
         this.activo = activo;
     }
 
+
+
     //Métodos
 
     public String toString()

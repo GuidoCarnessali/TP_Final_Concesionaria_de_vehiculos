@@ -463,7 +463,8 @@ public class Gestora_Vehiculo {
     {
         for (Vehiculo v : vehiculos) {
 
-            if (v.getModelo().equalsIgnoreCase(modelo)) {
+            if (v.getModelo().equalsIgnoreCase(modelo))
+            {
 
                 System.out.println("=== Vehículo encontrado ===");
                 System.out.println("Modelo: " + v.getModelo());
@@ -510,11 +511,11 @@ public class Gestora_Vehiculo {
                     System.out.println("Ancho chasis: " + cam.getAnchoChasis());
                 }
 
+                break;
 
             }
         }
 
-        System.out.println("No se encontró ningún vehículo con modelo: " + modelo);
     }
 
 
