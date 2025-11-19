@@ -1,7 +1,67 @@
 [
     {
+        "contrasenia": "NicoUser1",
+        "nombreUsuario": "nicolas.castro"
+    },
+    {
+        "contrasenia": "MariaPass1",
+        "nombreUsuario": "maria.gomez"
+    },
+    {
+        "contrasenia": "MartinPwd",
+        "nombreUsuario": "martin.diaz"
+    },
+    {
+        "contrasenia": "Lucia321",
+        "nombreUsuario": "lucia.fernandez"
+    },
+    {
         "contrasenia": "manu1234",
         "nombreUsuario": "manu123"
+    },
+    {
+        "contrasenia": "Brenda007",
+        "nombreUsuario": "brenda.mendez"
+    },
+    {
+        "contrasenia": "MatiasPass",
+        "nombreUsuario": "matias.arce"
+    },
+    {
+        "contrasenia": "Andres01",
+        "nombreUsuario": "andres.molina"
+    },
+    {
+        "contrasenia": "Tomas2023",
+        "nombreUsuario": "tomas.suarez"
+    },
+    {
+        "contrasenia": "ValePass7",
+        "nombreUsuario": "valentina.lopez"
+    },
+    {
+        "contrasenia": "Cami2022",
+        "nombreUsuario": "camila.rios"
+    },
+    {
+        "contrasenia": "Laura2025",
+        "nombreUsuario": "laura.sosa"
+    },
+    {
+        "contrasenia": "Fede098",
+        "nombreUsuario": "federico.silva"
+    },
+    {
+        "contrasenia": "SofiA123",
+        "nombreUsuario": "sofia.luna"
+    },
+    {
+        "contrasenia": "Juan2024",
+        "nombreUsuario": "juan.perez"
+    },
+    {
+        "contrasenia": "Carlos123",
+        "nombreUsuario": "carlos.rojas"
     },
     {
         "contrasenia": "guido1234",

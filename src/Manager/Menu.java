@@ -11,6 +11,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+
+    //metodos
     public boolean esValido(String input) {
         String patron = "^[a-zA-Z0-9._-]+$";
         return input.matches(patron);
@@ -220,7 +222,7 @@ public class Menu {
 
                     Vehiculo vehiculoAcomprar = gestoraVehiculo.filtrarVehiculo(modelo, anio, color);
 
-                    if(vehiculoAcomprar != null)
+                    if(vehiculoAcomprar != null && vehiculoAcomprar.isEnStock())
                     {
 
                         System.out.println("Para continuar la compra, necesitamos sus datos: ");
@@ -309,7 +311,9 @@ public class Menu {
                         }
 
 
-                        gestoraVehiculo.buyVehicle(c, vehiculoAcomprar, gestoraEmpleado.obtenerEmpleadoRandom(), gestoraFactura);
+                        gestoraVehiculo.buyVehicle(c, vehiculoAcomprar, gestoraEmpleado.obtenerEmpleadoRandom(), gestoraFactura, gestoraCliente);
+                    }else {
+                        System.err.println("El vehiculo no esta disponible");
                     }
 
                     break;
@@ -485,7 +489,8 @@ public class Menu {
                         System.out.println("4. Crear empleado. ");
                         System.out.println("5. Modificar empleados ");
                         System.out.println("6. Buscar empleados");
-                        System.out.println("7. Volver al menu principal ↩. ");
+                        System.out.println("7. Dar de baja empleado");
+                        System.out.println("8. Volver al menu principal ↩. ");
                         opcion4 = scan.nextInt();
                         scan.nextLine();
 
@@ -518,6 +523,24 @@ public class Menu {
                                 gestoraEmpleado.modifyEmpleado(dnib);
                                 break;
                             case 7:
+                                boolean verificador2 = false;
+                                String dniaDardebaja;
+
+                                while (!verificador2) {
+                                    System.out.println("Ingrese el DNI del empleado a dar de baja:");
+
+                                    dniaDardebaja = scan.nextLine();
+
+                                    if (dniaDardebaja.matches("[0-9]+") && Integer.parseInt(dniaDardebaja) > 0) {
+                                        verificador2 = true;
+                                        gestoraEmpleado.removeEmpleado(dniaDardebaja);
+                                    } else {
+                                        System.err.println("DNI no válido. Debe ser un número positivo.");
+                                    }
+                                }
+
+                                break;
+                            case 8:
                                 salir4 = true;
                                 break;
                             default:

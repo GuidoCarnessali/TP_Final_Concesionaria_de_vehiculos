@@ -7,12 +7,15 @@ import java.util.*;
 
 public class Gestora_Vehiculo {
 
+    //atributos
     private ArrayList<Vehiculo> vehiculos = new ArrayList<>();                //Hacerlo Hashset ya que no importa el orden y no se repiten
 
+    //contructor
     public Gestora_Vehiculo() {
         this.vehiculos = vehiculos;
     }
 
+    //getter y setter
     public ArrayList<Vehiculo> getVehiculos() {
         return vehiculos;
     }
@@ -599,7 +602,7 @@ public class Gestora_Vehiculo {
         }
     }
 
-    public void buyVehicle (Cliente c, Vehiculo v, Empleado e, Gestora_Factura gestoraFactura)
+    public void buyVehicle (Cliente c, Vehiculo v, Empleado e, Gestora_Factura gestoraFactura, Gestora_Cliente gestoraCliente)
     {
         if (v != null && e != null)
         {
@@ -610,6 +613,9 @@ public class Gestora_Vehiculo {
                 Factura factura = new Factura(v.getPrecio(), c, e, v);
 
                 gestoraFactura.addFactura(factura);
+                gestoraCliente.addCliente(c);
+            }else {
+                System.out.println("El vehiculo no esta disponible");
             }
 
         }

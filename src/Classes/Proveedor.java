@@ -4,6 +4,7 @@ import Enums.Marca;
 
 public class Proveedor {
 
+    //Atributos
     private String nombre;
     private String empresa;
     private String direccion;
@@ -13,8 +14,6 @@ public class Proveedor {
     private boolean activo;
 
     //Constructor
-
-
     public Proveedor(String nombre, String empresa, String direccion, String telefono, String email, Marca marcaQueProvee, boolean activo) {
         this.nombre = nombre;
         this.empresa = empresa;

@@ -123,7 +123,8 @@ public class Empleado {
                 "\nEdad: " + edad +
                 "\nAntiguedad: " + antiguedad +
                 "\nEmail: " + email +
-                "\nTelefono: " + telefono;
+                "\nTelefono: " + telefono +
+                "\nActivo: " + activo;
 
     }
 

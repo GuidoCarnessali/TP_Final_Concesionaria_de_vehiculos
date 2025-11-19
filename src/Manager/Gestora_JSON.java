@@ -12,6 +12,7 @@ import java.util.*;
 
 public class Gestora_JSON {
 
+    //ATRIBUTOS
     private final static String usuariosJSON = "usuarios.json";
     private final static String adminsJSON = "admins.json";
     private final static String vehiculosJSON = "vehiculos.json";
@@ -21,6 +22,7 @@ public class Gestora_JSON {
     private final static String proveedoresJSON = "proveedores.json";
 
 
+    //Metodos
     public JSONObject serializarAuto(Auto a){
 
         JSONObject jsonObject = null;
@@ -538,7 +540,8 @@ public class Gestora_JSON {
             for (int i = 0; i < jsonArray.length(); i++) {
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                String dni = jsonObject.getString("dni");
+                String dni = jsonObject.getJSONObject("cliente").getString("dni");
+
                 JSONObject clienteJson = jsonObject.getJSONObject("cliente");
                 Cliente cliente = deserializarCliente(clienteJson);
                 clientes.put(dni, cliente);

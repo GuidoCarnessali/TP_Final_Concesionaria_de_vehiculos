@@ -10,13 +10,15 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Gestora_Admin {
-
+    //atributo
     private HashSet<Admin> listaDeAdmins;
 
+    //Constructor
     public Gestora_Admin() {
         this.listaDeAdmins = new HashSet<>();
     }
 
+    //Getter y Setter
     public HashSet<Admin> getListaDeAdmins() {
         return listaDeAdmins;
     }
@@ -25,6 +27,8 @@ public class Gestora_Admin {
         this.listaDeAdmins = listaDeAdmins;
     }
 
+    //Metodos
+    //El login es para iniciar sesion como admin
     public boolean login(String nombreUsuario, String contrasenia) throws IncorrectUserNameOrPasswordException
     {
 
@@ -47,6 +51,8 @@ public class Gestora_Admin {
         throw new IncorrectUserNameOrPasswordException("");
     }
 
+
+    //SignUp no lo usamos
     public boolean signUp (String name, String password) throws UserAlreadyExistsException {
 
         for (Admin aux : listaDeAdmins){
@@ -62,12 +68,12 @@ public class Gestora_Admin {
 
         return true;
     }
-
+    //para agregar un admin a la lista
     public void addAdmin (Admin a)
     {
         listaDeAdmins.add(a);
     }
-
+    //crearAdmin sirve para que un admin pueda agregar otro!
     public void crearAdmin ()
     {
         Scanner scan = new Scanner(System.in);
@@ -78,7 +84,7 @@ public class Gestora_Admin {
         a.setContrasenia(scan.nextLine());
         listaDeAdmins.add(a);
     }
-
+    //Mostrar la lista de admins
     public void showAdmins ()
     {
         for (Admin a : listaDeAdmins)

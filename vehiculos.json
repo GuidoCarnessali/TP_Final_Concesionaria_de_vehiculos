@@ -11,17 +11,6 @@
         "combustible": "Nafta"
     }},
     {"vehiculo": {
-        "marca": "FORD",
-        "puertas": 4,
-        "precio": 17000,
-        "color": "Azul",
-        "cilindrada": 1600,
-        "stock": true,
-        "modelo": "Fiesta",
-        "anio": 2020,
-        "combustible": "Nafta"
-    }},
-    {"vehiculo": {
         "marca": "FIAT",
         "puertas": 4,
         "precio": 21000,
@@ -44,28 +33,6 @@
         "combustible": "Gasolina"
     }},
     {"vehiculo": {
-        "marca": "HONDA",
-        "puertas": 4,
-        "precio": 26000,
-        "color": "Gris",
-        "cilindrada": 2000,
-        "stock": true,
-        "modelo": "Civic",
-        "anio": 2020,
-        "combustible": "Gasolina"
-    }},
-    {"vehiculo": {
-        "marca": "NISSAN",
-        "puertas": 4,
-        "precio": 25000,
-        "color": "Negro",
-        "cilindrada": 1800,
-        "stock": true,
-        "modelo": "Sentra",
-        "anio": 2023,
-        "combustible": "Gasolina"
-    }},
-    {"vehiculo": {
         "marca": "VOLKSWAGEN",
         "puertas": 3,
         "precio": 15000,
@@ -75,17 +42,6 @@
         "modelo": "Gol",
         "anio": 2019,
         "combustible": "Nafta"
-    }},
-    {"vehiculo": {
-        "marca": "BMW",
-        "puertas": 4,
-        "precio": 43000,
-        "color": "Azul",
-        "cilindrada": 2000,
-        "stock": true,
-        "modelo": "320i",
-        "anio": 2021,
-        "combustible": "Gasolina"
     }},
     {"vehiculo": {
         "marca": "MERCEDES_BENZ",
@@ -130,16 +86,6 @@
         "anio": 2019
     }},
     {"vehiculo": {
-        "marca": "KAWASAKI",
-        "precio": 7800,
-        "color": "Verde",
-        "cilindrada": 399,
-        "pasajeros": 2,
-        "stock": true,
-        "modelo": "Ninja400",
-        "anio": 2022
-    }},
-    {"vehiculo": {
         "marca": "DUCATI",
         "precio": 14000,
         "color": "Rojo",
@@ -158,19 +104,6 @@
         "stock": true,
         "modelo": "Iron883",
         "anio": 2019
-    }},
-    {"vehiculo": {
-        "marca": "TOYOTA",
-        "puertas": 4,
-        "precio": 38000,
-        "color": "Blanco",
-        "cilindrada": 2500,
-        "stock": true,
-        "largoCaja": 210,
-        "modelo": "Hilux",
-        "anio": 2021,
-        "combustible": "Diésel",
-        "anchoCaja": 150
     }},
     {"vehiculo": {
         "marca": "FORD",
@@ -197,19 +130,6 @@
         "anio": 2020,
         "combustible": "Diésel",
         "anchoCaja": 155
-    }},
-    {"vehiculo": {
-        "marca": "NISSAN",
-        "puertas": 4,
-        "precio": 34000,
-        "color": "Rojo",
-        "cilindrada": 2500,
-        "stock": true,
-        "largoCaja": 200,
-        "modelo": "Frontier",
-        "anio": 2019,
-        "combustible": "Diésel",
-        "anchoCaja": 150
     }},
     {"vehiculo": {
         "marca": "VOLKSWAGEN",
@@ -258,17 +178,6 @@
         "combustible": "Diésel"
     }},
     {"vehiculo": {
-        "marca": "VOLVO",
-        "puertas": 2,
-        "precio": 160000,
-        "color": "Gris",
-        "cilindrada": 14000,
-        "stock": true,
-        "modelo": "FMX",
-        "anio": 2023,
-        "combustible": "Diésel"
-    }},
-    {"vehiculo": {
         "marca": "SCANIA",
         "puertas": 2,
         "precio": 90000,
@@ -278,17 +187,6 @@
         "modelo": "P380",
         "anio": 2018,
         "combustible": "Diésel"
-    }},
-    {"vehiculo": {
-        "marca": "TOYOTA",
-        "puertas": 5,
-        "precio": 13000,
-        "color": "Blanco",
-        "cilindrada": 1400,
-        "stock": true,
-        "modelo": "Etios",
-        "anio": 2018,
-        "combustible": "Nafta"
     }},
     {"vehiculo": {
         "marca": "AUDI",
@@ -333,5 +231,118 @@
         "modelo": "X3",
         "anio": 2021,
         "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "TOYOTA",
+        "puertas": 4,
+        "precio": 23000,
+        "color": "Blanco",
+        "cilindrada": 1800,
+        "stock": false,
+        "modelo": "Corolla",
+        "anio": 2022,
+        "combustible": "Nafta"
+    }},
+    {"vehiculo": {
+        "marca": "FORD",
+        "puertas": 4,
+        "precio": 17000,
+        "color": "Azul",
+        "cilindrada": 1600,
+        "stock": false,
+        "modelo": "Fiesta",
+        "anio": 2020,
+        "combustible": "Nafta"
+    }},
+    {"vehiculo": {
+        "marca": "HONDA",
+        "puertas": 4,
+        "precio": 26000,
+        "color": "Gris",
+        "cilindrada": 2000,
+        "stock": false,
+        "modelo": "Civic",
+        "anio": 2020,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "KAWASAKI",
+        "precio": 7800,
+        "color": "Verde",
+        "cilindrada": 399,
+        "pasajeros": 2,
+        "stock": false,
+        "modelo": "Ninja400",
+        "anio": 2022
+    }},
+    {"vehiculo": {
+        "marca": "NISSAN",
+        "puertas": 4,
+        "precio": 34000,
+        "color": "Rojo",
+        "cilindrada": 2500,
+        "stock": false,
+        "largoCaja": 200,
+        "modelo": "Frontier",
+        "anio": 2019,
+        "combustible": "Diésel",
+        "anchoCaja": 150
+    }},
+    {"vehiculo": {
+        "marca": "VOLVO",
+        "puertas": 2,
+        "precio": 160000,
+        "color": "Gris",
+        "cilindrada": 14000,
+        "stock": false,
+        "modelo": "FMX",
+        "anio": 2023,
+        "combustible": "Diésel"
+    }},
+    {"vehiculo": {
+        "marca": "TOYOTA",
+        "puertas": 5,
+        "precio": 13000,
+        "color": "Blanco",
+        "cilindrada": 1400,
+        "stock": false,
+        "modelo": "Etios",
+        "anio": 2018,
+        "combustible": "Nafta"
+    }},
+    {"vehiculo": {
+        "marca": "NISSAN",
+        "puertas": 4,
+        "precio": 25000,
+        "color": "Negro",
+        "cilindrada": 1800,
+        "stock": false,
+        "modelo": "Sentra",
+        "anio": 2023,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "BMW",
+        "puertas": 4,
+        "precio": 43000,
+        "color": "Azul",
+        "cilindrada": 2000,
+        "stock": false,
+        "modelo": "320i",
+        "anio": 2021,
+        "combustible": "Gasolina"
+    }},
+    {"vehiculo": {
+        "marca": "TOYOTA",
+        "puertas": 4,
+        "precio": 38000,
+        "color": "Blanco",
+        "cilindrada": 2500,
+        "stock": false,
+        "largoCaja": 210,
+        "modelo": "Hilux",
+        "anio": 2021,
+        "combustible": "Diésel",
+        "anchoCaja": 150
     }}
 ]

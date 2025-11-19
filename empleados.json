@@ -235,7 +235,7 @@
             "edad": 47,
             "dni": "90123456",
             "email": "hector.navarro@email.com",
-            "activo": true
+            "activo": false
         },
         "dni": "90123456"
     }

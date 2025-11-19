@@ -5,12 +5,13 @@ import java.time.format.DateTimeFormatter;
 
 public class Factura {
 
+    //Atributos
     private static int contadorFacturas = 0;
     private int numeroFactura;
     private LocalDateTime fecha;
     private double montoTotal;
     private Cliente cliente;
-    private Empleado empleado;
+    private Empleado empleado; //El empleado no deberia ser random, sino un vendedor de la concesionaria
     private Vehiculo vehiculo;
 
     //Constructor

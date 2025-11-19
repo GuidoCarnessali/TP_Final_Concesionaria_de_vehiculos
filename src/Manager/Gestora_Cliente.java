@@ -60,7 +60,7 @@ public class Gestora_Cliente {
 
             clientes.remove(dniViejo);
 
-            // NOMBRE (solo letras)
+
             String nombre;
             while (true) {
                 System.out.println("Ingrese el nombre del cliente: ");
@@ -74,7 +74,7 @@ public class Gestora_Cliente {
                 }
             }
 
-            // APELLIDO (solo letras)
+
             String apellido;
             while (true) {
                 System.out.println("Ingrese el apellido del cliente: ");
@@ -88,19 +88,19 @@ public class Gestora_Cliente {
                 }
             }
 
-            // DNI (sin validaciones porque lo dejaste libre)
+
             System.out.println("Ingrese el DNI del cliente: ");
             c.setDni(scan.nextLine());
 
-            // EMAIL
+
             System.out.println("Ingrese el email del cliente: ");
             c.setEmail(scan.nextLine());
 
-            // TELÉFONO
+
             System.out.println("Ingrese el teléfono del cliente: ");
             c.setTelefono(scan.nextLine());
 
-            // SEXO (solo M o F)
+
             String sexoInput;
             while (true) {
                 System.out.println("Ingrese el sexo del cliente (M/F): ");
@@ -114,7 +114,7 @@ public class Gestora_Cliente {
                 }
             }
 
-            // EDAD (solo entero)
+
             while (true) {
                 try {
                     System.out.println("Ingrese la edad del cliente: ");

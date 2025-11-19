@@ -12,6 +12,8 @@ import java.io.IOException;
 
 public class OperacionLectoEscritura {
 
+    //metodos
+
     public static void writeFile(String filename, JSONObject jsonObject) {
 
         try{

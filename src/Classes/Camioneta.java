@@ -5,13 +5,14 @@ import Enums.Marca;
 
 public class Camioneta extends Vehiculo implements iVehiculoDeCarga {
 
-
+    //Atributos
     private int cilindrada;
     private int puertas;
     private String combustible;
     private double anchoCaja;
     private double largoCaja;
 
+    //Constructor
     public Camioneta(Marca marca, String modelo, int anio, String color, double precio, boolean enStock, int cilindrada, int puertas, String combustible, double anchoCaja, double largoCaja) {
         super(marca, modelo, anio, color, precio, enStock);
         this.cilindrada = cilindrada;
@@ -24,6 +25,7 @@ public class Camioneta extends Vehiculo implements iVehiculoDeCarga {
     public Camioneta() {
     }
 
+    //Getters y Setters
     public int getCilindrada() {
         return cilindrada;
     }
@@ -64,6 +66,7 @@ public class Camioneta extends Vehiculo implements iVehiculoDeCarga {
         this.largoCaja = largoCaja;
     }
 
+    //Metodos
     @Override
     public String toString() {
         return super.toString() + "\n" +
@@ -96,7 +99,7 @@ public class Camioneta extends Vehiculo implements iVehiculoDeCarga {
     }
 
     @Override
-    public double calcularDimension() {
+    public double calcularDimension() {  //Devuelve la superficie de la caja en cm2
         return largoCaja*anchoCaja;
     }
 }

@@ -1,1 +1,290 @@
-[]
+[
+    {
+        "cliente": {
+            "apellido": "Carnessali",
+            "telefono": "223-455-7358",
+            "sexo": "M",
+            "nombre": "Guido valentin",
+            "edad": 18,
+            "dni": "47641915",
+            "email": "guidocarnessali@gmail.com"
+        },
+        "dni": "47641915"
+    },
+    {
+        "cliente": {
+            "apellido": "Montiel",
+            "telefono": "1200550099",
+            "sexo": "M",
+            "nombre": "Ernesto",
+            "edad": 41,
+            "dni": "50555666",
+            "email": "ernesto.montiel@example.com"
+        },
+        "dni": "50555666"
+    },
+    {
+        "cliente": {
+            "apellido": "Lagos",
+            "telefono": "1200440077",
+            "sexo": "F",
+            "nombre": "Bárbara",
+            "edad": 29,
+            "dni": "50444555",
+            "email": "barbara.lagos@example.com"
+        },
+        "dni": "50444555"
+    },
+    {
+        "cliente": {
+            "apellido": "Suarez",
+            "telefono": "223-874-6513",
+            "sexo": "M",
+            "nombre": "Luis",
+            "edad": 38,
+            "dni": "25748645",
+            "email": "luchitosuarez@gmail.com"
+        },
+        "dni": "25748645"
+    },
+    {
+        "cliente": {
+            "apellido": "Gomez",
+            "telefono": "223-843-5167",
+            "sexo": "F",
+            "nombre": "Julieta",
+            "edad": 30,
+            "dni": "38421674",
+            "email": "juligomez@gmail.com"
+        },
+        "dni": "38421674"
+    },
+    {
+        "cliente": {
+            "apellido": "Toledo",
+            "telefono": "1200330055",
+            "sexo": "M",
+            "nombre": "Gabriel",
+            "edad": 32,
+            "dni": "50333444",
+            "email": "gabriel.toledo@example.com"
+        },
+        "dni": "50333444"
+    },
+    {
+        "cliente": {
+            "apellido": "Benítez",
+            "telefono": "1200110011",
+            "sexo": "M",
+            "nombre": "Lautaro",
+            "edad": 27,
+            "dni": "50111222",
+            "email": "lautaro.benitez@example.com"
+        },
+        "dni": "50111222"
+    },
+    {
+        "cliente": {
+            "apellido": "Caballero",
+            "telefono": "1201550022",
+            "sexo": "M",
+            "nombre": "Matheo",
+            "edad": 35,
+            "dni": "51565656",
+            "email": "matheo.caballero@example.com"
+        },
+        "dni": "51565656"
+    },
+    {
+        "cliente": {
+            "apellido": "Acosta",
+            "telefono": "1200220033",
+            "sexo": "F",
+            "nombre": "Milagros",
+            "edad": 25,
+            "dni": "50222333",
+            "email": "milagros.acosta@example.com"
+        },
+        "dni": "50222333"
+    },
+    {
+        "cliente": {
+            "apellido": "Morales",
+            "telefono": "1201440011",
+            "sexo": "F",
+            "nombre": "Selena",
+            "edad": 22,
+            "dni": "51454545",
+            "email": "selena.morales@example.com"
+        },
+        "dni": "51454545"
+    },
+    {
+        "cliente": {
+            "apellido": "Archuby",
+            "telefono": "223-641-8645",
+            "sexo": "F",
+            "nombre": "Carolina",
+            "edad": 45,
+            "dni": "25854328",
+            "email": "caroarchuby@gmail.com"
+        },
+        "dni": "25854328"
+    },
+    {
+        "cliente": {
+            "apellido": "Nunez",
+            "telefono": "223-987-5126",
+            "sexo": "M",
+            "nombre": "Darwin",
+            "edad": 50,
+            "dni": "25874365",
+            "email": "darwinunez@gmail.com"
+        },
+        "dni": "25874365"
+    },
+    {
+        "cliente": {
+            "apellido": "Campos",
+            "telefono": "1200880033",
+            "sexo": "F",
+            "nombre": "Ailén",
+            "edad": 26,
+            "dni": "50888999",
+            "email": "ailen.campos@example.com"
+        },
+        "dni": "50888999"
+    },
+    {
+        "cliente": {
+            "apellido": "Carrizo",
+            "telefono": "1201330099",
+            "sexo": "M",
+            "nombre": "Damián",
+            "edad": 33,
+            "dni": "51343434",
+            "email": "damian.carrizo@example.com"
+        },
+        "dni": "51343434"
+    },
+    {
+        "cliente": {
+            "apellido": "Villa",
+            "telefono": "223-847-9437",
+            "sexo": "M",
+            "nombre": "Milton",
+            "edad": 50,
+            "dni": "25491624",
+            "email": "miltonvilla@gmail.com"
+        },
+        "dni": "25491624"
+    },
+    {
+        "cliente": {
+            "apellido": "Villa",
+            "telefono": "223-913-4527",
+            "sexo": "M",
+            "nombre": "Ramiro Manuel",
+            "edad": 18,
+            "dni": "47517826",
+            "email": "ramavilla@gmail.com"
+        },
+        "dni": "47517826"
+    },
+    {
+        "cliente": {
+            "apellido": "Moyano",
+            "telefono": "1201220088",
+            "sexo": "F",
+            "nombre": "Juliana",
+            "edad": 24,
+            "dni": "51232323",
+            "email": "juliana.moyano@example.com"
+        },
+        "dni": "51232323"
+    },
+    {
+        "cliente": {
+            "apellido": "Villalba",
+            "telefono": "1200770022",
+            "sexo": "M",
+            "nombre": "Rodrigo",
+            "edad": 34,
+            "dni": "50777888",
+            "email": "rodrigo.villalba@example.com"
+        },
+        "dni": "50777888"
+    },
+    {
+        "cliente": {
+            "apellido": "Rivas",
+            "telefono": "1200990044",
+            "sexo": "M",
+            "nombre": "Santiago",
+            "edad": 31,
+            "dni": "50999000",
+            "email": "santiago.rivas@example.com"
+        },
+        "dni": "50999000"
+    },
+    {
+        "cliente": {
+            "apellido": "Felix",
+            "telefono": "223-524-6792",
+            "sexo": "M",
+            "nombre": "Joao",
+            "edad": 26,
+            "dni": "42987546",
+            "email": "joaofelix@gmail.com"
+        },
+        "dni": "42987546"
+    },
+    {
+        "cliente": {
+            "apellido": "Arce",
+            "telefono": "1201110077",
+            "sexo": "M",
+            "nombre": "Bruno",
+            "edad": 28,
+            "dni": "51121212",
+            "email": "bruno.arce@example.com"
+        },
+        "dni": "51121212"
+    },
+    {
+        "cliente": {
+            "apellido": "Navarro",
+            "telefono": "223-312-1509",
+            "sexo": "F",
+            "nombre": "Valentina",
+            "edad": 19,
+            "dni": "47559590",
+            "email": "navarrovalen@gmail.com"
+        },
+        "dni": "47559590"
+    },
+    {
+        "cliente": {
+            "apellido": "Serrano",
+            "telefono": "1200660011",
+            "sexo": "F",
+            "nombre": "Lucía",
+            "edad": 23,
+            "dni": "50666777",
+            "email": "lucia.serrano@example.com"
+        },
+        "dni": "50666777"
+    },
+    {
+        "cliente": {
+            "apellido": "Fuster",
+            "telefono": "1201010066",
+            "sexo": "F",
+            "nombre": "Noelia",
+            "edad": 30,
+            "dni": "51010101",
+            "email": "noelia.fuster@example.com"
+        },
+        "dni": "51010101"
+    }
+]

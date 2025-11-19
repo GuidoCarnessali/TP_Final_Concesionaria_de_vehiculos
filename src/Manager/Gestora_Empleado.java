@@ -44,10 +44,10 @@ public class Gestora_Empleado {
         return false;
     }
 
-    public boolean removeEmpleado(Empleado e) {
-        if (e != null && empleados.containsKey(e.getDni())) //Si el empleado no es nulo y está en la lista de empleados según el dni lo elimino
+    public boolean removeEmpleado(String dni) {
+        if (empleados.containsKey(dni))
         {
-            empleados.get(e.getDni()).setActivo(false);
+            empleados.get(dni).setActivo(false);
             return true;
         }
         return false;
@@ -147,7 +147,7 @@ public class Gestora_Empleado {
         e.setAntiguedad(antiguedad);
 
 
-        // --- EMAIL ---
+
         System.out.println("Ingrese el email del empleado: ");
         e.setEmail(scan.nextLine());
 
@@ -171,7 +171,7 @@ public class Gestora_Empleado {
         e.setActivo(activo);
 
 
-        // --- GUARDAR ---
+
         empleados.put(e.getDni(), e);
     }
 

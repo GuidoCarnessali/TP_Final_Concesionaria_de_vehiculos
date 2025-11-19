@@ -1,11 +1,23 @@
 [
     {
-        "nombreAdmin": "1",
-        "contrasenia": "1"
+        "nombreAdmin": "superadmin_x",
+        "contrasenia": "superx12"
+    },
+    {
+        "nombreAdmin": "carolina",
+        "contrasenia": "archuby"
+    },
+    {
+        "nombreAdmin": "control_master",
+        "contrasenia": "master2023"
     },
     {
         "nombreAdmin": "guido",
         "contrasenia": "1234"
+    },
+    {
+        "nombreAdmin": "admin_global",
+        "contrasenia": "global1010"
     },
     {
         "nombreAdmin": "manu123",
@@ -14,5 +26,53 @@
     {
         "nombreAdmin": "valen",
         "contrasenia": "123"
+    },
+    {
+        "nombreAdmin": "coordinador_oeste",
+        "contrasenia": "oeste1234"
+    },
+    {
+        "nombreAdmin": "panel_admin1",
+        "contrasenia": "adminpanel"
+    },
+    {
+        "nombreAdmin": "root_central",
+        "contrasenia": "central01"
+    },
+    {
+        "nombreAdmin": "admin_pro",
+        "contrasenia": "proadmin"
+    },
+    {
+        "nombreAdmin": "gestor_sur",
+        "contrasenia": "suradmin1"
+    },
+    {
+        "nombreAdmin": "1",
+        "contrasenia": "1"
+    },
+    {
+        "nombreAdmin": "admin_este",
+        "contrasenia": "este2024"
+    },
+    {
+        "nombreAdmin": "sistema_secure",
+        "contrasenia": "secure555"
+    },
+    {
+        "nombreAdmin": "zona_admin",
+        "contrasenia": "zonapass1"
+    },
+    {
+        "nombreAdmin": "supervisor_norte",
+        "contrasenia": "norte2025"
+    },
+    {
+        "nombreAdmin": "master_control",
+        "contrasenia": "control999"
+    },
+    {
+        "nombreAdmin": "panel_root",
+        "contrasenia": "rootpanel"
     }
 ]

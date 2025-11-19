@@ -1,29 +1,137 @@
 [
     {"proveedor": {
         "marcaQueProvee": "TOYOTA",
-        "direccion": "Av. Libertador 1234",
-        "empresa": "Autoparts S.A.",
-        "telefono": "112-233-4455",
-        "nombre": "Juan Pérez",
-        "email": "juan.perez@autoparts.com",
+        "direccion": "Av. Libertador 1234, CABA",
+        "empresa": "Andes Supply SA",
+        "telefono": "1133001100",
+        "nombre": "Proveedor Andes",
+        "email": "contacto@andessupply.com",
         "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "HARLEY_DAVIDSON",
+        "direccion": "Calle Mitre 455, Córdoba",
+        "empresa": "Sol Distribuciones SRL",
+        "telefono": "3514402211",
+        "nombre": "Distribuidora Sol",
+        "email": "info@solsrl.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "SCANIA",
+        "direccion": "Ruta 9 km 12, Salta",
+        "empresa": "Norte Proveedores SA",
+        "telefono": "3875503344",
+        "nombre": "Proveeduría Norte",
+        "email": "ventas@norteprovee.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "FIAT",
+        "direccion": "San Martín 889, Mendoza",
+        "empresa": "Bonsai Group",
+        "telefono": "2614992233",
+        "nombre": "Distribuciones Bonsai",
+        "email": "bonsai@bonsaigroup.com",
+        "activo": false
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "MERCEDES_BENZ",
+        "direccion": "Calle 12 N° 455, La Plata",
+        "empresa": "Vértice SA",
+        "telefono": "2214556677",
+        "nombre": "Proveedor Vértice",
+        "email": "contacto@vertice.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "KAWASAKI",
+        "direccion": "Av. Colón 1990, Mar del Plata",
+        "empresa": "Sur Logistics",
+        "telefono": "2235508899",
+        "nombre": "Logística Sur",
+        "email": "info@surlogistics.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "VOLKSWAGEN",
+        "direccion": "Bv. Illia 1120, San Luis",
+        "empresa": "ProveeMax Corporación",
+        "telefono": "2664301122",
+        "nombre": "ProveeMax",
+        "email": "contacto@proveemax.com",
+        "activo": false
     }},
     {"proveedor": {
         "marcaQueProvee": "YAMAHA",
-        "direccion": "Calle Ficticia 5678",
-        "empresa": "MotoDistribuidores",
-        "telefono": "223-344-5566",
-        "nombre": "Ana Gómez",
-        "email": "ana.gomez@motodistribuidores.com",
+        "direccion": "Av. Rivadavia 6000, CABA",
+        "empresa": "CentralPro Argentina",
+        "telefono": "1144550011",
+        "nombre": "CentralPro",
+        "email": "soporte@centralpro.com",
         "activo": true
     }},
     {"proveedor": {
-        "marcaQueProvee": "FORD",
-        "direccion": "Av. 9 de Julio 1010",
-        "empresa": "Vehículos Globales",
-        "telefono": "334-455-6677",
-        "nombre": "Carlos López",
-        "email": "carlos.lopez@vehiculosglobales.com",
+        "marcaQueProvee": "HONDA",
+        "direccion": "Av. Belgrano 350, Tucumán",
+        "empresa": "EcoPro SA",
+        "telefono": "3814409090",
+        "nombre": "EcoProveedores",
+        "email": "info@ecopro.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "IVECO",
+        "direccion": "Ruta 22 km 15, Neuquén",
+        "empresa": "Arco Industrial",
+        "telefono": "2995023344",
+        "nombre": "Proveedora Arco",
+        "email": "arco@arcoindustrial.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "CHEVROLET",
+        "direccion": "Jujuy 1345, Rosario",
+        "empresa": "Delta SA",
+        "telefono": "3414991100",
+        "nombre": "Delta Supplies",
+        "email": "ventas@deltasupplies.com",
+        "activo": false
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "TOYOTA",
+        "direccion": "Lamadrid 800, Bahía Blanca",
+        "empresa": "Horizonte Comercial",
+        "telefono": "2914557788",
+        "nombre": "Proveedor Horizonte",
+        "email": "contacto@horizontecom.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "BMW",
+        "direccion": "Av. San Juan 2340, CABA",
+        "empresa": "Omega Group",
+        "telefono": "1156004433",
+        "nombre": "Omega Distribuciones",
+        "email": "omega@omegagroup.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "NISSAN",
+        "direccion": "Av. Saavedra 920, Chaco",
+        "empresa": "Estrella SRL",
+        "telefono": "3624432299",
+        "nombre": "Proveedores Estrella",
+        "email": "estrella@proveedora.com",
+        "activo": true
+    }},
+    {"proveedor": {
+        "marcaQueProvee": "DUCATI",
+        "direccion": "Sarmiento 123, San Juan",
+        "empresa": "Nova Partners SA",
+        "telefono": "2644305500",
+        "nombre": "Nova Partners",
+        "email": "contacto@novapartners.com",
         "activo": false
     }}
 ]

@@ -203,6 +203,7 @@ public class Gestora_Proveedor {
        {
            if(p.isActivo())
            {
+               System.out.println("--------------");
                System.out.println(p.toString());
            }
        }
@@ -214,6 +215,7 @@ public class Gestora_Proveedor {
         {
             if(!p.isActivo())
             {
+                System.out.println("--------------");
                 System.out.println(p.toString());
             }
         }

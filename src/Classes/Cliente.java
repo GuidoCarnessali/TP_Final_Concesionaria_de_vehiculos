@@ -84,6 +84,8 @@ public class Cliente {
         this.edad = edad;
     }
 
+
+    //Métodos
     public String toString() {
 
         return "Cliente: " +
@@ -96,6 +98,6 @@ public class Cliente {
                 "\nEdad: " + edad;
     }
 
-    //Métodos
+
 
 }
