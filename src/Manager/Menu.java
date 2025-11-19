@@ -225,21 +225,89 @@ public class Menu {
 
                         System.out.println("Para continuar la compra, necesitamos sus datos: ");
                         Cliente c = new Cliente();
-                        System.out.println("Nombre: ");
-                        c.setNombre(scan.nextLine());
-                        System.out.println("Apellido: ");
-                        c.setApellido(scan.nextLine());
-                        System.out.println("Dni: ");
-                        c.setDni(scan.nextLine());
+
+                        String nombre;
+                        while (true) {
+                            System.out.println("Nombre: ");
+                            nombre = scan.nextLine();
+                            if (nombre.matches("[a-zA-Z ]+")) {
+                                c.setNombre(nombre);
+                                break;
+                            } else {
+                                System.out.println("Error: El nombre solo puede contener letras y espacios.");
+                            }
+                        }
+
+                        String apellido;
+                        while (true) {
+                            System.out.println("Apellido: ");
+                            apellido = scan.nextLine();
+                            if (apellido.matches("[a-zA-Z ]+")) {
+                                c.setApellido(apellido);
+                                break;
+                            } else {
+                                System.out.println("Error: El apellido solo puede contener letras y espacios.");
+                            }
+                        }
+
+                        String dni;
+                        while (true) {
+                            System.out.println("DNI: ");
+                            dni = scan.nextLine();
+                            if (dni.matches("\\d+")) {
+                                c.setDni(dni);
+                                break;
+                            } else {
+                                System.out.println("Error: El DNI solo puede contener números.");
+                            }
+                        }
+
                         System.out.println("Email: ");
                         c.setEmail(scan.nextLine());
-                        System.out.println("Telefono: ");
-                        c.setTelefono(scan.nextLine());
-                        System.out.println("Sexo: ");
-                        c.setSexo(scan.nextLine().charAt(0));
-                        System.out.println("Edad: ");
-                        c.setEdad(scan.nextInt());
-                        scan.nextLine();
+
+                        String telefono;
+                        while (true) {
+                            System.out.println("Telefono: ");
+                            telefono = scan.nextLine();
+                            if (telefono.matches("[0-9\\-]+")) {
+                                c.setTelefono(telefono);
+                                break;
+                            } else {
+                                System.out.println("Error: El teléfono solo puede contener números y guiones.");
+                            }
+                        }
+
+                        char sexo;
+                        while (true) {
+                            System.out.println("Sexo (M/F/O): ");
+                            String input = scan.nextLine().toUpperCase();
+                            if (input.matches("[MFO]")) {
+                                sexo = input.charAt(0);
+                                c.setSexo(sexo);
+                                break;
+                            } else {
+                                System.out.println("Error: Sexo válido: M, F u O.");
+                            }
+                        }
+
+                        int edad;
+                        while (true) {
+                            System.out.println("Edad: ");
+                            if (scan.hasNextInt()) {
+                                edad = scan.nextInt();
+                                if (edad > 0) {
+                                    c.setEdad(edad);
+                                    scan.nextLine();
+                                    break;
+                                } else {
+                                    System.out.println("Error: La edad debe ser un entero positivo.");
+                                }
+                            } else {
+                                System.out.println("Error: Debe ingresar un número entero.");
+                                scan.nextLine();
+                            }
+                        }
+
 
                         gestoraVehiculo.buyVehicle(c, vehiculoAcomprar, gestoraEmpleado.obtenerEmpleadoRandom(), gestoraFactura);
                     }
@@ -476,9 +544,19 @@ public class Menu {
                                 gestoraFactura.showFacturas();
                                 break;
                             case 2:
-                                System.out.println("Ingrese el numero de factura a buscar: ");
-                                int numfactura = scan.nextInt();
-                                scan.nextLine();
+                                int numfactura = 0;
+                                boolean verificador = false;
+                                while(!verificador){
+                                    try {
+                                        System.out.println("Ingrese el numero de factura a buscar: ");
+                                        numfactura = scan.nextInt();
+                                        scan.nextLine();
+                                    }catch(InputMismatchException e){
+                                        System.err.println("Ingrese un numero.");
+                                    }
+                                }
+
+
                                 System.out.println(gestoraFactura.searchFactura(numfactura));
                                 break;
                             case 3:

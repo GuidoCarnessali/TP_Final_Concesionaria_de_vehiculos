@@ -138,8 +138,8 @@ public class Gestora_Empleado {
             String input = scan.nextLine();
             if (input.matches("[0-9]+")) {
                 int value = Integer.parseInt(input);
-                if (value > 0) antiguedad = value;
-                else System.out.println("La antigüedad debe ser mayor a 0.");
+                if (value >= 0) antiguedad = value;
+                else System.out.println("La antigüedad debe ser mayor o igual a 0.");
             } else {
                 System.out.println("Debe ingresar un número entero positivo.");
             }
@@ -311,8 +311,8 @@ public class Gestora_Empleado {
             String input = scan.nextLine();
             if (input.matches("[0-9]+")) {
                 int value = Integer.parseInt(input);
-                if (value > 0) antiguedad = value;
-                else System.err.println("La antigüedad debe ser mayor a 0.");
+                if (value >= 0) antiguedad = value;
+                else System.err.println("La antigüedad debe ser mayor o igual a 0.");
             } else {
                 System.err.println("Debe ingresar un número entero positivo.");
             }

@@ -121,6 +121,21 @@
     },
     {
         "empleado": {
+            "puesto": "Marketing",
+            "apellido": "Fort",
+            "salario": 200000,
+            "antiguedad": 0,
+            "telefono": "2258874529",
+            "nombre": "Ricardo",
+            "edad": 56,
+            "dni": "27889556",
+            "email": "rikifort@gmail.com",
+            "activo": true
+        },
+        "dni": "27889556"
+    },
+    {
+        "empleado": {
             "puesto": "Secretaria",
             "apellido": "Molina",
             "salario": 1600.5,
