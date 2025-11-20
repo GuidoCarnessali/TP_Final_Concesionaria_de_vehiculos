@@ -833,7 +833,7 @@ public class Gestora_Vehiculo {
 
             for (Vehiculo v : vehiculos)
             {
-                if(v.getModelo().equalsIgnoreCase(modelo))
+                if(v.getModelo().equalsIgnoreCase(modelo) && v.isEnStock())
                 {
                     stock++;
                 }
